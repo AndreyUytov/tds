@@ -1,6 +1,3 @@
-<% var data = { menuItems: [ 'feed', 'network', 'jobs', 'chat', 'notices' ],
-activePage: 'index' }%>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,7 +7,22 @@ activePage: 'index' }%>
     <title>Profile</title>
   </head>
   <body>
-    <%= _.template(require('./../includes/header.html'))(data) %> <%=
-    _.template(require('./../includes/footer.html'))() %>
+    <%= _.template(require('./../includes/svg-sprite.html'))() %> <%=
+    _.template(require('./../includes/button.html'))({text: 'Привет'}) %> <%=
+    _.template(require('./../includes/link-btn.html'))() %> <%=
+    _.template(require('./../includes/help-button.html'))() %>
+    <form style="background-color: transparent">
+      <%= _.template(require('./../includes/checkbox.html'))({text:'OKKKKr',
+      fon: false}) %> <%=
+      _.template(require('./../includes/radio.html'))({text:'Oradio', fon:
+      false}) %>
+    </form>
+
+    <form style="background-color: var(--akcentColor)">
+      <%= _.template(require('./../includes/checkbox.html'))({text:'OKKKKr',
+      fon:true}) %> <%=
+      _.template(require('./../includes/radio.html'))({text:'Oradio',fon:true})
+      %>
+    </form>
   </body>
 </html>
