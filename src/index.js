@@ -96,11 +96,15 @@ if (dragList) {
 
         if (currentClosestContainer) {
           currentClosestContainer.style.border = ''
-          let currentDragElem = currentClosestContainer.querySelector(
-            '.drag__elem'
-          )
-          targetContainer.append(currentDragElem)
-          currentClosestContainer.append(target)
+          if (currentClosestContainer !== targetContainer) {
+            let currentDragElem = currentClosestContainer.querySelector(
+              '.drag__elem'
+            )
+            targetContainer.append(currentDragElem)
+            currentClosestContainer.append(target)
+          } else {
+            currentClosestContainer.append(target)
+          }
         } else {
           targetContainer.append(target)
         }
