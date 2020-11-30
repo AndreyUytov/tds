@@ -44,6 +44,7 @@ if (dragList) {
     let widthTarget = target.offsetWidth
     dragNdropTimer = setTimeout(() => {
       let shiftY = evt.clientY - target.getBoundingClientRect().top
+      let shiftX = evt.clientX - target.getBoundingClientRect().left
 
       targetContainer.style.border = '1px solid #406583'
 
@@ -52,16 +53,17 @@ if (dragList) {
       target.style.zIndex = 1000
       document.body.append(target)
 
-      moveAt(evt.pageY)
+      moveAt(evt.pageX, evt.pageY)
 
-      function moveAt(pageY) {
+      function moveAt(pageX, pageY) {
         target.style.top = pageY - shiftY + 'px'
+        target.style.left = pageX - shiftX + 'px'
       }
 
       let currentClosestContainer = null
 
       const onPointerMove = (evt) => {
-        moveAt(evt.pageY)
+        moveAt(evt.pageX, evt.pageY)
 
         target.hidden = true
         let elemUnderPointer = document.elementFromPoint(
