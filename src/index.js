@@ -114,4 +114,7 @@ if (dragList) {
       target.addEventListener('pointerup', onPointerUp)
     }, 300)
   })
+  dragList.addEventListener('pointerup', () => {
+    clearTimeout(dragNdropTimer)
+  })
 }
