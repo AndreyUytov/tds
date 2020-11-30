@@ -182,6 +182,7 @@ input[type='radio'].visually-hidden {
   color: var(--akcentColor);
 
   cursor: pointer;
+  user-select: none;
 }
 
 .test__marker {
@@ -224,5 +225,70 @@ input[type='radio'].visually-hidden {
   .test__input:checked + .test__marker {
     background-color: var(--defaultTextColor);
     --icon-stroke: var(--akcentColor);
+  }
+}
+
+// dragNdrop list
+
+.drag__list {
+  width: 394px;
+  padding: 0;
+  margin: 0;
+
+  list-style: none;
+  counter-reset: li-counter;
+
+  display: flex;
+  flex-direction: column;
+
+  user-select: none;
+}
+
+.drag__container {
+  counter-increment: li-counter;
+  min-height: 46px;
+  position: relative;
+  padding: 2px 2px 2px 38px;
+  margin-bottom: 20px;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 26px;
+  color: var(--defaultTextColor);
+
+  background: #1a2936;
+  border-radius: 6px;
+
+  &::before {
+    content: counter(li-counter);
+    position: absolute;
+    top: 10px;
+    left: 12px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+
+    color: var(--subTextColor);
+  }
+}
+
+.drag__elem {
+  width: 100%;
+  padding: 10px 20px;
+  background: #335068;
+
+  cursor: pointer;
+
+  &:hover {
+    background: #406583;
   }
 }
