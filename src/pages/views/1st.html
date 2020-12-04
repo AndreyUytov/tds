@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./img/logo-blue.ico" type="image/icon" />
+    <title>Profile</title>
+  </head>
+  <body>
+    <%= _.template(require('./../includes/svg-sprite.html'))() %> <%=
+    _.template(require('./../includes/button.html'))({text: 'Привет'}) %> <%=
+    _.template(require('./../includes/link-btn.html'))() %> <%=
+    _.template(require('./../includes/help-button.html'))() %>
+    <form style="background-color: transparent">
+      <%= _.template(require('./../includes/checkbox.html'))({text:'OKKKKr',
+      fon: false}) %> <%=
+      _.template(require('./../includes/radio.html'))({text:'Oradio', fon:
+      false}) %>
+    </form>
+
+    <form style="background-color: var(--akcentColor)">
+      <%= _.template(require('./../includes/checkbox.html'))({text:'OKKKKr',
+      fon:true}) %> <%=
+      _.template(require('./../includes/radio.html'))({text:'Oradio',fon:true})
+      %>
+    </form>
+
+    <%=
+    _.template(require('./../includes/draggabale.html'))({text:'Oradio',fon:true})
+    %> <%= _.template(require('./../includes/tab.html'))({tabsCounter: 36,
+    activeTab: 4}) %>
+
+    <a href="test-checkbox.html">Страница теста с чекбоксами</a>
+    <a href="web.html">Web components</a>
+  </body>
+</html>

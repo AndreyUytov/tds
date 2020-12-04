@@ -1,5 +1,7 @@
 import './styles/index.scss'
 
+import './js/answer-section/answer-section.js'
+
 // код для работы селекта
 
 // const selectListener = (__select) => {

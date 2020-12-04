@@ -27,6 +27,42 @@ const htmlPlugins = generateHtmlPlugins('./src/pages/views')
 module.exports = (env) => {
   const isProduction = env.production === true
 
+  const cssLoaders = [
+    {
+      loader: 'css-loader',
+      options: {
+        sourceMap: !isProduction,
+      },
+    },
+    {
+      loader: 'postcss-loader',
+      options: {
+        postcssOptions: {
+          plugins: [
+            (() => {
+              if (isProduction) {
+                return autoprefixer(), cssnano()
+              } else return autoprefixer()
+            })(),
+          ],
+        },
+        sourceMap: !isProduction,
+      },
+    },
+    {
+      loader: 'resolve-url-loader',
+      options: {
+        sourceMap: !isProduction,
+      },
+    },
+    {
+      loader: 'sass-loader',
+      options: {
+        sourceMap: true, // always true for work resolve-url-loader!!!
+      },
+    },
+  ]
+
   return {
     mode: isProduction ? 'production' : 'development',
     entry: {
@@ -88,47 +124,24 @@ module.exports = (env) => {
         },
         {
           test: /\.scss$/,
-          use: [
+          oneOf: [
             {
-              loader: MiniCssExtractPlugin.loader,
-              options: {
-                hmr: !isProduction,
-                reloadAll: true,
-                sourceMap: !isProduction,
-              },
+              issuer: /components/,
+              use: cssLoaders,
             },
             {
-              loader: 'css-loader',
-              options: {
-                sourceMap: !isProduction,
-              },
-            },
-            {
-              loader: 'postcss-loader',
-              options: {
-                postcssOptions: {
-                  plugins: [
-                    (() => {
-                      if (isProduction) {
-                        return autoprefixer(), cssnano()
-                      } else return autoprefixer()
-                    })(),
-                  ],
+              issuer: /index.js/,
+              use: [
+                {
+                  loader: MiniCssExtractPlugin.loader,
+                  options: {
+                    hmr: !isProduction,
+                    reloadAll: true,
+                    sourceMap: !isProduction,
+                  },
                 },
-                sourceMap: !isProduction,
-              },
-            },
-            {
-              loader: 'resolve-url-loader',
-              options: {
-                sourceMap: !isProduction,
-              },
-            },
-            {
-              loader: 'sass-loader',
-              options: {
-                sourceMap: true, // always true for work resolve-url-loader!!!
-              },
+                ...cssLoaders,
+              ],
             },
           ],
         },
@@ -160,7 +173,6 @@ module.exports = (env) => {
         },
         {
           test: /\.html$/i,
-          include: path.resolve(__dirname, 'src/pages/includes'),
           use: [
             {
               loader: 'html-loader',
