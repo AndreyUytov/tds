@@ -6,6 +6,8 @@
     <title>Web-components</title>
   </head>
   <body>
+    <test-header total="26" current="5" test-started-ms="" time-limit-ms="">
+    </test-header>
     <main class="test-main content">
       <question-section>
         <span slot="number-question">1</span>
@@ -26,12 +28,17 @@
       <answer-section>
         <answer-label slot="label" type="checkbox">
           <span slot="label-value"
-            >ANSWER! oihjsdfbopihjf owiejgo[ierj o[iergj[oiegj
-            [owiergo[ijg</span
+            >Зачистить от покрытия подлежащие ремонту места</span
           >
         </answer-label>
-        <answer-label slot="label">
-          <span slot="label-value">ANSWER2!</span>
+        <answer-label slot="label" type="checkbox">
+          <span slot="label-value">Секционный метод</span>
+        </answer-label>
+        <answer-label slot="label" type="checkbox">
+          <span slot="label-value">Островной способ</span>
+        </answer-label>
+        <answer-label slot="label" type="checkbox">
+          <span slot="label-value">Пирамидальный способ</span>
         </answer-label>
         <red-button slot="submit-button"></red-button>
       </answer-section>
