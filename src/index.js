@@ -1,6 +1,9 @@
 import './styles/index.scss'
 
-import './js/answer-section/answer-section.js'
+import './js/components/answer-label'
+import './js/components/answer-section'
+import './js/components/red-button'
+import './js/components/question-section'
 
 // код для работы селекта
 

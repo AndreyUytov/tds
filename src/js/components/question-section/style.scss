@@ -1,0 +1,40 @@
+.test-main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.question-section {
+  max-width: 784px;
+  margin-right: 48px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.question-section__title {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 24px;
+
+  font-family: 'Roboto-Bold';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+}
+
+.question-section__subtitle {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 24px;
+
+  font-family: 'Roboto-Bold';
+}
+
+.question-section__quest {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 24px;
+}

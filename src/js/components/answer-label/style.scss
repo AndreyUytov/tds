@@ -1,0 +1,84 @@
+.visually-hidden:not(:focus):not(:active),
+input[type='checkbox'].visually-hidden,
+input[type='radio'].visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.test__label {
+  position: relative;
+  margin-bottom: 16px;
+  padding-left: 40px;
+  max-width: 100%;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 26px;
+  color: var(--akcentColor);
+
+  cursor: pointer;
+  user-select: none;
+}
+
+.test__marker {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+
+  width: 24px;
+  height: 24px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: transparent;
+  border: 1px solid #d7dbdd;
+  --icon-stroke: transparent;
+  &--checkbox {
+    border-radius: 4px;
+  }
+  &--radio {
+    border-radius: 50%;
+  }
+}
+
+.test__input:disabled + .test__marker {
+  background-color: var(--subTextColor);
+}
+
+.test__input:checked + .test__marker {
+  background-color: var(--akcentColor);
+  --icon-stroke: var(--defaultTextColor);
+  border: none;
+}
+
+.test__label--fon {
+  color: var(--defaultTextColor);
+
+  .test__marker {
+    border: 1px solid #7d8e9d;
+  }
+
+  .test__input:checked + .test__marker {
+    background-color: var(--defaultTextColor);
+    --icon-stroke: var(--akcentColor);
+  }
+}

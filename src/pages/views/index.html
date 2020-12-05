@@ -1,9 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Web-components</title>
   </head>
-  <body></body>
+  <body>
+    <main class="test-main content">
+      <question-section>
+        <span slot="number-question">1</span>
+        <span slot="text-question">
+          Какой метод постройки судна соответствует данной формулировке?
+        </span>
+        <span slot="advanced-text">
+          Весь корпус судна разбивается на отдельные секции: палубы, борта,
+          днище, переборки и т. д. Детали корпусных конструкций, подаются на
+          участок сборки и сварки, где из них собирают отдельные секции. При
+          сборке и сварке секций их насыщают оборудованием и деталями крепления.
+          После изготовления таким методом целого отсека и испытания его на
+          непроницаемость, готовые корпусные секции поступают на стапельные
+          построечные места, где из них формируют корпус судна, выполняют
+          монтажные и сварочные работы.
+        </span>
+      </question-section>
+      <answer-section>
+        <answer-label slot="label" type="checkbox">
+          <span slot="label-value"
+            >ANSWER! oihjsdfbopihjf owiejgo[ierj o[iergj[oiegj
+            [owiergo[ijg</span
+          >
+        </answer-label>
+        <answer-label slot="label">
+          <span slot="label-value">ANSWER2!</span>
+        </answer-label>
+        <red-button slot="submit-button"></red-button>
+      </answer-section>
+    </main>
+  </body>
 </html>

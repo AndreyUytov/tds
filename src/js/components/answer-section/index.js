@@ -18,8 +18,9 @@ customElements.define(
           <legend class="answer-section__legend">
             Выберите несколько правильных вариантов ответа
           </legend>
-          
+          <slot name="label"></slot>
         </fieldset>
+        <slot name="submit-button"></slot>
       </form>
     </section>
     `
