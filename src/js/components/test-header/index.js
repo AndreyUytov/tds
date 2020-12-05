@@ -29,7 +29,9 @@ customElements.define(
           this.timer.style.color = 'var(--redThemeColor)'
         }
         let differenceSec = time.getSeconds()
-        this.timer.textContent = `${differenceMin} : ${differenceSec}`
+        this.timer.textContent = `${differenceMin} : ${
+          differenceSec < 10 ? '0' + differenceSec : differenceSec
+        }`
       }, 1000)
     }
 
