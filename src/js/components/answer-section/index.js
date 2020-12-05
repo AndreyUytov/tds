@@ -16,7 +16,9 @@ customElements.define(
       <form class="answer-section__form">
         <fieldset class="answer-section__fieldset">
           <legend class="answer-section__legend">
-            Выберите несколько правильных вариантов ответа
+            <slot name="answer-subtitle">
+              Выберите несколько правильных вариантов ответа
+            </slot>
           </legend>
           <slot name="label"></slot>
         </fieldset>
