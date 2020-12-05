@@ -9,6 +9,23 @@ customElements.define(
       this.type = this.getAttribute('type') || 'radio'
       this.fon = this.getAttribute('fon') || 'true'
       this.render()
+      this.shadowRoot.addEventListener('click', (evt) => {
+        let target = evt.target
+        if (target.tagName === 'IMG') {
+          evt.preventDefault()
+          let naturalWidth = target.naturalWidth
+          if (naturalWidth >= 200) {
+            const src = target.src
+            const popup = document.createElement('div')
+            popup.style.width = document.documentElement.clientWidth + 'px'
+            popup.style.height = document.documentElement.clientHeight + 'px'
+            popup.className = 'answer-popup'
+            popup.insertAdjacentHTML('beforeend', `<img src=${src} />`)
+            document.body.append(popup)
+            popup.onclick = () => popup.remove()
+          }
+        }
+      })
     }
 
     render() {
