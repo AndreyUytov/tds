@@ -9,6 +9,7 @@ customElements.define(
       this.type = this.getAttribute('type') || 'radio'
       this.fon = this.getAttribute('fon') || 'true'
       this.render()
+
       this.shadowRoot.addEventListener('click', (evt) => {
         let target = evt.target
         if (target.tagName === 'IMG') {
@@ -35,7 +36,7 @@ customElements.define(
         <label class="test__label ${
           this.fon === 'true' ? 'test__label--fon' : ''
         }">
-          <input type="checkbox" class="test__input visually-hidden" />
+          <input type=${this.type} class="test__input visually-hidden" />
           <span class="test__marker test__marker--${this.type}">
             <svg width="16" height="16">
               <use href="#check" />
