@@ -6,6 +6,12 @@ customElements.define(
     connectedCallback() {
       this.attachShadow({ mode: 'open' })
       this.render()
+      this.type = this.getAttribute('type') || 'radio'
+      this.labels = this.shadowRoot.querySelectorAll('answer-label')
+
+      if (this.type === 'radio') {
+        this.shadowRoot.addEventListener('radio-checked', (evt) => {})
+      }
     }
 
     render() {
@@ -17,7 +23,7 @@ customElements.define(
         <fieldset class="answer-section__fieldset">
           <legend class="answer-section__legend">
             <slot name="answer-subtitle">
-              Выберите несколько правильных вариантов ответа
+              Выберите один правильный вариант ответа
             </slot>
           </legend>
           <slot name="label"></slot>
