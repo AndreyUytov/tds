@@ -7,29 +7,33 @@ customElements.define(
     connectedCallback() {
       this.attachShadow({ mode: 'open' })
       this.shadowRoot.addEventListener('click', this.imgPopuprender)
-      this.type = this.getAttribute('type') || 'radio'
-      this.fon = this.getAttribute('fon') || 'true'
+      this.type = this.getAttribute('type')
+      this.fon = this.getAttribute('fon')
       this.name = this.getAttribute('name')
       this.value = this.getAttribute('value')
-
       this.render()
       this.input = this.shadowRoot.querySelector('input')
-      this.input.addEventListener('change', (evt) => {
-        console.log(evt.target.checked)
-        this.input.a
+      this.input.addEventListener('change', () => {
+        if (this.input.checked) {
+          this.input.dispatchEvent(
+            new CustomEvent('radio-checked', {
+              detail: { id: this._id },
+              bubbles: true,
+              composed: true,
+            })
+          )
+        }
       })
     }
 
     static get observedAttributes() {
-      return ['checked']
+      return ['type', 'fon']
     }
 
-    attributeChangedCallback(name, oldValue, newValue) {
-      if (newValue === 'false') {
-        this.input.checked = false
-      } else {
-        this.input.checked = true
-      }
+    attributeChangedCallback() {
+      this.type = this.getAttribute('type')
+      this.fon = this.getAttribute('fon')
+      this.render()
     }
 
     imgPopuprender(evt) {
