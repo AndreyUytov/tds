@@ -6,18 +6,16 @@ customElements.define(
     connectedCallback() {
       this.idCounter = 0
       this.type = this.getAttribute('type') || 'radio'
-      console.log(this.type)
       this.fon = this.getAttribute('fon') || 'true'
+
+      this.attachShadow({ mode: 'open' })
+      this.render()
+
       let labels = this.querySelectorAll('answer-label')
       this.labels = Array.from(labels)
       this.labels.forEach((label) => {
         label._id = this.idCounter++
-        label.setAttribute('type', this.type)
-        label.setAttribute('fon', this.fon)
-        console.log(label.getAttribute('type'))
       })
-      this.attachShadow({ mode: 'open' })
-      this.render()
 
       if (this.type === 'radio') {
         console.log('hi')
