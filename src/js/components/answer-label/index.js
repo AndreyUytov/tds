@@ -69,7 +69,9 @@ customElements.define(
         }">
           <input type=${this.getAttribute(
             'type'
-          )} class="test__input visually-hidden" />
+          )} class="test__input visually-hidden" name=${this.name} value=${
+        this.value
+      } />
           <span class="test__marker test__marker--${this.getAttribute('type')}">
             <svg width="16" height="16">
               <use href="#check" />

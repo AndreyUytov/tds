@@ -29,6 +29,34 @@ customElements.define(
           })
         })
       }
+
+      if (this.submitButton === 'on') {
+        const btn = this.shadowRoot.querySelector('.btn')
+        btn.addEventListener('click', (evt) => {
+          evt.preventDefault()
+          const checkedlabels = this.labels.filter(
+            (label) => label.input.checked === true
+          )
+
+          if (!checkedlabels.length) {
+            alert('Выберите хотя бы один вариант ответа!')
+            return
+          }
+          const checkedInputs = checkedlabels.map((label) => {
+            return label.input
+          })
+          const hiddenInputs = this.shadowRoot
+            .querySelector('slot:not([name])')
+            .assignedElements()
+
+          const form = document.createElement('form')
+          form.append(...hiddenInputs, ...checkedInputs)
+          document.body.append(form)
+          form.submit()
+
+          console.log(checkedInputs)
+        })
+      }
     }
 
     render() {
@@ -48,6 +76,9 @@ customElements.define(
         } class="btn" type="submit">
           Ответить
         </button>
+        <div class="hidden-inputs" hidden>
+          <slot></slot>
+        </div>
       </form>
     `
     }
