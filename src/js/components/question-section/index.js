@@ -20,6 +20,7 @@ customElements.define(
         <p class="question-section__quest">
           <slot name="advanced-text"></slot>
         </p>
+        <slot name="form"></slot>
       </section>
     `
     }

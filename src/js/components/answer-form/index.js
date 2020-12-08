@@ -65,9 +65,7 @@ customElements.define(
       <form class="answer-form">
         <fieldset class="answer-form__fieldset">
           <legend class="answer-form__legend">
-            <slot name="answer-subtitle">
-              Выберите один правильный вариант ответа
-            </slot>
+            <slot name="answer-subtitle"></slot>
           </legend>
           <slot name="label"></slot>
         </fieldset>
