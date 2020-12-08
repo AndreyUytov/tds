@@ -18,19 +18,23 @@
         <img src="./../../images/image 45.jpg" slot="advanced-text" />
       </question-section>
       <answer-section>
-        <answer-label slot="label" type="checkbox">
-          <span slot="label-value">1</span>
-        </answer-label>
-        <answer-label slot="label" type="checkbox">
-          <span slot="label-value">2</span>
-        </answer-label>
-        <answer-label slot="label" type="checkbox">
-          <span slot="label-value">3</span>
-        </answer-label>
-        <answer-label slot="label" type="checkbox">
-          <span slot="label-value">4</span>
-        </answer-label>
-        <red-button slot="submit-button"></red-button>
+        <answer-form slot="form" type="checkbox">
+          <span slot="answer-subtitle"
+            >Выберите несколько вариантов ответа</span
+          >
+          <answer-label slot="label">
+            <span slot="label-value">1</span>
+          </answer-label>
+          <answer-label slot="label">
+            <span slot="label-value">2</span>
+          </answer-label>
+          <answer-label slot="label">
+            <span slot="label-value">3</span>
+          </answer-label>
+          <answer-label slot="label">
+            <span slot="label-value">4</span>
+          </answer-label>
+        </answer-form>
       </answer-section>
     </main>
   </body>

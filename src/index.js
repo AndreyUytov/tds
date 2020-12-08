@@ -2,7 +2,6 @@ import './styles/index.scss'
 
 import './js/components/answer-label'
 import './js/components/answer-section'
-import './js/components/red-button'
 import './js/components/question-section'
 import './js/components/test-header'
 import './js/components/answer-form'

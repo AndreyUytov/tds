@@ -32,14 +32,16 @@ customElements.define(
     }
 
     attributeChangedCallback() {
-      this.marker.className = `test__marker test__marker--${this.getAttribute(
-        'type'
-      )}`
-      this.input.type = `${this.getAttribute('type')}`
-      this.label.className =
-        this.getAttribute('fon') === 'on'
-          ? `test__label test__label--fon`
-          : `test__label`
+      if (this.marker) {
+        this.marker.className = `test__marker test__marker--${this.getAttribute(
+          'type'
+        )}`
+        this.input.type = `${this.getAttribute('type')}`
+        this.label.className =
+          this.getAttribute('fon') === 'on'
+            ? `test__label test__label--fon`
+            : `test__label`
+      }
     }
 
     imgPopuprender(evt) {
