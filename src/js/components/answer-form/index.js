@@ -6,21 +6,22 @@ customElements.define(
     connectedCallback() {
       this.idCounter = 0
       this.type = this.getAttribute('type') || 'radio'
-      this.fon = this.getAttribute('fon') || 'true'
-
-      this.attachShadow({ mode: 'open' })
-      this.render()
+      this.fon = this.getAttribute('fon') || 'on'
+      this.submitButton = this.getAttribute('submit-button') || 'on'
 
       let labels = this.querySelectorAll('answer-label')
       this.labels = Array.from(labels)
       this.labels.forEach((label) => {
         label._id = this.idCounter++
+        label.setAttribute('type', this.type)
+        label.setAttribute('fon', this.fon)
       })
 
+      this.attachShadow({ mode: 'open' })
+      this.render()
+
       if (this.type === 'radio') {
-        console.log('hi')
         this.shadowRoot.addEventListener('radio-checked', (evt) => {
-          console.log(evt.detail.id)
           this.labels.forEach((label) => {
             if (label._id !== evt.detail.id) {
               label.input.checked = false
@@ -42,7 +43,9 @@ customElements.define(
           </legend>
           <slot name="label"></slot>
         </fieldset>
-        <button class="btn" type="submit">
+        <button ${
+          this.submitButton !== 'on' ? "style = 'display: none'" : ''
+        } class="btn" type="submit">
           Ответить
         </button>
       </form>

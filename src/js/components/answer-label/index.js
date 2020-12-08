@@ -7,15 +7,14 @@ customElements.define(
     connectedCallback() {
       this.attachShadow({ mode: 'open' })
       this.shadowRoot.addEventListener('click', this.imgPopuprender)
-      this.type = this.getAttribute('type') || 'radio'
-      this.fon = this.getAttribute('fon') || 'true'
+
       this.name = this.getAttribute('name')
       this.value = this.getAttribute('value')
       this.render()
       this.input = this.shadowRoot.querySelector('input')
-      console.log(this.input)
+      this.marker = this.shadowRoot.querySelector('.test__marker')
+      this.label = this.shadowRoot.querySelector('.test__label')
       this.input.addEventListener('change', () => {
-        console.log(this.input.checked)
         if (this.input.checked) {
           this.input.dispatchEvent(
             new CustomEvent('radio-checked', {
@@ -26,6 +25,21 @@ customElements.define(
           )
         }
       })
+    }
+
+    static get observedAttributes() {
+      return ['type', 'fon']
+    }
+
+    attributeChangedCallback() {
+      this.marker.className = `test__marker test__marker--${this.getAttribute(
+        'type'
+      )}`
+      this.input.type = `${this.getAttribute('type')}`
+      this.label.className =
+        this.getAttribute('fon') === 'on'
+          ? `test__label test__label--fon`
+          : `test__label`
     }
 
     imgPopuprender(evt) {
@@ -51,10 +65,12 @@ customElements.define(
         <style>${css}</style>
         ${svgSprite}
         <label class="test__label ${
-          this.fon === 'true' ? 'test__label--fon' : ''
+          this.getAttribute('fon') === 'on' ? 'test__label--fon' : ''
         }">
-          <input type=${this.type} class="test__input visually-hidden" />
-          <span class="test__marker test__marker--${this.type}">
+          <input type=${this.getAttribute(
+            'type'
+          )} class="test__input visually-hidden" />
+          <span class="test__marker test__marker--${this.getAttribute('type')}">
             <svg width="16" height="16">
               <use href="#check" />
             </svg>
