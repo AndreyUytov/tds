@@ -29,9 +29,14 @@ customElements.define(
           this.timer.style.color = 'var(--redThemeColor)'
         }
         let differenceSec = time.getSeconds()
-        this.timer.textContent = `${differenceMin} : ${
+        this.timer.textContent = `${differenceMin}:${
           differenceSec < 10 ? '0' + differenceSec : differenceSec
         }`
+        if (time <= 1000) {
+          this.shadowRoot.dispatchEvent(
+            new Event('submit-form', { bubbles: true, composed: true })
+          )
+        }
       }, 1000)
     }
 

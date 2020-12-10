@@ -8,9 +8,37 @@ customElements.define(
       this.render()
 
       this.forms = this.querySelectorAll('answer-form')
-      console.log(this.forms)
 
       if (this.forms.length === 1) {
+        this.shadowRoot.addEventListener('submit-form', () => {
+          const form = document.createElement('form')
+          // form.method = 'POST'
+          if (this.checkedInputs) {
+            form.append(...this.hiddenInputs, ...this.checkedInputs)
+          } else form.append(...this.hiddenInputs)
+
+          document.body.append(form)
+          form.submit()
+        })
+        this.testForm = this.forms[0]
+        this.hiddenInputs = this.testForm.shadowRoot
+          .querySelector('slot:not([name])')
+          .assignedElements()
+        this.testForm.shadowRoot.addEventListener('click', (evt) => {
+          let target = evt.target
+          if (target.tagName !== 'ANSWER-LABEL') return
+          this.checkedInputs = []
+          this.testForm.labels.map((label) => {
+            if (label.input.checked) {
+              this.checkedInputs.push(label.input)
+            }
+          })
+          if (this.checkedInputs.length) {
+            this.testForm.btn.disabled = false
+          }
+        })
+      } else {
+        this.shadowRoot.addEventListener('click', (evt) => {})
       }
     }
 

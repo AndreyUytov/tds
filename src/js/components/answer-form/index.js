@@ -34,28 +34,9 @@ customElements.define(
         this.btn = this.shadowRoot.querySelector('.btn')
         this.btn.addEventListener('click', (evt) => {
           evt.preventDefault()
-          const checkedlabels = this.labels.filter(
-            (label) => label.input.checked === true
+          this.btn.dispatchEvent(
+            new Event('submit-form', { bubbles: true, composed: true })
           )
-
-          if (!checkedlabels.length) {
-            alert('Выберите хотя бы один вариант ответа!')
-            return
-          }
-          const checkedInputs = checkedlabels.map((label) => {
-            return label.input
-          })
-          const hiddenInputs = this.shadowRoot
-            .querySelector('slot:not([name])')
-            .assignedElements()
-
-          const form = document.createElement('form')
-          // form.method = 'POST'
-          form.append(...hiddenInputs, ...checkedInputs)
-          document.body.append(form)
-          form.submit()
-
-          console.log(checkedInputs)
         })
       }
     }
@@ -72,7 +53,7 @@ customElements.define(
         </fieldset>
         <button ${
           this.submitButton !== 'on' ? "style = 'display: none'" : ''
-        } class="btn" type="submit">
+        } class="btn" type="submit" disabled>
           Ответить
         </button>
         <div class="hidden-inputs" hidden>

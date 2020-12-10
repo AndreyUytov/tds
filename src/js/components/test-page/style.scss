@@ -46,7 +46,7 @@ img {
   list-style: none;
 }
 
-::slotted(question-section:first-of-type) {
+::slotted(question-section) {
   padding-bottom: 32px;
   margin-bottom: 32px;
   border-bottom: 1px solid var(--tabLinesColor);
