@@ -31,8 +31,8 @@ customElements.define(
       }
 
       if (this.submitButton === 'on') {
-        const btn = this.shadowRoot.querySelector('.btn')
-        btn.addEventListener('click', (evt) => {
+        this.btn = this.shadowRoot.querySelector('.btn')
+        this.btn.addEventListener('click', (evt) => {
           evt.preventDefault()
           const checkedlabels = this.labels.filter(
             (label) => label.input.checked === true
@@ -50,6 +50,7 @@ customElements.define(
             .assignedElements()
 
           const form = document.createElement('form')
+          // form.method = 'POST'
           form.append(...hiddenInputs, ...checkedInputs)
           document.body.append(form)
           form.submit()

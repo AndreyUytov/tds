@@ -5,6 +5,7 @@ import './js/components/answer-section'
 import './js/components/question-section'
 import './js/components/test-header'
 import './js/components/answer-form'
+import './js/components/test-page'
 
 // код для работы селекта
 
