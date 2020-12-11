@@ -38,25 +38,30 @@ customElements.define(
           }
         })
       } else {
+        this.counterForms = 0
+        this.checkedInputs = []
+        this.hiddenInputs = []
         this.verbalForm = this.querySelector('verbal-form')
         this.forms.forEach((el) => {
+          this.hiddenInputs.push(
+            ...el.shadowRoot
+              .querySelector('slot:not([name])')
+              .assignedElements()
+          )
+          el._id = this.counterForms++
           this.verbalForm.innerHTML += `<li slot="value"></li>`
         })
+
         this.shadowRoot.addEventListener('click', (evt) => {
           let target = evt.target
           if (target.tagName !== 'ANSWER-LABEL') return
-          this.checkedInputs = []
-          this.forms.forEach((el) => {
-            let checkedLabel = el.labels.find(
-              (label) => label.input.checked === true
-            )
-            console.log(checkedLabel)
-            let textCheckedlabel = checkedLabel
-              .querySelector('slot[name="label-value"]')
-              .assignedElements()
-            console.log(textCheckedlabel)
-            this.verbalForm.innerHTML += `<li slot="value">${textCheckedlabel}</li>`
-          })
+          this.checkedInputs.push(target.input)
+          let formId = target.closest('answer-form')._id
+          let textCheckedlabel = target.querySelector('[slot="label-value"]')
+            .textContent
+          this.verbalForm.querySelectorAll('li')[
+            formId
+          ].textContent = textCheckedlabel
         })
       }
     }
