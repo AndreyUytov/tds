@@ -38,7 +38,26 @@ customElements.define(
           }
         })
       } else {
-        this.shadowRoot.addEventListener('click', (evt) => {})
+        this.verbalForm = this.querySelector('verbal-form')
+        this.forms.forEach((el) => {
+          this.verbalForm.innerHTML += `<li slot="value"></li>`
+        })
+        this.shadowRoot.addEventListener('click', (evt) => {
+          let target = evt.target
+          if (target.tagName !== 'ANSWER-LABEL') return
+          this.checkedInputs = []
+          this.forms.forEach((el) => {
+            let checkedLabel = el.labels.find(
+              (label) => label.input.checked === true
+            )
+            console.log(checkedLabel)
+            let textCheckedlabel = checkedLabel
+              .querySelector('slot[name="label-value"]')
+              .assignedElements()
+            console.log(textCheckedlabel)
+            this.verbalForm.innerHTML += `<li slot="value">${textCheckedlabel}</li>`
+          })
+        })
       }
     }
 
