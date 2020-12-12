@@ -7,9 +7,9 @@ customElements.define(
       this.attachShadow({ mode: 'open' })
       this.render()
 
-      this.forms = this.querySelectorAll('answer-form')
+      this.forms = this.querySelectorAll('question-section answer-form')
 
-      if (this.forms.length === 1) {
+      if (!this.forms.length) {
         this.shadowRoot.addEventListener('submit-form', () => {
           const form = document.createElement('form')
           // form.method = 'POST'
@@ -20,7 +20,8 @@ customElements.define(
           document.body.append(form)
           form.submit()
         })
-        this.testForm = this.forms[0]
+        this.testForm = this.querySelector('answer-form')
+        console.log(this.testForm)
         this.hiddenInputs = this.testForm.shadowRoot
           .querySelector('slot:not([name])')
           .assignedElements()
@@ -33,10 +34,15 @@ customElements.define(
               this.checkedInputs.push(label.input)
             }
           })
+          console.log(this.checkedInputs)
           if (this.checkedInputs.length) {
             this.testForm.btn.disabled = false
+          } else {
+            this.testForm.btn.disabled = true
           }
         })
+      } else if (this.forms.length === 1) {
+        this.dragForm = this.querySelector('verbal-form')
       } else {
         this.shadowRoot.addEventListener('submit-form', () => {
           const form = document.createElement('form')
@@ -74,9 +80,7 @@ customElements.define(
           )
           if (!formsChecked.length) {
             this.verbalForm.btn.disabled = false
-          }
-
-          console.log(this.forms.length)
+          } else this.verbalForm.btn.disabled = true
 
           let formId = form._id
           let textCheckedlabel = target.querySelector('[slot="label-value"]')

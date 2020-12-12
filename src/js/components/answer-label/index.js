@@ -47,9 +47,9 @@ customElements.define(
     imgPopuprender(evt) {
       let target = evt.target
       if (target.tagName === 'IMG') {
-        evt.preventDefault()
         let naturalWidth = target.naturalWidth
-        if (naturalWidth >= 200) {
+        if (naturalWidth >= 300) {
+          evt.preventDefault()
           const src = target.src
           const popup = document.createElement('div')
           popup.style.width = document.documentElement.clientWidth + 'px'

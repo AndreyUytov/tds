@@ -6,10 +6,16 @@
     <title>Web-components</title>
   </head>
   <body>
-    <test-header total="26" current="5" test-started-ms="" time-limit-ms="">
-    </test-header>
-    <main class="test-main content">
-      <question-section>
+    <test-page>
+      <test-header
+        slot="test-header"
+        total="26"
+        current="5"
+        test-started-ms=""
+        time-limit-ms=""
+      >
+      </test-header>
+      <question-section slot="question-section">
         <span slot="number-question">1</span>
         <span slot="text-question">
           Какой метод постройки судна соответствует данной формулировке?
@@ -25,7 +31,7 @@
           монтажные и сварочные работы.
         </span>
       </question-section>
-      <answer-section>
+      <answer-section slot="answer-section">
         <answer-form slot="form" type="checkbox">
           <span slot="answer-subtitle">
             Выберите несколько правильных вариантов ответа
@@ -46,6 +52,6 @@
           </answer-label>
         </answer-form>
       </answer-section>
-    </main>
+    </test-page>
   </body>
 </html>

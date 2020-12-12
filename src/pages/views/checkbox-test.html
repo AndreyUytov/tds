@@ -6,18 +6,24 @@
     <title>Обучающий тест</title>
   </head>
   <body>
-    <test-header total="25" current="2" test-started-ms="" time-limit-ms="">
-      <span slot="test-title">Обучающий тест</span>
-    </test-header>
-    <main class="test-main content">
-      <question-section>
+    <test-page>
+      <test-header
+        slot="test-header"
+        total="25"
+        current="2"
+        test-started-ms=""
+        time-limit-ms=""
+      >
+        <span slot="test-title">Обучающий тест</span>
+      </test-header>
+      <question-section slot="question-section">
         <span slot="number-question">2</span>
         <span slot="text-question">
           Какой метод постройки судна соответствует данной формулировки?
         </span>
         <img src="./../../images/image 45.jpg" slot="advanced-text" />
       </question-section>
-      <answer-section>
+      <answer-section slot="answer-section">
         <answer-form slot="form" type="checkbox">
           <span slot="answer-subtitle"
             >Выберите несколько вариантов ответа</span
@@ -36,6 +42,6 @@
           </answer-label>
         </answer-form>
       </answer-section>
-    </main>
+    </test-page>
   </body>
 </html>
