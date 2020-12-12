@@ -38,6 +38,16 @@ customElements.define(
           }
         })
       } else {
+        this.shadowRoot.addEventListener('submit-form', () => {
+          const form = document.createElement('form')
+          // form.method = 'POST'
+          if (this.checkedInputs) {
+            form.append(...this.hiddenInputs, ...this.checkedInputs)
+          } else form.append(...this.hiddenInputs)
+
+          document.body.append(form)
+          form.submit()
+        })
         this.counterForms = 0
         this.checkedInputs = []
         this.hiddenInputs = []
@@ -56,7 +66,19 @@ customElements.define(
           let target = evt.target
           if (target.tagName !== 'ANSWER-LABEL') return
           this.checkedInputs.push(target.input)
-          let formId = target.closest('answer-form')._id
+
+          let form = target.closest('answer-form')
+          form._done = true
+          let formsChecked = Array.from(this.forms).filter(
+            (form) => form._done !== true
+          )
+          if (!formsChecked.length) {
+            this.verbalForm.btn.disabled = false
+          }
+
+          console.log(this.forms.length)
+
+          let formId = form._id
           let textCheckedlabel = target.querySelector('[slot="label-value"]')
             .textContent
           this.verbalForm.querySelectorAll('li')[

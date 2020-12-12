@@ -9,7 +9,7 @@ customElements.define(
       this.btn = this.shadowRoot.querySelector('.btn')
       this.list = this.shadowRoot.querySelector('.verbal-list')
 
-      this.btn.addEventListener('click', () => {
+      this.btn.addEventListener('click', (evt) => {
         evt.preventDefault()
         this.btn.dispatchEvent(
           new Event('submit-form', { bubbles: true, composed: true })
