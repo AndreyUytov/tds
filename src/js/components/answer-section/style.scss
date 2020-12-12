@@ -1,5 +1,13 @@
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 .answer-section {
-  width: 368px;
+  box-sizing: border-box;
+  width: auto;
+  max-width: 576px;
   padding: 32px;
 
   color: #ffffff;

@@ -1,4 +1,5 @@
 import css from './style.scss'
+import { DragVerbalFormElement } from './../verbal-form'
 
 customElements.define(
   'test-page',
@@ -42,7 +43,40 @@ customElements.define(
           }
         })
       } else if (this.forms.length === 1) {
+        this.shadowRoot.addEventListener('submit-form', () => {
+          const form = document.createElement('form')
+          // form.method = 'POST'
+          if (this.checkedInputs) {
+            form.append(...this.hiddenInputs, ...this.checkedInputs)
+          } else form.append(...this.hiddenInputs)
+
+          document.body.append(form)
+          form.submit()
+        })
+        this.idCounter = 0
+        this.testForm = this.forms[0]
         this.dragForm = this.querySelector('verbal-form')
+        this.dragForm.list.className = 'drag__list'
+        this.hiddenInputs = this.testForm.shadowRoot
+          .querySelector('slot:not([name])')
+          .assignedElements()
+        this.testForm.labels.forEach((label) => {
+          label._id = this.idCounter++
+        })
+        this.checkedLabelsOrderById = [] // !!! проверить позже
+        this.checkedLabels = new Set()
+
+        this.shadowRoot.addEventListener('click', (evt) => {
+          let target = evt.target
+          if (target.tagName !== 'ANSWER-LABEL') return
+
+          if (target.input.checked) {
+            this.checkedLabels.add(target)
+          } else {
+            this.checkedLabels.delete(target)
+          }
+          this.dragForm.update(this.checkedLabels)
+        })
       } else {
         this.shadowRoot.addEventListener('submit-form', () => {
           const form = document.createElement('form')

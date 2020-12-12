@@ -4,7 +4,12 @@
   box-sizing: inherit;
 }
 
+:host {
+  box-sizing: border-box;
+}
+
 .verbal-list__conteiner {
+  width: auto;
   padding-top: 8px;
 
   box-sizing: border-box;
@@ -26,6 +31,7 @@
 
 .verbal-list {
   counter-reset: li-counter;
+  width: 368px;
 
   margin: 0;
   padding: 0;
@@ -109,5 +115,77 @@
     background: var(--subTextColor);
     opacity: 0.3;
     cursor: default;
+  }
+}
+
+// drag
+
+.drag__list {
+  width: 512px;
+  padding: 0;
+  margin: 0;
+
+  list-style: none;
+  counter-reset: li-counter;
+
+  display: flex;
+  flex-direction: column;
+
+  user-select: none;
+}
+
+verbal-drag-elem {
+  width: 512px;
+}
+
+.drag__container {
+  width: 512px;
+  counter-increment: li-counter;
+  min-height: 46px;
+  position: relative;
+  padding: 2px 2px 2px 38px;
+  margin-bottom: 20px;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 26px;
+  color: var(--defaultTextColor);
+
+  background: #1a2936;
+  border-radius: 6px;
+
+  &::before {
+    content: counter(li-counter);
+    position: absolute;
+    top: 10px;
+    left: 12px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+
+    color: var(--subTextColor);
+  }
+}
+
+.drag__elem {
+  width: 472px;
+  padding: 10px 20px;
+  background: #335068;
+
+  cursor: pointer;
+
+  border-radius: 4px;
+
+  &:hover {
+    background: #406583;
   }
 }

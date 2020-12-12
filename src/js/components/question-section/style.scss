@@ -1,4 +1,11 @@
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 .question-section {
+  box-sizing: border-box;
   max-width: 784px;
   margin-right: 48px;
 
