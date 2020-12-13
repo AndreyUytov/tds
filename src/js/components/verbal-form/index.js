@@ -16,6 +16,104 @@ customElements.define(
           new Event('submit-form', { bubbles: true, composed: true })
         )
       })
+
+      this.list.addEventListener('pointerdown', (evt) => {
+        let target = evt.target.closest('verbal-drag-elem')
+        if (target.tagName !== 'verbal-drag-elem'.toUpperCase()) return
+        evt.preventDefault()
+        target.ondragstart = () => false
+        target.setPointerCapture(evt.pointerId)
+        this.list.style.height = this.list.getBoundingClientRect().height + 'px'
+
+        let shiftY = evt.clientY - target.getBoundingClientRect().top
+        target.style.position = 'fixed'
+        target.style.zIndex = 1000
+
+        moveAt(evt.clientY)
+
+        function moveAt(clientY) {
+          target.style.top = clientY - shiftY + 'px'
+        }
+
+        let currentClosestDragElem = null
+        let heightClosestDrag = null
+        let currentPositionForAdd = null
+
+        const pointerMove = (evt) => {
+          moveAt(evt.clientY)
+
+          target.hidden = true
+          let elemUnderPointer = this.shadowRoot.elementFromPoint(
+            evt.clientX,
+            evt.clientY
+          )
+          target.hidden = false
+
+          if (!elemUnderPointer) return
+
+          let closestDragElem = elemUnderPointer.closest('verbal-drag-elem')
+          if (!closestDragElem) return
+
+          if (closestDragElem == currentClosestDragElem) {
+            let bottomClosestElem = currentClosestDragElem.getBoundingClientRect()
+              .bottom
+            let targetHeight = target.getBoundingClientRect().height
+
+            let styleLi = currentClosestDragElem.querySelector('li').style
+
+            if (bottomClosestElem - evt.clientY <= heightClosestDrag / 2) {
+              styleLi.marginTop = ''
+              styleLi.marginBottom = targetHeight + 'px'
+              currentPositionForAdd = 'after'
+            } else {
+              styleLi.marginTop = targetHeight + 'px'
+              styleLi.marginBottom = ''
+              currentPositionForAdd = 'before'
+            }
+          }
+
+          if (closestDragElem != currentClosestDragElem) {
+            if (currentClosestDragElem) {
+              currentClosestDragElem.querySelector('li').style.marginBottom = ''
+              currentClosestDragElem.querySelector('li').style.marginTop = ''
+            }
+            currentClosestDragElem = closestDragElem
+            heightClosestDrag = currentClosestDragElem.getBoundingClientRect()
+              .height
+          }
+        }
+
+        target.addEventListener('pointermove', pointerMove)
+
+        target.addEventListener('pointerup', (evt) => {
+          target.style.top = ''
+          target.style.position = ''
+          target.style.zIndex = ''
+
+          if (currentClosestDragElem) {
+            currentClosestDragElem.querySelector('li').style.marginBottom = ''
+            currentClosestDragElem.querySelector('li').style.marginTop = ''
+            currentClosestDragElem[currentPositionForAdd](target)
+          }
+          this.list.style.height = ''
+
+          let newOrderElementsById = []
+          let elementsList = this.list.querySelectorAll('verbal-drag-elem')
+
+          for (let el of elementsList) {
+            newOrderElementsById.push(el._id)
+          }
+          this.list.dispatchEvent(
+            new CustomEvent('redefinition-list', {
+              bubbles: true,
+              composed: true,
+              detail: { newOrder: newOrderElementsById },
+            })
+          )
+
+          target.removeEventListener('pointermove', pointerMove)
+        })
+      })
     }
 
     addLabel(label) {

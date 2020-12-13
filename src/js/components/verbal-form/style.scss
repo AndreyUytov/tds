@@ -5,6 +5,7 @@
 }
 
 :host {
+  display: block;
   box-sizing: border-box;
 }
 
@@ -82,6 +83,7 @@
 }
 
 .btn {
+  margin-top: 32px;
   padding: 12px 32px;
   width: 100%;
 
@@ -136,6 +138,7 @@
 
 verbal-drag-elem {
   width: 512px;
+  touch-action: none;
 }
 
 .drag__container {

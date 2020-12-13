@@ -1,5 +1,7 @@
 :host {
+  display: block;
   width: 100%;
+  min-width: 368px;
 }
 
 .answer-form__fieldset {
@@ -16,6 +18,7 @@
 }
 
 .btn {
+  margin-top: 32px;
   padding: 12px 32px;
   width: 100%;
 
