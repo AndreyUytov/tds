@@ -19,26 +19,41 @@ customElements.define(
     }
 
     addLabel(label) {
-      this.labels.push(label._id)
       let text = label.querySelector('[slot="label-value"]').textContent
-      this.list.append(new DragVerbalFormElement(text))
+      let labelElement = new DragVerbalFormElement(text)
+      labelElement._id = label._id
+      this.list.append(labelElement)
+      this.labels.push(labelElement)
+
+      let newOrderElementsById = []
+      let elementsList = this.list.querySelectorAll('verbal-drag-elem')
+      for (let el of elementsList) {
+        newOrderElementsById.push(el._id)
+      }
+      this.dispatchEvent(
+        new CustomEvent('redefinition-list', {
+          bubbles: true,
+          composed: true,
+          detail: { newOrder: newOrderElementsById },
+        })
+      )
     }
 
-    update(arr) {
-      let labels = Array.from(arr)
+    update(set) {
+      let labels = Array.from(set)
       if (labels.length > this.labels.length) {
-        console.log(this.labels.length, 'from 1st')
         this.addLabel(labels[labels.length - 1])
+        console.log(this.labels.length, 'from 1st')
         return
       }
 
-      if (labels.length <= this.labels.length) {
+      if (labels.length < this.labels.length) {
         console.log(this.labels.length, 'from 2st')
         let labelsElements = []
         this.labels.forEach((el) => {
           let labelFromState = labels.find((obj) => el._id === obj._id)
-          el.update(labelFromState)
-          if (labelsFromState) {
+          el.update(labelFromState, this.list)
+          if (labelFromState) {
             labelsElements.push(el)
           }
         })
@@ -82,9 +97,22 @@ export class DragVerbalFormElement extends HTMLElement {
     </li>`
   }
 
-  update(label) {
+  update(label, list) {
     if (!label) {
       this.remove()
+      let newOrderElementsById = []
+      let elementsList = list.querySelectorAll('verbal-drag-elem')
+
+      for (let el of elementsList) {
+        newOrderElementsById.push(el._id)
+      }
+      list.dispatchEvent(
+        new CustomEvent('redefinition-list', {
+          bubbles: true,
+          composed: true,
+          detail: { newOrder: newOrderElementsById },
+        })
+      )
     }
   }
 }

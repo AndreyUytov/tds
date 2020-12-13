@@ -46,6 +46,12 @@ customElements.define(
         this.shadowRoot.addEventListener('submit-form', () => {
           const form = document.createElement('form')
           // form.method = 'POST'
+          this.checkedInputs = []
+          this.checkedLabelsOrderById.forEach((id) => {
+            this.checkedInputs.push(this.testForm.labels[id].input)
+            console.log(this.checkedInputs)
+          })
+
           if (this.checkedInputs) {
             form.append(...this.hiddenInputs, ...this.checkedInputs)
           } else form.append(...this.hiddenInputs)
@@ -63,9 +69,8 @@ customElements.define(
         this.testForm.labels.forEach((label) => {
           label._id = this.idCounter++
         })
-        this.checkedLabelsOrderById = [] // !!! проверить позже
-        this.checkedLabels = new Set()
 
+        this.checkedLabels = new Set()
         this.shadowRoot.addEventListener('click', (evt) => {
           let target = evt.target
           if (target.tagName !== 'ANSWER-LABEL') return
@@ -75,7 +80,17 @@ customElements.define(
           } else {
             this.checkedLabels.delete(target)
           }
+
+          if (this.checkedLabels.size) this.dragForm.btn.disabled = false
+          if (!this.checkedLabels.size) this.dragForm.btn.disabled = true
+
           this.dragForm.update(this.checkedLabels)
+        })
+
+        this.checkedLabelsOrderById = []
+        this.shadowRoot.addEventListener('redefinition-list', (evt) => {
+          this.checkedLabelsOrderById = evt.detail.newOrder
+          console.log(this.checkedLabelsOrderById)
         })
       } else {
         this.shadowRoot.addEventListener('submit-form', () => {
