@@ -1,9 +1,16 @@
 .login-body {
   display: flex;
-  background-image: url(./../images/fon-login.png);
-  background-position: left;
+}
+
+.img-block {
+  width: calc(100% - 592px);
+  height: 100vh;
+
+  background-color: var(--akcentColor);
+  background-image: url('./../images/fon-login.png');
+  background-position: center;
   background-repeat: no-repeat;
-  background-size: 70% 100%;
+  background-size: cover;
 }
 
 .main-login {
