@@ -18,6 +18,7 @@ function generateHtmlPlugins(templateDir) {
       filename: `${name}.html`,
       template: path.resolve(__dirname, `${templateDir}/${name}.${extension}`),
       inject: true,
+      minify: false,
     })
   })
 }

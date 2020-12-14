@@ -1,0 +1,155 @@
+.body-lk {
+  background-color: var(--akcentColor);
+}
+
+.lk-main {
+  padding-top: 48px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.snap-help {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+
+  width: 50px;
+  height: 50px;
+  padding: 11px;
+
+  background: #1a2936;
+  --icon-fill: var(--defaultTextColor);
+
+  box-shadow: 0px 4px 4px rgba(50, 50, 71, 0.08),
+    0px 4px 8px rgba(50, 50, 71, 0.06);
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background: #335068;
+  }
+  &:active {
+    background: #406583;
+  }
+  &:disabled {
+    background: var(--subTextColor);
+    opacity: 0.3;
+    cursor: default;
+  }
+}
+
+.lk-main__user-section {
+  position: sticky;
+  top: 48px;
+
+  width: 264px;
+
+  color: var(--defaultTextColor);
+}
+
+.user-section__avatar-label {
+  display: flex;
+  width: 264px;
+  height: 264px;
+
+  background-image: url('./../images/avatar.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  background-color: #c4c4c4;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+}
+
+.lk-main__test-section {
+  width: 888px;
+  margin-left: 48px;
+}
+
+.master-list__item {
+  margin-bottom: 64px;
+}
+
+.master-list__item-title {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 32px;
+
+  font-family: 'Roboto-Bold';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 41px;
+
+  color: #ffffff;
+}
+
+.sublist__item {
+  padding: 32px;
+  margin-bottom: 32px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  background: #ffffff;
+
+  box-shadow: 0px 8px 8px rgba(50, 50, 71, 0.08),
+    0px 8px 16px rgba(50, 50, 71, 0.06);
+  border-radius: 10px;
+}
+
+.item__subtitle-wrapper {
+  width: 100%;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-bottom: 1px solid var(--tabLinesColor);
+}
+
+.item__subtitle {
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  font-family: 'Roboto-Bold';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+}
+
+.item__subtitle-info {
+  margin-top: 8px;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 26px;
+
+  color: var(--subTextColor);
+}
+
+.item__test-info {
+  padding: 0;
+  margin: 0;
+
+  margin-bottom: 16px;
+}
+
+.item__btns-wrapper {
+  display: flex;
+  justify-content: flex-start;
+}
