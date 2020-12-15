@@ -75,11 +75,11 @@ module.exports = (env) => {
       filename: isProduction ? 'js/[name][hash].js' : 'js/[name].js',
     },
 
-    optimization: {
-      splitChunks: {
-        chunks: 'all',
-      },
-    },
+    // optimization: {
+    //   splitChunks: {
+    //     chunks: 'all',
+    //   },
+    // },
 
     devtool: isProduction ? '' : 'source-map',
 

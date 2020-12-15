@@ -24,21 +24,19 @@
 
     <main class="lk-main content">
       <section class="lk-main__user-section">
-        <div class="user-section__avatar">
-          <form class="user-section__avatar-form" method="POST">
-            <label class="user-section__avatar-label">
-              <input
-                type="file"
-                class="visually-hidden"
-                name="avatar"
-                value="test"
-              />
-            </label>
-            <button class="visually-hidden" type="submit"></button>
-          </form>
-          <h3 class="user-section__user-name">Саитов Дмитрий Андреевич</h3>
-          <p class="user-section__user-info">Инжинер-конструктор</p>
-        </div>
+        <form class="user-section__avatar-form" method="POST">
+          <label class="user-section__avatar-label">
+            <img src="./../../images/avatar.jpg" />
+            <input
+              type="file"
+              name="avatar"
+              value="test"
+              onchange="this.form.submit()"
+            />
+          </label>
+        </form>
+        <h3 class="user-section__user-name">Саитов Дмитрий Андреевич</h3>
+        <p class="user-section__user-info">Инжинер-конструктор</p>
       </section>
 
       <section class="lk-main__test-section">
@@ -99,5 +97,70 @@
         <use href="#help" />
       </svg>
     </button>
+
+    <div class="help-popup__wrapper">
+      <button class="help-popup__close-snap"></button>
+      <div class="help-popup">
+        <h3>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum,
+          minima?
+        </h3>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam eum
+          quibusdam nulla ad ab, tenetur nobis nesciunt officia possimus dolorum
+          tempora aspernatur fugiat eius suscipit debitis recusandae temporibus
+          quidem sapiente id mollitia itaque? Numquam, dicta placeat. Ipsum
+          corporis nesciunt natus minus soluta, cumque eius consequuntur
+          molestias ea aliquam exercitationem. Non, dicta? Porro mollitia
+          perspiciatis numquam natus corporis! Nemo eligendi neque debitis quia
+          quod sit esse cum numquam nobis necessitatibus tempora quisquam,
+          repudiandae quasi ratione quam doloremque. Quis dolorum alias sint
+          cum. Impedit, quibusdam quam minus quidem blanditiis quisquam vero
+          illo corporis ducimus, tenetur nobis deserunt distinctio labore cumque
+          repellat voluptatum.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
+          doloremque laborum ea dolorem quas sapiente provident dolorum
+          consequuntur cum aspernatur.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+          autem similique quaerat suscipit doloribus incidunt facilis recusandae
+          fugit id ipsam nemo sunt dolor laboriosam blanditiis voluptatem
+          excepturi quidem minima atque ratione, corporis enim. Iusto sint ab
+          sunt, aut in nihil veritatis voluptatum vel voluptates autem! Iure
+          cumque soluta sed eius.
+        </p>
+        <p>
+          Maiores voluptate modi asperiores minus in provident quaerat aliquam
+          nam odit sapiente facere itaque, tenetur nesciunt dolorum, deserunt
+          doloribus sunt. Voluptas quam necessitatibus at, aliquam inventore
+          corrupti hic minus ab eligendi ut exercitationem error molestias
+          tenetur reiciendis voluptate tempora ea animi aperiam quos omnis,
+          adipisci est quae quidem? Libero, eos!
+        </p>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente quo
+          aut magni autem nihil voluptatem numquam odio, cum, hic placeat
+          nesciunt aliquam saepe est laudantium qui sunt asperiores cupiditate
+          obcaecati?
+        </p>
+        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla officia
+          porro eveniet quisquam assumenda eos veniam ad quidem, dignissimos
+          quibusdam!
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque numquam
+          aspernatur magnam maxime itaque? Explicabo, et incidunt dolorem a nisi
+          repellendus placeat magnam itaque cumque accusamus natus similique ad
+          pariatur quam? Aliquam illum cumque voluptatem adipisci in atque ut
+          reiciendis? Exercitationem, numquam! Ea necessitatibus pariatur
+          perspiciatis sequi eveniet, temporibus cumque.
+        </p>
+      </div>
+    </div>
   </body>
 </html>

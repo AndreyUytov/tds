@@ -1,9 +1,0 @@
-<ul class="tabs-list">
-  <% for(let i = 1; i <= tabsCounter; i++) { %>
-  <li
-    class="<%= i > activeTab ? 'tabs-list__item' : i < activeTab ? 'tabs-list__item tabs-list__item--disabled' : 'tabs-list__item tabs-list__item--active' %>"
-  >
-    <%=i%>
-  </li>
-  <% } %>
-</ul>

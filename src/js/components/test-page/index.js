@@ -1,5 +1,4 @@
 import css from './style.scss'
-import { DragVerbalFormElement } from './../verbal-form'
 
 customElements.define(
   'test-page',
