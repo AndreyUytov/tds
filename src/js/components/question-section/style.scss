@@ -4,11 +4,17 @@
   box-sizing: inherit;
 }
 
-.question-section {
+:host {
   box-sizing: border-box;
-  max-width: 784px;
+  width: 784px;
   margin-right: 48px;
+}
 
+:host(.verbal-drag-test) {
+  width: 576px;
+}
+
+.question-section {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

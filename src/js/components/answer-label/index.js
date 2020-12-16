@@ -47,18 +47,28 @@ customElements.define(
     imgPopuprender(evt) {
       let target = evt.target
       if (target.tagName === 'IMG') {
-        let naturalWidth = target.naturalWidth
-        if (naturalWidth >= 300) {
-          evt.preventDefault()
-          const src = target.src
-          const popup = document.createElement('div')
-          popup.style.width = document.documentElement.clientWidth + 'px'
-          popup.style.height = document.documentElement.clientHeight + 'px'
-          popup.className = 'answer-popup'
-          popup.insertAdjacentHTML('beforeend', `<img src=${src} />`)
-          document.body.append(popup)
-          popup.onclick = () => popup.remove()
-        }
+        // let naturalWidth = target.naturalWidth
+        // if (naturalWidth >= 300) {
+        //   evt.preventDefault()
+        //   const src = target.src
+        //   const popup = document.createElement('div')
+        //   popup.style.width = document.documentElement.clientWidth + 'px'
+        //   popup.style.height = document.documentElement.clientHeight + 'px'
+        //   popup.className = 'answer-popup'
+        //   popup.insertAdjacentHTML('beforeend', `<img src=${src} />`)
+        //   document.body.append(popup)
+        //   popup.onclick = () => popup.remove()
+        // }
+
+        evt.preventDefault()
+        const src = target.src
+        const popup = document.createElement('div')
+        popup.style.width = document.documentElement.clientWidth + 'px'
+        popup.style.height = document.documentElement.clientHeight + 'px'
+        popup.className = 'answer-popup'
+        popup.insertAdjacentHTML('beforeend', `<img src=${src} />`)
+        document.body.append(popup)
+        popup.onclick = () => popup.remove()
       }
     }
 

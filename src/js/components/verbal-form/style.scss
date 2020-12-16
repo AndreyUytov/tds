@@ -7,13 +7,9 @@
 :host {
   display: block;
   box-sizing: border-box;
-}
 
-.verbal-list__conteiner {
-  width: auto;
+  width: 100%;
   padding-top: 8px;
-
-  box-sizing: border-box;
 }
 
 .verbal-list__subtitle {
@@ -46,6 +42,7 @@
   & ::slotted(li) {
     counter-increment: li-counter;
     min-height: 50px;
+    width: 304px;
     position: relative;
     padding: 12px 12px 12px 38px;
     margin-bottom: 16px;

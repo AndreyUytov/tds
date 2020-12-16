@@ -6,7 +6,7 @@
     <title>Document</title>
   </head>
   <body>
-    <test-page>
+    <test-page class="verbal-drag-test">
       <test-header
         slot="test-header"
         total="25"
@@ -16,7 +16,7 @@
       >
         <span slot="test-title">Вербальный тест</span>
       </test-header>
-      <question-section slot="question-section">
+      <question-section slot="question-section" class="verbal-drag-test">
         <span slot="number-question">1</span>
         <span slot="text-question">
           В цех поступило судно с повреждениями внешнего корпуса. Описание
@@ -73,7 +73,7 @@
           </answer-label>
         </answer-form>
       </question-section>
-      <answer-section slot="answer-section">
+      <answer-section slot="answer-section" class="verbal-drag-test">
         <verbal-form slot="form">
           <span slot="subtitle"
             >Выберите правильную последовательность ответов</span
