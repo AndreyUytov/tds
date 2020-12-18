@@ -54,32 +54,31 @@ customElements.define(
           let closestDragElem = elemUnderPointer.closest('verbal-drag-elem')
           if (!closestDragElem) return
 
-          if (closestDragElem == currentClosestDragElem) {
-            let bottomClosestElem = currentClosestDragElem.getBoundingClientRect()
-              .bottom
-            let targetHeight = target.getBoundingClientRect().height
-
-            let styleLi = currentClosestDragElem.querySelector('li').style
-
-            if (bottomClosestElem - evt.clientY <= heightClosestDrag / 2) {
-              styleLi.marginTop = ''
-              styleLi.marginBottom = targetHeight + 'px'
-              currentPositionForAdd = 'after'
-            } else {
-              styleLi.marginTop = targetHeight + 'px'
-              styleLi.marginBottom = ''
-              currentPositionForAdd = 'before'
-            }
-          }
-
           if (closestDragElem != currentClosestDragElem) {
             if (currentClosestDragElem) {
-              currentClosestDragElem.querySelector('li').style.marginBottom = ''
-              currentClosestDragElem.querySelector('li').style.marginTop = ''
+              currentClosestDragElem.style.marginBottom = ''
+              currentClosestDragElem.style.marginTop = ''
             }
             currentClosestDragElem = closestDragElem
             heightClosestDrag = currentClosestDragElem.getBoundingClientRect()
               .height
+          }
+
+          if (closestDragElem == currentClosestDragElem) {
+            let bottomClosestElem = currentClosestDragElem.getBoundingClientRect()
+              .bottom
+
+            let styleCurrentClosestDragElem = currentClosestDragElem.style
+
+            if (bottomClosestElem - evt.clientY <= heightClosestDrag / 2) {
+              styleCurrentClosestDragElem.marginTop = ''
+              styleCurrentClosestDragElem.marginBottom = 'auto'
+              currentPositionForAdd = 'after'
+            } else {
+              styleCurrentClosestDragElem.marginBottom = ''
+              styleCurrentClosestDragElem.marginTop = 'auto'
+              currentPositionForAdd = 'before'
+            }
           }
         }
 
@@ -91,8 +90,8 @@ customElements.define(
           target.style.zIndex = ''
 
           if (currentClosestDragElem) {
-            currentClosestDragElem.querySelector('li').style.marginBottom = ''
-            currentClosestDragElem.querySelector('li').style.marginTop = ''
+            currentClosestDragElem.style.marginBottom = ''
+            currentClosestDragElem.style.marginTop = ''
             currentClosestDragElem[currentPositionForAdd](target)
           }
           this.list.style.height = ''

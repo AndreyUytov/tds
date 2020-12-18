@@ -129,7 +129,7 @@
 
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: stretch;
 
   user-select: none;
 }
@@ -137,6 +137,7 @@
 verbal-drag-elem {
   width: 512px;
   touch-action: none;
+  transition: all 250ms;
 }
 
 .drag__container {
