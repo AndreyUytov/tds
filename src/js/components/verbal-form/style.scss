@@ -28,7 +28,7 @@
 
 .verbal-list {
   counter-reset: li-counter;
-  width: 368px;
+  width: 512px;
 
   margin: 0;
   padding: 0;
@@ -42,7 +42,7 @@
   & ::slotted(li) {
     counter-increment: li-counter;
     min-height: 50px;
-    width: 304px;
+    width: 512px;
     position: relative;
     padding: 12px 12px 12px 38px;
     margin-bottom: 16px;
@@ -129,6 +129,7 @@
 
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
 
   user-select: none;
 }

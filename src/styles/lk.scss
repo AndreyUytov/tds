@@ -48,11 +48,9 @@
   color: var(--defaultTextColor);
 }
 
-.user-section__avatar-form {
+.user-section__avatar {
   margin-bottom: 24px;
-}
 
-.user-section__avatar-label {
   display: flex;
   width: 264px;
   height: 264px;
@@ -65,12 +63,6 @@
   background-color: var(--subTextColor);
 
   border-radius: 10px;
-
-  cursor: pointer;
-
-  & input {
-    display: none;
-  }
 
   & img {
     border-radius: 10px;
@@ -194,7 +186,7 @@
 }
 
 .help-popup__wrapper {
-  position: absolute;
+  position: fixed;
   height: 100vh;
   top: 0px;
   right: 0px;
