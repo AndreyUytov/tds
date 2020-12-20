@@ -38,10 +38,13 @@ customElements.define(
         moveAt(evt.clientY)
 
         function moveAt(clientY) {
-          if (listBottom <= clientY) {
+          if (clientY >= listBottom) {
             target.style.top = listBottom - shiftY + 'px'
+          } else if (clientY < listTop) {
+            target.style.top = listTop - shiftY + 'px'
+          } else {
+            target.style.top = clientY - shiftY + 'px'
           }
-          target.style.top = clientY - shiftY + 'px'
         }
 
         let currentUnderDragElem = null
@@ -99,7 +102,7 @@ customElements.define(
               currentUnderDragElem = underDragElem
               bottomClosestElem = currentUnderDragElem.getBoundingClientRect()
                 .bottom
-            }, 200)
+            }, 100)
           }
 
           if (underDragElem == currentUnderDragElem) {
