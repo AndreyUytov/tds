@@ -24,22 +24,36 @@ customElements.define(
         target.ondragstart = () => false
         target.setPointerCapture(evt.pointerId)
         this.list.style.height = this.list.getBoundingClientRect().height + 'px'
+        let listBottom = this.list.getBoundingClientRect().bottom
+        let listTop = this.list.getBoundingClientRect().top
+        let targetHeight = target.getBoundingClientRect().height
 
         let shiftY = evt.clientY - target.getBoundingClientRect().top
-        target.style.position = 'fixed'
-        target.style.zIndex = 1000
+
+        let nextSiblingDragElem = target.nextElementSibling
+        if (nextSiblingDragElem) {
+          nextSiblingDragElem.style.marginTop = `auto`
+        }
 
         moveAt(evt.clientY)
 
         function moveAt(clientY) {
+          if (listBottom <= clientY) {
+            target.style.top = listBottom - shiftY + 'px'
+          }
           target.style.top = clientY - shiftY + 'px'
         }
 
-        let currentClosestDragElem = null
-        let heightClosestDrag = null
+        let currentUnderDragElem = null
         let currentPositionForAdd = null
+        let heightClosestDrag = null
+        let bottomClosestElem = null
+        let timerId = null
 
         const pointerMove = (evt) => {
+          target.style.position = 'fixed'
+          target.style.zIndex = 1000
+
           moveAt(evt.clientY)
 
           target.hidden = true
@@ -51,32 +65,55 @@ customElements.define(
 
           if (!elemUnderPointer) return
 
-          let closestDragElem = elemUnderPointer.closest('verbal-drag-elem')
-          if (!closestDragElem) return
+          let underDragElem = elemUnderPointer.closest('verbal-drag-elem')
+          if (!underDragElem) return
 
-          if (closestDragElem != currentClosestDragElem) {
-            if (currentClosestDragElem) {
-              currentClosestDragElem.style.marginBottom = ''
-              currentClosestDragElem.style.marginTop = ''
-            }
-            currentClosestDragElem = closestDragElem
-            heightClosestDrag = currentClosestDragElem.getBoundingClientRect()
-              .height
+          if (underDragElem != currentUnderDragElem) {
+            if (timerId) clearTimeout(timerId)
+            timerId = setTimeout(() => {
+              if (currentUnderDragElem) {
+                heightClosestDrag = underDragElem.getBoundingClientRect().height
+                let bottomUnderDragElem = underDragElem.getBoundingClientRect()
+                  .bottom
+
+                let styleCurrentUnderDragElem = underDragElem.style
+
+                if (
+                  bottomUnderDragElem - evt.clientY <=
+                  heightClosestDrag / 2
+                ) {
+                  styleCurrentUnderDragElem.marginTop = ''
+                  styleCurrentUnderDragElem.marginBottom = `${targetHeight}px`
+                  styleCurrentUnderDragElem.transition = 'all 250ms'
+                  currentPositionForAdd = 'after'
+                } else {
+                  styleCurrentUnderDragElem.marginBottom = ''
+                  styleCurrentUnderDragElem.marginTop = `${targetHeight}px`
+                  styleCurrentUnderDragElem.transition = 'all 250ms'
+                  currentPositionForAdd = 'before'
+                }
+
+                currentUnderDragElem.style.marginBottom = ''
+                currentUnderDragElem.style.marginTop = ''
+              }
+              currentUnderDragElem = underDragElem
+              bottomClosestElem = currentUnderDragElem.getBoundingClientRect()
+                .bottom
+            }, 200)
           }
 
-          if (closestDragElem == currentClosestDragElem) {
-            let bottomClosestElem = currentClosestDragElem.getBoundingClientRect()
-              .bottom
-
-            let styleCurrentClosestDragElem = currentClosestDragElem.style
+          if (underDragElem == currentUnderDragElem) {
+            let styleCurrentUnderDragElem = currentUnderDragElem.style
 
             if (bottomClosestElem - evt.clientY <= heightClosestDrag / 2) {
-              styleCurrentClosestDragElem.marginTop = ''
-              styleCurrentClosestDragElem.marginBottom = 'auto'
+              styleCurrentUnderDragElem.marginTop = ''
+              styleCurrentUnderDragElem.marginBottom = `${targetHeight}px`
+              currentUnderDragElem.style.transition = 'all 250ms'
               currentPositionForAdd = 'after'
             } else {
-              styleCurrentClosestDragElem.marginBottom = ''
-              styleCurrentClosestDragElem.marginTop = 'auto'
+              styleCurrentUnderDragElem.marginBottom = ''
+              styleCurrentUnderDragElem.marginTop = `${targetHeight}px`
+              currentUnderDragElem.style.transition = 'all 250ms'
               currentPositionForAdd = 'before'
             }
           }
@@ -85,15 +122,23 @@ customElements.define(
         target.addEventListener('pointermove', pointerMove)
 
         target.addEventListener('pointerup', (evt) => {
+          if (timerId) {
+            clearTimeout(timerId)
+          }
           target.style.top = ''
           target.style.position = ''
           target.style.zIndex = ''
 
-          if (currentClosestDragElem) {
-            currentClosestDragElem.style.marginBottom = ''
-            currentClosestDragElem.style.marginTop = ''
-            currentClosestDragElem[currentPositionForAdd](target)
+          if (currentUnderDragElem) {
+            currentUnderDragElem.style.marginBottom = ''
+            currentUnderDragElem.style.marginTop = ''
+            currentUnderDragElem.style.transition = ''
+            currentUnderDragElem[currentPositionForAdd](target)
+            if (nextSiblingDragElem) {
+              nextSiblingDragElem.style.marginTop = ``
+            }
           }
+
           this.list.style.height = ''
 
           let newOrderElementsById = []
