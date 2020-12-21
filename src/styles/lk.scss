@@ -1,4 +1,4 @@
-.body-lk {
+.wrapper-lk {
   background-color: var(--akcentColor);
 }
 
@@ -49,16 +49,12 @@
 }
 
 .user-section__avatar {
+  position: relative;
   margin-bottom: 24px;
 
   display: flex;
   width: 264px;
   height: 264px;
-
-  background-image: url('./../images/svg/user-icon-default.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 90px 100px;
 
   background-color: var(--subTextColor);
 
@@ -66,7 +62,20 @@
 
   & img {
     border-radius: 10px;
+
+    & + .user-section__avatar-default {
+      display: none;
+    }
   }
+}
+
+.user-section__avatar-default {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
 }
 
 .user-section__user-name {
