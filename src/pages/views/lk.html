@@ -5,177 +5,156 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body>
-    <div class="wrapper-lk">
-      <!--Без фона на боди на больших мониторах фон может обрезаться-->
-      <svg style="display: none">
-        <symbol
-          id="help"
-          width="28"
-          height="28"
-          viewBox="0 0 28 28"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+  <body class="lk-body">
+    <svg style="display: none">
+      <symbol
+        id="help"
+        width="28"
+        height="28"
+        viewBox="0 0 28 28"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12.4772 17.9038C12.4936 16.9435 12.6046 16.1849 12.8101 15.6281C13.0156 15.0713 13.4349 14.4539 14.0678 13.7761L15.6831 12.1419C16.3736 11.3753 16.7189 10.5521 16.7189 9.67249C16.7189 8.82515 16.4928 8.16342 16.0407 7.68729C15.5886 7.20309 14.9309 6.961 14.0678 6.961C13.2293 6.961 12.5553 7.17888 12.0456 7.61466C11.536 8.05044 11.2811 8.63551 11.2811 9.36987H9C9.01644 8.06254 9.48911 7.00941 10.418 6.21049C11.3551 5.4035 12.5717 5 14.0678 5C15.6215 5 16.8298 5.41157 17.693 6.2347C18.5643 7.04976 19 8.17149 19 9.59987C19 11.0121 18.3342 12.4042 17.0025 13.7761L15.6584 15.0834C15.0584 15.7371 14.7583 16.6772 14.7583 17.9038H12.4772ZM12.3785 21.7411C12.3785 21.3779 12.4895 21.0753 12.7115 20.8332C12.9416 20.5831 13.2787 20.458 13.7226 20.458C14.1665 20.458 14.5035 20.5831 14.7337 20.8332C14.9638 21.0753 15.0789 21.3779 15.0789 21.7411C15.0789 22.1042 14.9638 22.4069 14.7337 22.649C14.5035 22.883 14.1665 23 13.7226 23C13.2787 23 12.9416 22.883 12.7115 22.649C12.4895 22.4069 12.3785 22.1042 12.3785 21.7411Z"
+          fill="var(--icon-fill, #253B4D)"
+        />
+      </symbol>
+    </svg>
+
+    <main class="lk-main content">
+      <section class="lk-main__user-section">
+        <div
+          class="user-section__avatar"
+          style="--avatar-icon: url('./static/user-icon-default.svg')"
         >
-          <path
-            d="M12.4772 17.9038C12.4936 16.9435 12.6046 16.1849 12.8101 15.6281C13.0156 15.0713 13.4349 14.4539 14.0678 13.7761L15.6831 12.1419C16.3736 11.3753 16.7189 10.5521 16.7189 9.67249C16.7189 8.82515 16.4928 8.16342 16.0407 7.68729C15.5886 7.20309 14.9309 6.961 14.0678 6.961C13.2293 6.961 12.5553 7.17888 12.0456 7.61466C11.536 8.05044 11.2811 8.63551 11.2811 9.36987H9C9.01644 8.06254 9.48911 7.00941 10.418 6.21049C11.3551 5.4035 12.5717 5 14.0678 5C15.6215 5 16.8298 5.41157 17.693 6.2347C18.5643 7.04976 19 8.17149 19 9.59987C19 11.0121 18.3342 12.4042 17.0025 13.7761L15.6584 15.0834C15.0584 15.7371 14.7583 16.6772 14.7583 17.9038H12.4772ZM12.3785 21.7411C12.3785 21.3779 12.4895 21.0753 12.7115 20.8332C12.9416 20.5831 13.2787 20.458 13.7226 20.458C14.1665 20.458 14.5035 20.5831 14.7337 20.8332C14.9638 21.0753 15.0789 21.3779 15.0789 21.7411C15.0789 22.1042 14.9638 22.4069 14.7337 22.649C14.5035 22.883 14.1665 23 13.7226 23C13.2787 23 12.9416 22.883 12.7115 22.649C12.4895 22.4069 12.3785 22.1042 12.3785 21.7411Z"
-            fill="var(--icon-fill, #253B4D)"
-          />
-        </symbol>
-
-        <symbol
-          id="avatar-default"
-          viewBox="0 0 18 20"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M17 19V17C17 15.9391 16.5786 14.9217 15.8284 14.1716C15.0783 13.4214 14.0609 13 13 13H5C3.93913 13 2.92172 13.4214 2.17157 14.1716C1.42143 14.9217 1 15.9391 1 17V19M13 5C13 7.20914 11.2091 9 9 9C6.79086 9 5 7.20914 5 5C5 2.79086 6.79086 1 9 1C11.2091 1 13 2.79086 13 5Z"
-            stroke="#253B4D"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </symbol>
-      </svg>
-
-      <main class="lk-main content">
-        <section class="lk-main__user-section">
-          <div class="user-section__avatar">
-            <img src="./../../images/avatar.jpg" />
-            <!--Если img с аватаром нет, то отображается svg с картинкой по умолчанию-->
-            <svg class="user-section__avatar-default" width="90" height="100">
-              <use href="#avatar-default" />
-            </svg>
-          </div>
-          <h3 class="user-section__user-name">Саитов Дмитрий Андреевич</h3>
-          <p class="user-section__user-info">Инжинер-конструктор</p>
-        </section>
-
-        <section class="lk-main__test-section">
-          <ul class="test-section__master-list list">
-            <li class="master-list__item">
-              <h2 class="master-list__item-title">Теоретический этап</h2>
-              <ul class="master-list__sublist list">
-                <li class="sublist__item">
-                  <div class="item__subtitle-wrapper">
-                    <h3 class="item__subtitle">
-                      Тест на оценку квалификации
-                      <span class="item__subtitle-info">
-                        0 из 12 вопросов
-                      </span>
-                    </h3>
-                    <a class="btn btn--disabled" href="#">Начать прохождение</a>
-                  </div>
-                  <p class="item__test-info">
-                    Пройдите тест на оценку квалификации в обучающем режиме, что
-                    бы познакомиться с особенностями интерфейса
-                  </p>
-                  <div class="item__btns-wrapper">
-                    <a href="#" class="btn">Обучающий тест</a>
-                    <a href="#" class="link-btn">Пропустить обучение</a>
-                  </div>
-                </li>
-              </ul>
-            </li>
-            <li class="master-list__item">
-              <h2 class="master-list__item-title">Практический этап</h2>
-              <ul class="master-list__sublist list">
-                <li class="sublist__item">
-                  <div class="item__subtitle-wrapper">
-                    <h3 class="item__subtitle">
-                      Вербальный тест
-                      <span class="item__subtitle-info"></span>
-                    </h3>
-                    <a class="btn btn--disabled" href="#">Начать прохождение</a>
-                  </div>
-                  <p class="item__test-info">Завершите теоретический этап</p>
-                </li>
-                <li class="sublist__item">
-                  <div class="item__subtitle-wrapper">
-                    <h3 class="item__subtitle">
-                      Вербальный тест
-                      <span class="item__subtitle-info">0 из 2 вопросов</span>
-                    </h3>
-                    <a class="btn btn--disabled" href="#">Начать прохождение</a>
-                  </div>
-                  <p class="item__test-info">Завершите теоретический этап</p>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </section>
-      </main>
-
-      <button class="snap-help" type="button">
-        <svg width="28" height="28">
-          <use href="#help" />
-        </svg>
-      </button>
-
-      <div class="help-popup__wrapper">
-        <button class="help-popup__close-snap"></button>
-        <div class="help-popup">
-          <h3>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum,
-            minima?
-          </h3>
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam eum
-            quibusdam nulla ad ab, tenetur nobis nesciunt officia possimus
-            dolorum tempora aspernatur fugiat eius suscipit debitis recusandae
-            temporibus quidem sapiente id mollitia itaque? Numquam, dicta
-            placeat. Ipsum corporis nesciunt natus minus soluta, cumque eius
-            consequuntur molestias ea aliquam exercitationem. Non, dicta? Porro
-            mollitia perspiciatis numquam natus corporis! Nemo eligendi neque
-            debitis quia quod sit esse cum numquam nobis necessitatibus tempora
-            quisquam, repudiandae quasi ratione quam doloremque. Quis dolorum
-            alias sint cum. Impedit, quibusdam quam minus quidem blanditiis
-            quisquam vero illo corporis ducimus, tenetur nobis deserunt
-            distinctio labore cumque repellat voluptatum.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
-            doloremque laborum ea dolorem quas sapiente provident dolorum
-            consequuntur cum aspernatur.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
-            autem similique quaerat suscipit doloribus incidunt facilis
-            recusandae fugit id ipsam nemo sunt dolor laboriosam blanditiis
-            voluptatem excepturi quidem minima atque ratione, corporis enim.
-            Iusto sint ab sunt, aut in nihil veritatis voluptatum vel voluptates
-            autem! Iure cumque soluta sed eius.
-          </p>
-          <p>
-            Maiores voluptate modi asperiores minus in provident quaerat aliquam
-            nam odit sapiente facere itaque, tenetur nesciunt dolorum, deserunt
-            doloribus sunt. Voluptas quam necessitatibus at, aliquam inventore
-            corrupti hic minus ab eligendi ut exercitationem error molestias
-            tenetur reiciendis voluptate tempora ea animi aperiam quos omnis,
-            adipisci est quae quidem? Libero, eos!
-          </p>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente
-            quo aut magni autem nihil voluptatem numquam odio, cum, hic placeat
-            nesciunt aliquam saepe est laudantium qui sunt asperiores cupiditate
-            obcaecati?
-          </p>
-          <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla
-            officia porro eveniet quisquam assumenda eos veniam ad quidem,
-            dignissimos quibusdam!
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
-            numquam aspernatur magnam maxime itaque? Explicabo, et incidunt
-            dolorem a nisi repellendus placeat magnam itaque cumque accusamus
-            natus similique ad pariatur quam? Aliquam illum cumque voluptatem
-            adipisci in atque ut reiciendis? Exercitationem, numquam! Ea
-            necessitatibus pariatur perspiciatis sequi eveniet, temporibus
-            cumque.
-          </p>
+          <img src="./../../images/avatar.jpg" />
         </div>
+        <h3 class="user-section__user-name">Саитов Дмитрий Андреевич</h3>
+        <p class="user-section__user-info">Инжинер-конструктор</p>
+      </section>
+
+      <section class="lk-main__test-section">
+        <ul class="test-section__master-list list">
+          <li class="master-list__item">
+            <h2 class="master-list__item-title">Теоретический этап</h2>
+            <ul class="master-list__sublist list">
+              <li class="sublist__item">
+                <div class="item__subtitle-wrapper">
+                  <h3 class="item__subtitle">
+                    Тест на оценку квалификации
+                    <span class="item__subtitle-info"> 0 из 12 вопросов </span>
+                  </h3>
+                  <a class="btn btn--disabled" href="#">Начать прохождение</a>
+                </div>
+                <p class="item__test-info">
+                  Пройдите тест на оценку квалификации в обучающем режиме, что
+                  бы познакомиться с особенностями интерфейса
+                </p>
+                <div class="item__btns-wrapper">
+                  <a href="#" class="btn">Обучающий тест</a>
+                  <a href="#" class="link-btn">Пропустить обучение</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="master-list__item">
+            <h2 class="master-list__item-title">Практический этап</h2>
+            <ul class="master-list__sublist list">
+              <li class="sublist__item">
+                <div class="item__subtitle-wrapper">
+                  <h3 class="item__subtitle">
+                    Вербальный тест
+                    <span class="item__subtitle-info"></span>
+                  </h3>
+                  <a class="btn btn--disabled" href="#">Начать прохождение</a>
+                </div>
+                <p class="item__test-info">Завершите теоретический этап</p>
+              </li>
+              <li class="sublist__item">
+                <div class="item__subtitle-wrapper">
+                  <h3 class="item__subtitle">
+                    Вербальный тест
+                    <span class="item__subtitle-info">0 из 2 вопросов</span>
+                  </h3>
+                  <a class="btn btn--disabled" href="#">Начать прохождение</a>
+                </div>
+                <p class="item__test-info">Завершите теоретический этап</p>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <button class="snap-help" type="button">
+      <svg width="28" height="28">
+        <use href="#help" />
+      </svg>
+    </button>
+
+    <div class="help-popup__wrapper">
+      <button class="help-popup__close-snap"></button>
+      <div class="help-popup">
+        <h3>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum,
+          minima?
+        </h3>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam eum
+          quibusdam nulla ad ab, tenetur nobis nesciunt officia possimus dolorum
+          tempora aspernatur fugiat eius suscipit debitis recusandae temporibus
+          quidem sapiente id mollitia itaque? Numquam, dicta placeat. Ipsum
+          corporis nesciunt natus minus soluta, cumque eius consequuntur
+          molestias ea aliquam exercitationem. Non, dicta? Porro mollitia
+          perspiciatis numquam natus corporis! Nemo eligendi neque debitis quia
+          quod sit esse cum numquam nobis necessitatibus tempora quisquam,
+          repudiandae quasi ratione quam doloremque. Quis dolorum alias sint
+          cum. Impedit, quibusdam quam minus quidem blanditiis quisquam vero
+          illo corporis ducimus, tenetur nobis deserunt distinctio labore cumque
+          repellat voluptatum.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
+          doloremque laborum ea dolorem quas sapiente provident dolorum
+          consequuntur cum aspernatur.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+          autem similique quaerat suscipit doloribus incidunt facilis recusandae
+          fugit id ipsam nemo sunt dolor laboriosam blanditiis voluptatem
+          excepturi quidem minima atque ratione, corporis enim. Iusto sint ab
+          sunt, aut in nihil veritatis voluptatum vel voluptates autem! Iure
+          cumque soluta sed eius.
+        </p>
+        <p>
+          Maiores voluptate modi asperiores minus in provident quaerat aliquam
+          nam odit sapiente facere itaque, tenetur nesciunt dolorum, deserunt
+          doloribus sunt. Voluptas quam necessitatibus at, aliquam inventore
+          corrupti hic minus ab eligendi ut exercitationem error molestias
+          tenetur reiciendis voluptate tempora ea animi aperiam quos omnis,
+          adipisci est quae quidem? Libero, eos!
+        </p>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente quo
+          aut magni autem nihil voluptatem numquam odio, cum, hic placeat
+          nesciunt aliquam saepe est laudantium qui sunt asperiores cupiditate
+          obcaecati?
+        </p>
+        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla officia
+          porro eveniet quisquam assumenda eos veniam ad quidem, dignissimos
+          quibusdam!
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque numquam
+          aspernatur magnam maxime itaque? Explicabo, et incidunt dolorem a nisi
+          repellendus placeat magnam itaque cumque accusamus natus similique ad
+          pariatur quam? Aliquam illum cumque voluptatem adipisci in atque ut
+          reiciendis? Exercitationem, numquam! Ea necessitatibus pariatur
+          perspiciatis sequi eveniet, temporibus cumque.
+        </p>
       </div>
     </div>
   </body>

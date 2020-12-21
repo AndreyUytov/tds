@@ -6,7 +6,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const autoprefixer = require('autoprefixer')
 const cssnano = require('cssnano')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-// const CopyWebpackPlugin = require('copy-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 function generateHtmlPlugins(templateDir) {
   const templateFiles = fs.readdirSync(path.resolve(__dirname, templateDir))
@@ -94,13 +94,14 @@ module.exports = (env) => {
       new MiniCssExtractPlugin({
         filename: isProduction ? '[hash].css' : 'index.css',
       }),
-      //   new CopyWebpackPlugin({
-      //     patterns: [
-      //     {
-      //       from: './src/img-for-view',
-      //       to: './img'
-      //     }
-      // ]}),
+      new CopyWebpackPlugin({
+        patterns: [
+          {
+            from: './src/static',
+            to: './static',
+          },
+        ],
+      }),
       new webpack.HotModuleReplacementPlugin(),
       ...htmlPlugins,
     ],

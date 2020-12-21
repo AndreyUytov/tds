@@ -7,7 +7,7 @@
   height: 100vh;
 
   background-color: var(--akcentColor);
-  background-image: url('./../images/fon-login.png');
+  background-image: var(--login-fon);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
