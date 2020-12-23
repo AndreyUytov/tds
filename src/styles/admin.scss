@@ -1,6 +1,3 @@
-.admin-header__wrapper {
-}
-
 .admin-header {
   position: fixed;
   top: 0px;
@@ -44,6 +41,69 @@
   & .link-btn {
     color: #ffffff;
   }
+}
+
+.admin-fieldset {
+  margin-bottom: 24px;
+  border: none;
+}
+
+.admin-legend {
+  margin-bottom: 8px;
+
+  font-family: 'Roboto-Bold';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.admin-select {
+  position: relative;
+  width: 264px;
+  height: 50px;
+  padding: 12px 20px;
+  margin-bottom: 16px;
+
+  background: transparent;
+  border: 1px solid #7d8e9d;
+  border-radius: 4px;
+
+  appearance: none;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 26px;
+  color: #ffffff;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: 0px;
+
+    width: 26px;
+    height: 26px;
+
+    background-image: var(--select-icon-url);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: red;
+    z-index: 2;
+  }
+}
+
+.admin-input {
+  width: 264px;
+  height: 50px;
+  padding: 12px 20px;
+  margin-bottom: 16px;
+
+  background: transparent;
+  border: 1px solid #7d8e9d;
+  border-radius: 4px;
 }
 
 .admin-report-section {

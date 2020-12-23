@@ -22,6 +22,9 @@
         font-weight: 700;
         font-style: normal;
       }
+      :root {
+        --select-icon-url: url('./static/select-down.png');
+      }
     </style>
   </head>
   <body class="fon-body">
@@ -53,25 +56,30 @@
           fill="#253B4D"
         />
       </symbol>
+
+      <symbol
+        id="file-icon"
+        width="26"
+        height="26"
+        viewBox="0 0 16 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        class="admin-header__icon"
+      >
+        <path
+          d="M9.85716 0.714844H2.42858C1.93604 0.714844 1.46367 0.910506 1.11539 1.25879C0.767104 1.60707 0.571442 2.07944 0.571442 2.57199V17.4291C0.571442 17.9217 0.767104 18.394 1.11539 18.7423C1.46367 19.0906 1.93604 19.2863 2.42858 19.2863H13.5714C14.064 19.2863 14.5364 19.0906 14.8846 18.7423C15.2329 18.394 15.4286 17.9217 15.4286 17.4291V6.28627M9.85716 0.714844L15.4286 6.28627M9.85716 0.714844V6.28627H15.4286M11.7143 10.9291H4.28573M11.7143 14.6434H4.28573M6.14287 7.21484H4.28573"
+          stroke="white"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
     </svg>
     <header class="content">
       <div class="admin-header">
         <h1 class="admin-header__title">Результаты тестирования</h1>
         <a href="#" class="btn">
-          <svg
-            width="26"
-            height="26"
-            viewBox="0 0 16 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            class="admin-header__icon"
-          >
-            <path
-              d="M9.85716 0.714844H2.42858C1.93604 0.714844 1.46367 0.910506 1.11539 1.25879C0.767104 1.60707 0.571442 2.07944 0.571442 2.57199V17.4291C0.571442 17.9217 0.767104 18.394 1.11539 18.7423C1.46367 19.0906 1.93604 19.2863 2.42858 19.2863H13.5714C14.064 19.2863 14.5364 19.0906 14.8846 18.7423C15.2329 18.394 15.4286 17.9217 15.4286 17.4291V6.28627M9.85716 0.714844L15.4286 6.28627M9.85716 0.714844V6.28627H15.4286M11.7143 10.9291H4.28573M11.7143 14.6434H4.28573M6.14287 7.21484H4.28573"
-              stroke="white"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
+          <svg width="26" height="26" class="admin-header__icon">
+            <use href="#file-icon" />
           </svg>
           Скачать отчет
         </a>
@@ -83,7 +91,7 @@
           <fieldset class="admin-fieldset">
             <legend class="admin-legend">Доп. параметр</legend>
             <select class="admin-select">
-              <option selected disbled hidden>Выберите пункт</option>
+              <option selected disabled hidden>Выберите</option>
               <option>пункт 1</option>
               <option>пункт 2</option>
               <option>пункт 3</option>
@@ -97,7 +105,7 @@
           <fieldset class="admin-fieldset">
             <legend class="admin-legend">Доп. параметр</legend>
             <select class="admin-select">
-              <option selected>Выберите пункт</option>
+              <option selected disabled hidden>Выберите пункт</option>
               <option>пункт 1</option>
               <option>пункт 2</option>
               <option>пункт 3</option>
@@ -111,7 +119,7 @@
           <fieldset class="admin-fieldset">
             <legend class="admin-legend">Доп. параметр</legend>
             <select class="admin-select">
-              <option selected>Выберите пункт</option>
+              <option selected disabled hidden>Выберите пункт</option>
               <option>пункт 1</option>
               <option>пункт 2</option>
               <option>пункт 3</option>
@@ -125,7 +133,7 @@
           <fieldset class="admin-fieldset">
             <legend class="admin-legend">Доп. параметр</legend>
             <select class="admin-select">
-              <option selected>Выберите пункт</option>
+              <option selected disabled hidden>Выберите пункт</option>
               <option>пункт 1</option>
               <option>пункт 2</option>
               <option>пункт 3</option>
