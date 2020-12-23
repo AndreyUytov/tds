@@ -4,8 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      @font-face {
+        font-family: 'Roboto';
+        src: url('./static/fonts/Roboto.woff2') format('woff2'),
+          url('./static/fonts/Roboto.woff') format('woff'),
+          url('./static/fonts/Roboto.ttf') format('truetype');
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: 'Roboto-Bold';
+        src: url('./static/fonts/Robotobold.woff2') format('woff2'),
+          url('./static/fonts/Robotobold.woff') format('woff'),
+          url('./static/fonts/Robotobold.ttf') format('truetype');
+        font-weight: 700;
+        font-style: normal;
+      }
+    </style>
   </head>
-  <body class="lk-body">
+  <body class="fon-body">
     <svg style="display: none">
       <symbol
         id="help"
@@ -28,7 +47,7 @@
           class="user-section__avatar"
           style="--avatar-icon: url('./static/user-icon-default.svg')"
         >
-          <img src="./../../images/avatar.jpg" />
+          <img src="./static/avatar.jpg" />
         </div>
         <h3 class="user-section__user-name">Саитов Дмитрий Андреевич</h3>
         <p class="user-section__user-info">Инжинер-конструктор</p>

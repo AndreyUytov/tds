@@ -72,7 +72,7 @@ module.exports = (env) => {
     output: {
       path: path.join(__dirname, 'dist'),
       publicPath: './',
-      filename: isProduction ? 'js/[name][hash].js' : 'js/[name].js',
+      filename: '[name].js',
     },
 
     // optimization: {
@@ -92,7 +92,7 @@ module.exports = (env) => {
     plugins: [
       new CleanWebpackPlugin(),
       new MiniCssExtractPlugin({
-        filename: isProduction ? '[hash].css' : 'index.css',
+        filename: 'index.css',
       }),
       new CopyWebpackPlugin({
         patterns: [
@@ -147,43 +147,43 @@ module.exports = (env) => {
             },
           ],
         },
-        {
-          test: /\.(png|jpe?g|gif|woff|woff2|ttf|svg|webp)$/,
-          use: [
-            {
-              loader: 'file-loader',
-              options: {
-                name: () => {
-                  if (isProduction) {
-                    return '[contenthash].[ext]'
-                  } else return '[name].[ext]'
-                },
-                outputPath: (url, resourcePath) => {
-                  if (/svg/.test(resourcePath)) {
-                    return `img/svg/${url}`
-                  }
-                  if (/images/.test(resourcePath)) {
-                    return `img/${url}`
-                  }
-                  if (/fonts/.test(resourcePath)) {
-                    return `fonts/${url}`
-                  }
-                },
-              },
-            },
-          ],
-        },
-        {
-          test: /\.html$/i,
-          use: [
-            {
-              loader: 'html-loader',
-              options: {
-                minimize: false,
-              },
-            },
-          ],
-        },
+        // {
+        //   test: /\.(png|jpe?g|gif|woff|woff2|ttf|svg|webp)$/,
+        //   use: [
+        //     {
+        //       loader: 'file-loader',
+        //       options: {
+        //         name: () => {
+        //           if (isProduction) {
+        //             return '[contenthash].[ext]'
+        //           } else return '[name].[ext]'
+        //         },
+        //         outputPath: (url, resourcePath) => {
+        //           if (/svg/.test(resourcePath)) {
+        //             return `img/svg/${url}`
+        //           }
+        //           if (/images/.test(resourcePath)) {
+        //             return `img/${url}`
+        //           }
+        //           if (/fonts/.test(resourcePath)) {
+        //             return `fonts/${url}`
+        //           }
+        //         },
+        //       },
+        //     },
+        //   ],
+        // },
+        // {
+        //   test: /\.html$/i,
+        //   use: [
+        //     {
+        //       loader: 'html-loader',
+        //       options: {
+        //         minimize: false,
+        //       },
+        //     },
+        //   ],
+        // },
       ],
     },
   }

@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin-Page</title>
+    <style>
+      @font-face {
+        font-family: 'Roboto';
+        src: url('./static/fonts/Roboto.woff2') format('woff2'),
+          url('./static/fonts/Roboto.woff') format('woff'),
+          url('./static/fonts/Roboto.ttf') format('truetype');
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: 'Roboto-Bold';
+        src: url('./static/fonts/Robotobold.woff2') format('woff2'),
+          url('./static/fonts/Robotobold.woff') format('woff'),
+          url('./static/fonts/Robotobold.ttf') format('truetype');
+        font-weight: 700;
+        font-style: normal;
+      }
+    </style>
+  </head>
+  <body class="fon-body">
+    <svg style="display: none">
+      <symbol
+        id="asc-icon"
+        width="28"
+        height="28"
+        viewBox="0 0 22 14"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0.5 0H7.5V2.33333H0.5V0ZM0.5 14V11.6667H21.5V14H0.5ZM0.5 5.83333H14.5V8.16667H0.5V5.83333Z"
+          fill="#253B4D"
+        />
+      </symbol>
+
+      <symbol
+        id="desc-icon"
+        width="28"
+        height="28"
+        viewBox="0 0 22 14"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0.5 14H7.5V11.6667H0.5V14ZM0.5 0V2.33333H21.5V0H0.5ZM0.5 8.16667H14.5V5.83333H0.5V8.16667Z"
+          fill="#253B4D"
+        />
+      </symbol>
+    </svg>
+    <header class="content">
+      <div class="admin-header">
+        <h1 class="admin-header__title">Результаты тестирования</h1>
+        <a href="#" class="btn">
+          <svg
+            width="26"
+            height="26"
+            viewBox="0 0 16 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="admin-header__icon"
+          >
+            <path
+              d="M9.85716 0.714844H2.42858C1.93604 0.714844 1.46367 0.910506 1.11539 1.25879C0.767104 1.60707 0.571442 2.07944 0.571442 2.57199V17.4291C0.571442 17.9217 0.767104 18.394 1.11539 18.7423C1.46367 19.0906 1.93604 19.2863 2.42858 19.2863H13.5714C14.064 19.2863 14.5364 19.0906 14.8846 18.7423C15.2329 18.394 15.4286 17.9217 15.4286 17.4291V6.28627M9.85716 0.714844L15.4286 6.28627M9.85716 0.714844V6.28627H15.4286M11.7143 10.9291H4.28573M11.7143 14.6434H4.28573M6.14287 7.21484H4.28573"
+              stroke="white"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          Скачать отчет
+        </a>
+      </div>
+    </header>
+    <main class="admin-main content">
+      <section class="admin-form-section">
+        <form class="admin-form">
+          <fieldset class="admin-fieldset">
+            <legend class="admin-legend">Доп. параметр</legend>
+            <select class="admin-select">
+              <option selected disbled hidden>Выберите пункт</option>
+              <option>пункт 1</option>
+              <option>пункт 2</option>
+              <option>пункт 3</option>
+            </select>
+            <input
+              class="admin-input"
+              type="text"
+              placeholder="Введите значение"
+            />
+          </fieldset>
+          <fieldset class="admin-fieldset">
+            <legend class="admin-legend">Доп. параметр</legend>
+            <select class="admin-select">
+              <option selected>Выберите пункт</option>
+              <option>пункт 1</option>
+              <option>пункт 2</option>
+              <option>пункт 3</option>
+            </select>
+            <input
+              class="admin-input"
+              type="text"
+              placeholder="Введите значение"
+            />
+          </fieldset>
+          <fieldset class="admin-fieldset">
+            <legend class="admin-legend">Доп. параметр</legend>
+            <select class="admin-select">
+              <option selected>Выберите пункт</option>
+              <option>пункт 1</option>
+              <option>пункт 2</option>
+              <option>пункт 3</option>
+            </select>
+            <input
+              class="admin-input"
+              type="text"
+              placeholder="Введите значение"
+            />
+          </fieldset>
+          <fieldset class="admin-fieldset">
+            <legend class="admin-legend">Доп. параметр</legend>
+            <select class="admin-select">
+              <option selected>Выберите пункт</option>
+              <option>пункт 1</option>
+              <option>пункт 2</option>
+              <option>пункт 3</option>
+            </select>
+            <input
+              class="admin-input"
+              type="text"
+              placeholder="Введите значение"
+            />
+          </fieldset>
+          <button type="submit" class="btn">Сформировать</button>
+          <button type="reset" class="link-btn">Сбросить таблицу</button>
+        </form>
+      </section>
+
+      <section class="admin-report-section">
+        <ul class="admin-report-list list">
+          <li class="report-list__item report-list__item--head">
+            <a href="#" class="report-list__column report-list__column--name">
+              ФИО
+              <svg class="report-list__icon" width="28" height="28">
+                <use href="#asc-icon" />
+              </svg>
+            </a>
+            <a
+              href="#"
+              class="report-list__column report-list__column--subdivision"
+            >
+              Подразделение
+              <svg class="report-list__icon" width="28" height="28">
+                <use href="#desc-icon" />
+              </svg>
+            </a>
+            <a href="#" class="report-list__column report-list__column--test">
+              Название теста
+              <svg class="report-list__icon" width="28" height="28">
+                <use href="#desc-icon" />
+              </svg>
+            </a>
+            <span class="report-list__column report-list__column--result">
+              Результат
+            </span>
+          </li>
+
+          <li class="report-list__item">
+            <span class="report-list__column report-list__column--name">
+              Холкин Дмитрий Владимирович ибн Идрис оглы фон Бауман граф Монтэ
+              Кристо
+            </span>
+            <span class="report-list__column report-list__column--subdivision">
+              Сборочный цех
+            </span>
+            <span class="report-list__column report-list__column--test">
+              Тест на оценку квалификации
+            </span>
+            <span
+              class="report-list__column report-list__column--result report-list__column--result-good"
+            >
+              85 баллов
+            </span>
+          </li>
+
+          <li class="report-list__item">
+            <span class="report-list__column report-list__column--name">
+              Саитов Дмитрий Андреевич
+            </span>
+            <span class="report-list__column report-list__column--subdivision">
+              Сборочный цех по сборке сверхсложных запчастей
+            </span>
+            <span class="report-list__column report-list__column--test">
+              Тест на оценку квалификации
+            </span>
+            <span
+              class="report-list__column report-list__column--result report-list__column--result-good"
+            >
+              75 баллов
+            </span>
+          </li>
+
+          <li class="report-list__item">
+            <span class="report-list__column report-list__column--name">
+              Саитов Илья Петрович
+            </span>
+            <span class="report-list__column report-list__column--subdivision">
+              Сборочный цех
+            </span>
+            <span class="report-list__column report-list__column--test">
+              Тест на оценку квалификации тестируемого с помощью сего теста
+            </span>
+            <span
+              class="report-list__column report-list__column--result report-list__column--result-good"
+            >
+              78 баллов
+            </span>
+          </li>
+
+          <li class="report-list__item">
+            <span class="report-list__column report-list__column--name">
+              Каменьщикова Екатерина Владимировна
+            </span>
+            <span class="report-list__column report-list__column--subdivision">
+              Сборочный цех
+            </span>
+            <span class="report-list__column report-list__column--test">
+              Тест на оценку квалификации
+            </span>
+            <span
+              class="report-list__column report-list__column--result report-list__column--result-good"
+            >
+              82 баллов
+            </span>
+          </li>
+
+          <li class="report-list__item">
+            <span class="report-list__column report-list__column--name">
+              Саитов Илья Петрович
+            </span>
+            <span class="report-list__column report-list__column--subdivision">
+              Сборочный цех
+            </span>
+            <span class="report-list__column report-list__column--test">
+              Тест на оценку квалификации
+            </span>
+            <span
+              class="report-list__column report-list__column--result report-list__column--result-good"
+            >
+              88 баллов
+            </span>
+          </li>
+
+          <li class="report-list__item">
+            <span class="report-list__column report-list__column--name">
+              Холкин Дмитрий Владимирович
+            </span>
+            <span class="report-list__column report-list__column--subdivision">
+              Сборочный цех
+            </span>
+            <span class="report-list__column report-list__column--test">
+              Тест на оценку квалификации
+            </span>
+            <span
+              class="report-list__column report-list__column--result report-list__column--result-good"
+            >
+              89 баллов
+            </span>
+          </li>
+
+          <li class="report-list__item">
+            <span class="report-list__column report-list__column--name">
+              Саитов Илья Петрович
+            </span>
+            <span class="report-list__column report-list__column--subdivision">
+              Сборочный цех
+            </span>
+            <span class="report-list__column report-list__column--test">
+              Тест на оценку квалификации
+            </span>
+            <span
+              class="report-list__column report-list__column--result report-list__column--result-good"
+            >
+              95 баллов
+            </span>
+          </li>
+
+          <li class="report-list__item">
+            <span class="report-list__column report-list__column--name">
+              Саитов Дмитрий Андреевич
+            </span>
+            <span class="report-list__column report-list__column--subdivision">
+              Сборочный цех
+            </span>
+            <span class="report-list__column report-list__column--test">
+              Тест на оценку квалификации
+            </span>
+            <span
+              class="report-list__column report-list__column--result report-list__column--result-bad"
+            >
+              50 баллов
+            </span>
+          </li>
+
+          <li class="report-list__item">
+            <span class="report-list__column report-list__column--name">
+              Саитов Илья Петрович
+            </span>
+            <span class="report-list__column report-list__column--subdivision">
+              Сборочный цех
+            </span>
+            <span class="report-list__column report-list__column--test">
+              Тест на оценку квалификации
+            </span>
+            <span
+              class="report-list__column report-list__column--result report-list__column--result-bad"
+            >
+              45 баллов
+            </span>
+          </li>
+
+          <li class="report-list__item">
+            <span class="report-list__column report-list__column--name">
+              Холкин Дмитрий Владимирович
+            </span>
+            <span class="report-list__column report-list__column--subdivision">
+              Сборочный цех
+            </span>
+            <span class="report-list__column report-list__column--test">
+              Тест на оценку квалификации
+            </span>
+            <span
+              class="report-list__column report-list__column--result report-list__column--result-bad"
+            >
+              44 баллов
+            </span>
+          </li>
+
+          <li class="report-list__item">
+            <span class="report-list__column report-list__column--name">
+              Каменьщикова Екатерина Владимировна
+            </span>
+            <span class="report-list__column report-list__column--subdivision">
+              Сборочный цех
+            </span>
+            <span class="report-list__column report-list__column--test">
+              Тест на оценку квалификации
+            </span>
+            <span
+              class="report-list__column report-list__column--result report-list__column--result-bad"
+            >
+              42 баллов
+            </span>
+          </li>
+
+          <li class="report-list__item">
+            <span class="report-list__column report-list__column--name">
+              Саитов Илья Петрович
+            </span>
+            <span class="report-list__column report-list__column--subdivision">
+              Сборочный цех
+            </span>
+            <span class="report-list__column report-list__column--test">
+              Тест на оценку квалификации
+            </span>
+            <span
+              class="report-list__column report-list__column--result report-list__column--result-bad"
+            >
+              45 баллов
+            </span>
+          </li>
+
+          <li class="report-list__item">
+            <span class="report-list__column report-list__column--name">
+              Саитов Илья Петрович
+            </span>
+            <span class="report-list__column report-list__column--subdivision">
+              Сборочный цех
+            </span>
+            <span class="report-list__column report-list__column--test">
+              Тест на оценку квалификации
+            </span>
+            <span
+              class="report-list__column report-list__column--result report-list__column--result-bad"
+            >
+              45 баллов
+            </span>
+          </li>
+
+          <li class="report-list__item">
+            <span class="report-list__column report-list__column--name">
+              Саитов Илья Петрович
+            </span>
+            <span class="report-list__column report-list__column--subdivision">
+              Сборочный цех
+            </span>
+            <span class="report-list__column report-list__column--test">
+              Тест на оценку квалификации
+            </span>
+            <span
+              class="report-list__column report-list__column--result report-list__column--result-bad"
+            >
+              45 баллов
+            </span>
+          </li>
+
+          <li class="report-list__item">
+            <span class="report-list__column report-list__column--name">
+              Саитов Илья Петрович
+            </span>
+            <span class="report-list__column report-list__column--subdivision">
+              Сборочный цех
+            </span>
+            <span class="report-list__column report-list__column--test">
+              Тест на оценку квалификации
+            </span>
+            <span
+              class="report-list__column report-list__column--result report-list__column--result-bad"
+            >
+              45 баллов
+            </span>
+          </li>
+
+          <li class="report-list__item">
+            <span class="report-list__column report-list__column--name">
+              Саитов Илья Петрович
+            </span>
+            <span class="report-list__column report-list__column--subdivision">
+              Сборочный цех
+            </span>
+            <span class="report-list__column report-list__column--test">
+              Тест на оценку квалификации
+            </span>
+            <span
+              class="report-list__column report-list__column--result report-list__column--result-bad"
+            >
+              45 баллов
+            </span>
+          </li>
+
+          <li class="report-list__item">
+            <span class="report-list__column report-list__column--name">
+              Саитов Илья Петрович
+            </span>
+            <span class="report-list__column report-list__column--subdivision">
+              Сборочный цех
+            </span>
+            <span class="report-list__column report-list__column--test">
+              Тест на оценку квалификации
+            </span>
+            <span
+              class="report-list__column report-list__column--result report-list__column--result-bad"
+            >
+              45 баллов
+            </span>
+          </li>
+
+          <li class="report-list__item">
+            <span class="report-list__column report-list__column--name">
+              Саитов Илья Петрович
+            </span>
+            <span class="report-list__column report-list__column--subdivision">
+              Сборочный цех
+            </span>
+            <span class="report-list__column report-list__column--test">
+              Тест на оценку квалификации
+            </span>
+            <span
+              class="report-list__column report-list__column--result report-list__column--result-bad"
+            >
+              45 баллов
+            </span>
+          </li>
+
+          <li class="report-list__item">
+            <span class="report-list__column report-list__column--name">
+              Каменьщикова Екатерина Владимировна
+            </span>
+            <span class="report-list__column report-list__column--subdivision">
+              Сборочный цех
+            </span>
+            <span class="report-list__column report-list__column--test">
+              Тест на оценку квалификации
+            </span>
+            <span
+              class="report-list__column report-list__column--result report-list__column--result-bad"
+            >
+              42 баллов
+            </span>
+          </li>
+
+          <li class="report-list__item">
+            <span class="report-list__column report-list__column--name">
+              Каменьщикова Екатерина Владимировна
+            </span>
+            <span class="report-list__column report-list__column--subdivision">
+              Сборочный цех
+            </span>
+            <span class="report-list__column report-list__column--test">
+              Тест на оценку квалификации
+            </span>
+            <span
+              class="report-list__column report-list__column--result report-list__column--result-bad"
+            >
+              42 баллов
+            </span>
+          </li>
+          <li class="report-list__item">
+            <span class="report-list__column report-list__column--name">
+              Каменьщикова Екатерина Владимировна
+            </span>
+            <span class="report-list__column report-list__column--subdivision">
+              Сборочный цех
+            </span>
+            <span class="report-list__column report-list__column--test">
+              Тест на оценку квалификации
+            </span>
+            <span
+              class="report-list__column report-list__column--result report-list__column--result-bad"
+            >
+              42 баллов
+            </span>
+          </li>
+          <li class="report-list__item">
+            <span class="report-list__column report-list__column--name">
+              Каменьщикова Екатерина Владимировна
+            </span>
+            <span class="report-list__column report-list__column--subdivision">
+              Сборочный цех
+            </span>
+            <span class="report-list__column report-list__column--test">
+              Тест на оценку квалификации
+            </span>
+            <span
+              class="report-list__column report-list__column--result report-list__column--result-bad"
+            >
+              42 баллов
+            </span>
+          </li>
+          <li class="report-list__item">
+            <span class="report-list__column report-list__column--name">
+              Каменьщикова Екатерина Владимировна
+            </span>
+            <span class="report-list__column report-list__column--subdivision">
+              Сборочный цех
+            </span>
+            <span class="report-list__column report-list__column--test">
+              Тест на оценку квалификации
+            </span>
+            <span
+              class="report-list__column report-list__column--result report-list__column--result-bad"
+            >
+              42 баллов
+            </span>
+          </li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
