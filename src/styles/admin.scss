@@ -37,15 +37,22 @@
   width: 264px;
 
   color: #ffffff;
+}
 
-  & .link-btn {
-    color: #ffffff;
-  }
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .admin-fieldset {
+  padding: 0;
   margin-bottom: 24px;
   border: none;
+
+  &:last-of-type {
+    margin-bottom: 32px;
+  }
 }
 
 .admin-legend {
@@ -58,12 +65,28 @@
   line-height: 26px;
 }
 
-.admin-select {
+.select-wrapper {
   position: relative;
+  margin-bottom: 16px;
+
+  & .select-icon {
+    position: absolute;
+    top: 12px;
+    right: 20px;
+
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  &:hover .select-icon {
+    --select-color: #ffffff;
+  }
+}
+
+.admin-select {
   width: 264px;
   height: 50px;
   padding: 12px 20px;
-  margin-bottom: 16px;
 
   background: transparent;
   border: 1px solid #7d8e9d;
@@ -78,20 +101,8 @@
   line-height: 26px;
   color: #ffffff;
 
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0px;
-    right: 0px;
-
-    width: 26px;
-    height: 26px;
-
-    background-image: var(--select-icon-url);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: red;
-    z-index: 2;
+  &:hover {
+    border: 1px solid #ffffff;
   }
 }
 
@@ -99,11 +110,26 @@
   width: 264px;
   height: 50px;
   padding: 12px 20px;
-  margin-bottom: 16px;
 
   background: transparent;
   border: 1px solid #7d8e9d;
   border-radius: 4px;
+
+  color: #ffffff;
+
+  &:hover {
+    border: 1px solid #ffffff;
+  }
+}
+
+.admin-submit {
+  width: 100%;
+  margin-bottom: 14px;
+}
+
+.admin-reset {
+  width: 100%;
+  color: #ffffff;
 }
 
 .admin-report-section {

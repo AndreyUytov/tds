@@ -22,13 +22,26 @@
         font-weight: 700;
         font-style: normal;
       }
-      :root {
-        --select-icon-url: url('./static/select-down.png');
-      }
     </style>
   </head>
   <body class="fon-body">
     <svg style="display: none">
+      <symbol
+        id="select-icon"
+        width="26"
+        height="26"
+        viewBox="0 0 26 26"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M7.42856 10.2139L13 15.7853L18.5714 10.2139"
+          stroke="var(--select-color, #7D8E9D)"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+
       <symbol
         id="asc-icon"
         width="28"
@@ -90,12 +103,17 @@
         <form class="admin-form">
           <fieldset class="admin-fieldset">
             <legend class="admin-legend">Доп. параметр</legend>
-            <select class="admin-select">
-              <option selected disabled hidden>Выберите</option>
-              <option>пункт 1</option>
-              <option>пункт 2</option>
-              <option>пункт 3</option>
-            </select>
+            <div class="select-wrapper">
+              <svg class="select-icon" width="26" height="26">
+                <use href="#select-icon" />
+              </svg>
+              <select class="admin-select">
+                <option selected disabled hidden>Выберите пункт</option>
+                <option>пункт 1</option>
+                <option>пункт 2</option>
+                <option>пункт 3</option>
+              </select>
+            </div>
             <input
               class="admin-input"
               type="text"
@@ -104,12 +122,17 @@
           </fieldset>
           <fieldset class="admin-fieldset">
             <legend class="admin-legend">Доп. параметр</legend>
-            <select class="admin-select">
-              <option selected disabled hidden>Выберите пункт</option>
-              <option>пункт 1</option>
-              <option>пункт 2</option>
-              <option>пункт 3</option>
-            </select>
+            <div class="select-wrapper">
+              <svg class="select-icon" width="26" height="26">
+                <use href="#select-icon" />
+              </svg>
+              <select class="admin-select">
+                <option selected disabled hidden>Выберите пункт</option>
+                <option>пункт 1</option>
+                <option>пункт 2</option>
+                <option>пункт 3</option>
+              </select>
+            </div>
             <input
               class="admin-input"
               type="text"
@@ -118,12 +141,17 @@
           </fieldset>
           <fieldset class="admin-fieldset">
             <legend class="admin-legend">Доп. параметр</legend>
-            <select class="admin-select">
-              <option selected disabled hidden>Выберите пункт</option>
-              <option>пункт 1</option>
-              <option>пункт 2</option>
-              <option>пункт 3</option>
-            </select>
+            <div class="select-wrapper">
+              <svg class="select-icon" width="26" height="26">
+                <use href="#select-icon" />
+              </svg>
+              <select class="admin-select">
+                <option selected disabled hidden>Выберите пункт</option>
+                <option>пункт 1</option>
+                <option>пункт 2</option>
+                <option>пункт 3</option>
+              </select>
+            </div>
             <input
               class="admin-input"
               type="text"
@@ -132,20 +160,27 @@
           </fieldset>
           <fieldset class="admin-fieldset">
             <legend class="admin-legend">Доп. параметр</legend>
-            <select class="admin-select">
-              <option selected disabled hidden>Выберите пункт</option>
-              <option>пункт 1</option>
-              <option>пункт 2</option>
-              <option>пункт 3</option>
-            </select>
+            <div class="select-wrapper">
+              <svg class="select-icon" width="26" height="26">
+                <use href="#select-icon" />
+              </svg>
+              <select class="admin-select">
+                <option selected disabled hidden>Выберите пункт</option>
+                <option>пункт 1</option>
+                <option>пункт 2</option>
+                <option>пункт 3</option>
+              </select>
+            </div>
             <input
               class="admin-input"
               type="text"
               placeholder="Введите значение"
             />
           </fieldset>
-          <button type="submit" class="btn">Сформировать</button>
-          <button type="reset" class="link-btn">Сбросить таблицу</button>
+          <button type="submit" class="btn admin-submit">Сформировать</button>
+          <button type="reset" class="link-btn admin-reset">
+            Сбросить таблицу
+          </button>
         </form>
       </section>
 
