@@ -21,7 +21,6 @@ customElements.define(
           form.submit()
         })
         this.testForm = this.querySelector('answer-form')
-        console.log(this.testForm)
         this.hiddenInputs = this.testForm.shadowRoot
           .querySelector('slot:not([name])')
           .assignedElements()
@@ -34,7 +33,6 @@ customElements.define(
               this.checkedInputs.push(label.input)
             }
           })
-          console.log(this.checkedInputs)
           if (this.checkedInputs.length) {
             this.testForm.btn.disabled = false
           } else {
@@ -48,7 +46,6 @@ customElements.define(
           this.checkedInputs = []
           this.checkedLabelsOrderById.forEach((id) => {
             this.checkedInputs.push(this.testForm.labels[id].input)
-            console.log(this.checkedInputs)
           })
 
           if (this.checkedInputs) {
@@ -89,7 +86,6 @@ customElements.define(
         this.checkedLabelsOrderById = []
         this.shadowRoot.addEventListener('redefinition-list', (evt) => {
           this.checkedLabelsOrderById = evt.detail.newOrder
-          console.log(this.checkedLabelsOrderById)
         })
       } else {
         this.shadowRoot.addEventListener('submit-form', () => {

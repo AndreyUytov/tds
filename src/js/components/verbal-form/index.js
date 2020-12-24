@@ -149,12 +149,10 @@ customElements.define(
       let labels = Array.from(set)
       if (labels.length > this.labels.length) {
         this.addLabel(labels[labels.length - 1])
-        console.log(this.labels.length, 'from 1st')
         return
       }
 
       if (labels.length < this.labels.length) {
-        console.log(this.labels.length, 'from 2st')
         let labelsElements = []
         this.labels.forEach((el) => {
           let labelFromState = labels.find((obj) => el._id === obj._id)
@@ -164,7 +162,6 @@ customElements.define(
           }
         })
         this.labels = labelsElements
-        console.log(this.labels.length, 'from 2st')
         return
       }
     }
