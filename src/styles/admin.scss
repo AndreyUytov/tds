@@ -35,8 +35,6 @@
   position: fixed;
   top: 130px;
   width: 264px;
-
-  color: #ffffff;
 }
 
 .admin-form {
@@ -103,6 +101,10 @@
 
   &:hover {
     border: 1px solid #ffffff;
+  }
+
+  option {
+    color: black;
   }
 }
 
