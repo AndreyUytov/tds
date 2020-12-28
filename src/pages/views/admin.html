@@ -158,25 +158,6 @@
               placeholder="Введите значение"
             />
           </fieldset>
-          <fieldset class="admin-fieldset">
-            <legend class="admin-legend">Доп. параметр</legend>
-            <div class="select-wrapper">
-              <svg class="select-icon" width="26" height="26">
-                <use href="#select-icon" />
-              </svg>
-              <select class="admin-select">
-                <option selected disabled hidden>Выберите пункт</option>
-                <option>пункт 1</option>
-                <option>пункт 2</option>
-                <option>пункт 3</option>
-              </select>
-            </div>
-            <input
-              class="admin-input"
-              type="text"
-              placeholder="Введите значение"
-            />
-          </fieldset>
           <button type="submit" class="btn admin-submit">Сформировать</button>
           <button type="reset" class="link-btn admin-reset">
             Сбросить таблицу
@@ -185,31 +166,47 @@
       </section>
 
       <section class="admin-report-section">
+        <header class="report-list__header">
+          <a href="#" class="report-list__column report-list__column--name">
+            ФИО
+            <svg class="report-list__icon" width="28" height="28">
+              <use href="#asc-icon" />
+            </svg>
+          </a>
+          <a
+            href="#"
+            class="report-list__column report-list__column--subdivision"
+          >
+            Подразделение
+            <svg class="report-list__icon" width="28" height="28">
+              <use href="#desc-icon" />
+            </svg>
+          </a>
+          <a href="#" class="report-list__column report-list__column--test">
+            Название теста
+            <svg class="report-list__icon" width="28" height="28">
+              <use href="#desc-icon" />
+            </svg>
+          </a>
+          <span class="report-list__column report-list__column--result">
+            Результат
+          </span>
+        </header>
         <ul class="admin-report-list list">
-          <li class="report-list__item report-list__item--head">
-            <a href="#" class="report-list__column report-list__column--name">
-              ФИО
-              <svg class="report-list__icon" width="28" height="28">
-                <use href="#asc-icon" />
-              </svg>
-            </a>
-            <a
-              href="#"
-              class="report-list__column report-list__column--subdivision"
+          <li class="report-list__item">
+            <span class="report-list__column report-list__column--name">
+              Каменьщикова Екатерина Владимировна
+            </span>
+            <span class="report-list__column report-list__column--subdivision">
+              Сборочный цех
+            </span>
+            <span class="report-list__column report-list__column--test">
+              Тест на оценку квалификации
+            </span>
+            <span
+              class="report-list__column report-list__column--result report-list__column--result-good"
             >
-              Подразделение
-              <svg class="report-list__icon" width="28" height="28">
-                <use href="#desc-icon" />
-              </svg>
-            </a>
-            <a href="#" class="report-list__column report-list__column--test">
-              Название теста
-              <svg class="report-list__icon" width="28" height="28">
-                <use href="#desc-icon" />
-              </svg>
-            </a>
-            <span class="report-list__column report-list__column--result">
-              Результат
+              82 баллов
             </span>
           </li>
 
@@ -262,23 +259,6 @@
               class="report-list__column report-list__column--result report-list__column--result-good"
             >
               78 баллов
-            </span>
-          </li>
-
-          <li class="report-list__item">
-            <span class="report-list__column report-list__column--name">
-              Каменьщикова Екатерина Владимировна
-            </span>
-            <span class="report-list__column report-list__column--subdivision">
-              Сборочный цех
-            </span>
-            <span class="report-list__column report-list__column--test">
-              Тест на оценку квалификации
-            </span>
-            <span
-              class="report-list__column report-list__column--result report-list__column--result-good"
-            >
-              82 баллов
             </span>
           </li>
 
