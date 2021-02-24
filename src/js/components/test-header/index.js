@@ -31,7 +31,7 @@ customElements.define(
         this.timer.textContent = `${differenceMin}:${
           differenceSec < 10 ? '0' + differenceSec : differenceSec
         }`
-        if (differenceSec <= 1) {
+        if (time <= 1) {
           this.shadowRoot.dispatchEvent(
             new Event('submit-form', { bubbles: true, composed: true })
           )
