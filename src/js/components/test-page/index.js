@@ -12,7 +12,7 @@ customElements.define(
       if (!this.forms.length) {
         this.shadowRoot.addEventListener('submit-form', () => {
           const form = document.createElement('form')
-          // form.method = 'POST'
+          form.method = 'POST'
           if (this.checkedInputs) {
             form.append(...this.hiddenInputs, ...this.checkedInputs)
           } else form.append(...this.hiddenInputs)
@@ -42,7 +42,7 @@ customElements.define(
       } else if (this.forms.length === 1) {
         this.shadowRoot.addEventListener('submit-form', () => {
           const form = document.createElement('form')
-          // form.method = 'POST'
+          form.method = 'POST'
           this.checkedInputs = []
           this.checkedLabelsOrderById.forEach((id) => {
             this.checkedInputs.push(this.testForm.labels[id].input)
@@ -90,7 +90,7 @@ customElements.define(
       } else {
         this.shadowRoot.addEventListener('submit-form', () => {
           const form = document.createElement('form')
-          // form.method = 'POST'
+          form.method = 'POST'
           if (this.checkedInputs) {
             form.append(...this.hiddenInputs, ...this.checkedInputs)
           } else form.append(...this.hiddenInputs)

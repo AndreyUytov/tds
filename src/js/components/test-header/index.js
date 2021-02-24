@@ -7,10 +7,7 @@ customElements.define(
       this.attachShadow({ mode: 'open' })
       this.totalQuestions = +this.getAttribute('total')
       this.currentQuest = +this.getAttribute('current')
-      this.testStarted = new Date(
-        +this.getAttribute('test-started-ms') || Date.now()
-      )
-      this.timeLimit = +this.getAttribute('time-limit-ms') || 1200000
+      this.timeLimit = +this.getAttribute('time-limit-s') || 1200
       this.ul = document.createElement('ul')
       this.ul.className = 'tabs-list'
       this.render()
@@ -22,17 +19,19 @@ customElements.define(
     }
 
     timerRender() {
+      let time = this.timeLimit
       setInterval(() => {
-        let time = new Date(this.timeLimit - (Date.now() - this.testStarted))
-        let differenceMin = time.getMinutes()
+        time -= 1
+        let timeForShowing = new Date(time * 1000)
+        let differenceMin = timeForShowing.getMinutes()
         if (differenceMin < 5) {
           this.timer.style.color = 'var(--redThemeColor)'
         }
-        let differenceSec = time.getSeconds()
+        let differenceSec = timeForShowing.getSeconds()
         this.timer.textContent = `${differenceMin}:${
           differenceSec < 10 ? '0' + differenceSec : differenceSec
         }`
-        if (time <= 1000) {
+        if (differenceSec <= 1) {
           this.shadowRoot.dispatchEvent(
             new Event('submit-form', { bubbles: true, composed: true })
           )
