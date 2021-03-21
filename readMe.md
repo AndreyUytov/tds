@@ -1,5 +1,5 @@
-Для формы с ошибкой добавить к тегу <form class="main-login__form"> класс "main-login__form--invalid", чтобы стало так  - 
-  <form class="main-login__form main-login__form--invalid">
+Для формы с ошибкой добавить к тегу "<form class="main-login__form">" класс "main-login__form--invalid", чтобы стало так  - 
+  "<form class="main-login__form main-login__form--invalid">"
 
 
 
