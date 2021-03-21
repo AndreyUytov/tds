@@ -1,3 +1,8 @@
+Для формы с ошибкой добавить к тегу <form class="main-login__form"> класс "main-login__form--invalid", чтобы стало так  - 
+  <form class="main-login__form main-login__form--invalid">
+
+
+
 test-page Управляет состоянием, готовит форму для отправки ответов, слушает изменения в порядке выбранных ответов в вербальных тестах,
 имеет три обязательных слота -
 test-header
