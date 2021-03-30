@@ -1,7 +1,7 @@
-Если тестов для прохождения нет, то для кнопки выхода из личного кабинета нужно добавить класс _user-section\_\_user-button--akcent_? чтобы стало так -
+Если тестов для прохождения нет, то для кнопки выхода из личного кабинета нужно добавить класс `user-section__user-button--akcent` чтобы стало так -
 `<button class="user-section__user-button user-section__user-button--akcent">`
 
-Для формы с ошибкой добавить к тегу `<form class="main-login__form" класс "main-login__form--invalid> `, чтобы стало так -
+Для формы с ошибкой добавить к тегу `<form class="main-login__form">` класс `"main-login__form--invalid"`, чтобы стало так -
 `<form class="main-login__form main-login__form--invalid> `
 
 ###test-page
