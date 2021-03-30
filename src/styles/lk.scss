@@ -92,6 +92,55 @@
   color: var(--subTextColor);
 }
 
+.user-section__user-button {
+  width: 100%;
+  padding: 12px 32px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 26px;
+
+  color: var(--defaultTextColor);
+  background-color: #1a2936;
+
+  border: none;
+  border-radius: 4px;
+
+  box-shadow: 0px 4px 4px rgba(50, 50, 71, 0.08),
+    0px 4px 8px rgba(50, 50, 71, 0.06);
+  cursor: pointer;
+  transition: 0.4s ease-in-out;
+
+  & svg {
+    width: 27px;
+    height: 26px;
+    margin-right: 8px;
+  }
+
+  &:hover {
+    background-color: #335068;
+  }
+  &:active {
+    background-color: #406583;
+  }
+
+  &--akcent {
+    background-color: var(--redThemeColor);
+    &:hover {
+      background-color: var(--redThemeHover);
+    }
+    &:active {
+      background-color: var(--redThemeActive);
+    }
+  }
+}
+
 .lk-main__test-section {
   width: 888px;
   margin-left: 48px;
@@ -237,4 +286,30 @@
   &:hover::before {
     transform: scale(1.05);
   }
+}
+
+// lk empty page
+
+.lk-main__title {
+  margin: 0;
+  margin-bottom: 32px;
+  padding: 0;
+  font-family: 'Roboto-Bold';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 41px;
+  color: #ffffff;
+}
+
+.lk-main__empty-message {
+  margin: 0;
+  padding: 0;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 26px;
+  color: #d7dbdd;
 }

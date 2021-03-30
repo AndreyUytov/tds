@@ -76,6 +76,7 @@ input[type='radio'].visually-hidden {
   box-shadow: 0px 4px 4px rgba(50, 50, 71, 0.08),
     0px 4px 8px rgba(50, 50, 71, 0.06);
   cursor: pointer;
+  transition: 0.4s ease-in-out;
 
   &:not(.btn--disabled):hover {
     background: var(--redThemeHover);
