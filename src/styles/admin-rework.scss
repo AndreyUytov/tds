@@ -35,21 +35,52 @@
 }
 
 .admin-page__main {
+  position: relative;
   display: grid;
-  grid-template-columns: 1fr [filters] minmax(264px, 3fr) [list] minmax(888px, 9fr) 1fr;
-  grid-template-rows: 50px;
+  grid-template-columns: 1fr [filters] minmax(264px, 3fr) [list] minmax(888px, 9fr) [right-gutter]1fr;
   grid-gap: 48px;
 
   color: #ffffff;
 }
 
+.arrow-scroll-snap {
+  grid-column: right-gutter;
+  position: sticky;
+  top: 50px;
+
+  width: 56px;
+  height: 56px;
+  padding: 0px;
+  margin: 0px;
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+  
+  background: #FFFFFF;
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.08), 0px 8px 16px rgba(0, 0, 0, 0.06);
+  border-radius: 28px;
+  border: none;
+
+  cursor: pointer;
+  opacity: 0.5;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  & svg {
+    transform: rotate(-180deg);
+  }
+}
+
 .admin-page__filters {
   grid-column: filters;
-  position: sticky;
-  top: 0px;
 }
 
 .admin-page__filters-form {
+  position: sticky;
+  top: 16px;
   width: 100%;
 
   display: flex;
@@ -260,9 +291,15 @@
   height: 52px;
 
   display: grid;
-  grid-template-columns: 2fr 2fr 2fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 2fr 1fr 1fr;
   grid-column-gap: 18px;
   place-items: center start;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
 
   border-bottom: 1px solid rgba(228, 228, 228, 0.6);
 
@@ -280,6 +317,13 @@
   &--header {
     position: sticky;
     top: 0px;
+
+    font-family: 'Roboto-Bold';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;    
+
     background-color: #ffffff;
   }
 }
@@ -291,4 +335,35 @@
   white-space: nowrap; 
   overflow: hidden;
   text-overflow: ellipsis;
+
+  &--result {
+    font-family: 'Roboto-Bold';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+
+    color: var(--greenTextColor);
+
+    &-fail {
+      color: var(--redThemeColor);
+    }
+  }
+}
+
+// tooltip
+
+.tooltip {
+  position: fixed;
+  z-index: 100;
+
+  padding: 10px 20px;
+
+  border: 1px solid #b3c9ce;
+  border-radius: 4px;
+  text-align: center;
+  font: italic 14px/1.3 sans-serif;
+  color: #333;
+  background: #fff;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, .3);
 }
