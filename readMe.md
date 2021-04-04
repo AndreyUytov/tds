@@ -3,13 +3,13 @@
 Новый вариант страницы кадровика теперь называется *admin-rework.html*.
 Для того чтобы отметить активную в данный момент сортировку в заголовке, нужно добавить класс `list-section__item-column--active`.
 Например, 
-```<a href="#" class="list-section__item-column list-section__item-column--active">
+`<a href="#" class="list-section__item-column list-section__item-column--active">
       ФИО
       <svg width="28" height="28">
         <use href="#desc-icon" />
       </svg>
     </a>
-```
+`
 
 Если тестов для прохождения нет, то для кнопки выхода из личного кабинета нужно добавить класс `user-section__user-button--akcent` чтобы стало так -
 `<button class="user-section__user-button user-section__user-button--akcent">`
