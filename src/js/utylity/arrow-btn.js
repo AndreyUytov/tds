@@ -11,11 +11,18 @@ window.addEventListener('scroll', function () {
 
 // select animation
 
-const adminForm = document.querySelector('.admin-page__filters-form')
+const selectsWrappers = document.querySelectorAll(
+  '.filters-form__select-wrapper'
+)
 
-adminForm.addEventListener('click', (evt) => {
+document.addEventListener('click', (evt) => {
   let select = evt.target.closest('.filters-form__select-wrapper')
-  if (!select) return
+  if (!select) {
+    selectsWrappers.forEach((el) => {
+      el.classList.remove('filters-form__select-wrapper--open')
+    })
+    return
+  }
 
   select.classList.toggle('filters-form__select-wrapper--open')
 })
