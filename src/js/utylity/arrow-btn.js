@@ -1,53 +1,21 @@
 const arrowSnap = document.querySelector('.arrow-scroll-snap')
 
-arrowSnap.onclick = function() {
-  window.scrollTo(pageXOffset, 0);
-};
+arrowSnap.onclick = function () {
+  window.scrollTo(pageXOffset, 0)
+}
 
-window.addEventListener('scroll', function() {
-  arrowSnap.style.display = (pageYOffset < document.documentElement.clientHeight) ? 'none' : 'flex';
-});
+window.addEventListener('scroll', function () {
+  arrowSnap.style.display =
+    pageYOffset < document.documentElement.clientHeight ? 'none' : 'flex'
+})
 
+// select animation
 
-// tooltip
+const adminForm = document.querySelector('.admin-page__filters-form')
 
-let tooltip;
+adminForm.addEventListener('click', (evt) => {
+  let select = evt.target.closest('.filters-form__select-wrapper')
+  if (!select) return
 
-    document.onmouseover = function(event) {
-      let anchorElem = event.target.closest('.list-section__item-column');
-
-      if (!anchorElem) return;
-
-      tooltip = showTooltip(anchorElem, anchorElem.textContent);
-    }
-
-    document.onmouseout = function() {
-      if (tooltip) {
-        tooltip.remove();
-        tooltip = false;
-      }
-
-    }
-
-
-    function showTooltip(anchorElem, text) {
-      let tooltipElem = document.createElement('div');
-      tooltipElem.className = 'tooltip';
-      tooltipElem.textContent = text;
-      document.body.append(tooltipElem);
-
-      let coords = anchorElem.getBoundingClientRect();
-
-      let left = coords.left + (anchorElem.offsetWidth - tooltipElem.offsetWidth) / 2;
-      if (left < 0) left = 0;
-
-      let top = coords.top - tooltipElem.offsetHeight - 5;
-      if (top < 0) {
-        top = coords.top + anchorElem.offsetHeight + 5;
-      }
-
-      tooltipElem.style.left = left + 'px';
-      tooltipElem.style.top = top + 'px';
-
-      return tooltipElem;
-    }
+  select.classList.toggle('filters-form__select-wrapper--open')
+})
