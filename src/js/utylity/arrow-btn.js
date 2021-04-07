@@ -1,13 +1,15 @@
 const arrowSnap = document.querySelector('.arrow-scroll-snap')
 
-arrowSnap.onclick = function () {
-  window.scrollTo(pageXOffset, 0)
-}
+if (arrowSnap) {
+  arrowSnap.onclick = function () {
+    window.scrollTo(pageXOffset, 0)
+  }
 
-window.addEventListener('scroll', function () {
-  arrowSnap.style.display =
-    pageYOffset < document.documentElement.clientHeight ? 'none' : 'flex'
-})
+  window.addEventListener('scroll', function () {
+    arrowSnap.style.display =
+      pageYOffset < document.documentElement.clientHeight ? 'none' : 'flex'
+  })
+}
 
 // select animation
 
