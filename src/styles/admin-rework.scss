@@ -16,8 +16,48 @@
   width: 100%;
 
   display: flex;
-  justify-content: space-between;
   align-items: center;
+}
+
+.admin-page__exit-btn {
+  width: 218px;
+  padding: 12px 32px;
+  margin-left: auto;
+  margin-right: 12px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 26px;
+
+  color: var(--defaultTextColor);
+  background-color: #1a2936;
+
+  border: none;
+  border-radius: 4px;
+
+  box-shadow: 0px 4px 4px rgba(50, 50, 71, 0.08),
+    0px 4px 8px rgba(50, 50, 71, 0.06);
+  cursor: pointer;
+  transition: 0.4s ease-in-out;
+
+  & svg {
+    width: 27px;
+    height: 26px;
+    margin-right: 8px;
+  }
+
+  &:hover {
+    background-color: #335068;
+  }
+  &:active {
+    background-color: #406583;
+  }
 }
 
 .admin-page__title {
@@ -37,10 +77,9 @@
 .admin-page__main {
   position: relative;
   display: grid;
-  grid-template-columns: 1fr [filters] minmax(264px, 3fr) [list] minmax(
-      888px,
-      9fr
-    ) [right-gutter]1fr;
+  grid-template-columns:
+    1fr [filters] minmax(264px, 3fr) [list] minmax(888px, 9fr)
+    [right-gutter]1fr;
   grid-gap: 48px;
 
   color: #ffffff;
