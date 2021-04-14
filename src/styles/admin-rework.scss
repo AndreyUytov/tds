@@ -184,6 +184,13 @@
     }
   }
 
+  .filters-form__select-wrapper-multiple {
+    height: auto;
+    & .filters-form__select option {
+      color: #ffffff;
+    }
+  }
+
   .filters-form__select-icon {
     position: absolute;
     top: 50%;
@@ -196,7 +203,7 @@
 
   .filters-form__select {
     width: 100%;
-    height: 50px;
+
     padding: 12px 20px;
 
     font-family: 'Roboto';
