@@ -185,7 +185,11 @@
   }
 
   .filters-form__select-wrapper-multiple {
+    width: 100%;
     height: auto;
+    & select {
+      width: 100%;
+    }
     & .filters-form__select option {
       color: #ffffff;
     }
@@ -292,6 +296,13 @@
 }
 
 .filters-form__checkbox-input:checked + .filters-form__checkbox-marker {
+  border: none;
+  background-color: #ffffff;
+}
+
+// Для мультиселекта
+
+.active .filters-form__checkbox-marker {
   border: none;
   background-color: #ffffff;
 }

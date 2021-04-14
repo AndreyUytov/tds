@@ -10,3 +10,4 @@ import './js/components/test-page'
 
 import './js/utylity/help-popup'
 import './js/utylity/arrow-btn'
+import './js/utylity/vanillaSelectBox'
