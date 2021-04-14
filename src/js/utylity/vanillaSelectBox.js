@@ -863,14 +863,18 @@ function vanillaSelectBox_type(target) {
   return lowercased
 }
 
-let selectBoxTest = new vanillaSelectBox('#adminPageSelect', {
-  maxHeight: 200,
-  placeHolder: 'Выберите значения',
-  search: false,
-  translations: {
-    all: 'All',
-    items: 'items',
-    selectAll: 'Check All',
-    clearAll: 'Clear All',
-  },
-})
+let adminSelect = document.getElementById('adminPageSelect')
+
+if (adminSelect) {
+  let selectBoxTest = new vanillaSelectBox('#adminPageSelect', {
+    maxHeight: 200,
+    placeHolder: 'Выберите значения',
+    search: false,
+    translations: {
+      all: 'All',
+      items: 'items',
+      selectAll: 'Check All',
+      clearAll: 'Clear All',
+    },
+  })
+}
