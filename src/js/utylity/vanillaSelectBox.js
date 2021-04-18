@@ -863,18 +863,23 @@ function vanillaSelectBox_type(target) {
   return lowercased
 }
 
-let adminSelect = document.getElementById('adminPageSelect')
+let adminSelects = document.querySelectorAll('[id^="adminPageSelect-"]')
 
-if (adminSelect) {
-  let selectBoxTest = new vanillaSelectBox('#adminPageSelect', {
-    maxHeight: 200,
-    placeHolder: 'Выберите значения',
-    search: false,
-    translations: {
-      all: 'All',
-      items: 'items',
-      selectAll: 'Check All',
-      clearAll: 'Clear All',
-    },
-  })
+if (adminSelects.length > 0) {
+
+  let selectBoxTests = []
+
+    for (let i = 0; i < adminSelects.length; i++) {
+      selectBoxTests.push(new vanillaSelectBox('#' + adminSelects[i].id, {
+      maxHeight: 200,
+      placeHolder: 'Выберите значения',
+      search: false,
+      translations: {
+        all: 'All',
+        items: 'items',
+        selectAll: 'Выберитать все',
+        clearAll: 'Очистить',
+      },
+      }))
+    }
 }
