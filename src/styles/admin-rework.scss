@@ -302,6 +302,10 @@
 
 // Для мультиселекта
 
+.filters-form__select-wrapper-multiple .filters-form__checkbox-marker {
+  pointer-events: none;
+}
+
 .active .filters-form__checkbox-marker {
   border: none;
   background-color: #ffffff;

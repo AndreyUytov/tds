@@ -470,6 +470,7 @@ function vanillaSelectBox(domSelector, options) {
         self.drop.style.top = self.top + 'px'
         self.drop.style.visibility = 'visible'
         document.addEventListener('click', docListener)
+        self.button.addEventListener('click', buttonListener)
         e.preventDefault()
         e.stopPropagation()
         if (!self.userOptions.stayOpen) {
@@ -577,6 +578,12 @@ function vanillaSelectBox(domSelector, options) {
           x.classList.remove('hidden-search')
         })
       }
+    }
+    function buttonListener(e) {
+      self.button.removeEventListener('click', buttonListener)
+      self.drop.style.visibility = 'hidden'
+      e.preventDefault()
+      e.stopPropagation()
     }
   }
   this.init()
@@ -866,20 +873,21 @@ function vanillaSelectBox_type(target) {
 let adminSelects = document.querySelectorAll('[id^="adminPageSelect-"]')
 
 if (adminSelects.length > 0) {
-
   let selectBoxTests = []
 
-    for (let i = 0; i < adminSelects.length; i++) {
-      selectBoxTests.push(new vanillaSelectBox('#' + adminSelects[i].id, {
-      maxHeight: 200,
-      placeHolder: 'Выберите значения',
-      search: false,
-      translations: {
-        all: 'All',
-        items: 'items',
-        selectAll: 'Выберитать все',
-        clearAll: 'Очистить',
-      },
-      }))
-    }
+  for (let i = 0; i < adminSelects.length; i++) {
+    selectBoxTests.push(
+      new vanillaSelectBox('#' + adminSelects[i].id, {
+        maxHeight: 200,
+        placeHolder: 'Выберите значения',
+        search: false,
+        translations: {
+          all: 'All',
+          items: 'items',
+          selectAll: 'Выберитать все',
+          clearAll: 'Очистить',
+        },
+      })
+    )
+  }
 }
