@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @font-face {
+        font-family: 'Roboto';
+        src: url('./static/fonts/Roboto.woff2') format('woff2'),
+          url('./static/fonts/Roboto.woff') format('woff'),
+          url('./static/fonts/Roboto.ttf') format('truetype');
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: 'Roboto-Bold';
+        src: url('./static/fonts/Robotobold.woff2') format('woff2'),
+          url('./static/fonts/Robotobold.woff') format('woff'),
+          url('./static/fonts/Robotobold.ttf') format('truetype');
+        font-weight: 700;
+        font-style: normal;
+      }
+    </style>
+  <link href="./index.css" rel="stylesheet"></head>
+  <body class="login-body">
+    <div
+      class="img-block"
+      style="--login-fon: url('./static/fon-login.png')"
+    ></div>
+    <main class="main-login">
+      <div class="main-login__wrapper">
+        <h1 class="main-login__title">Добро пожаловать</h1>
+        <p class="main-login__description">
+          Введите, выданный вам логин и пароль, чтобы войти в систему оценки
+          квалификации
+        </p>
+        <form class="main-login__form">
+          <input type="text" placeholder="Логин" />
+          <input type="password" placeholder="Пароль" />
+          <span class="error-message">
+            Неверный пароль и/или логин
+          </span>
+          <button type="submit" class="btn">Войти</button>
+        </form>
+      </div>
+    </main>
+  <script src="./index.js"></script></body>
+</html>

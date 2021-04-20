@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @font-face {
+        font-family: 'Roboto';
+        src: url('./static/fonts/Roboto.woff2') format('woff2'),
+          url('./static/fonts/Roboto.woff') format('woff'),
+          url('./static/fonts/Roboto.ttf') format('truetype');
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: 'Roboto-Bold';
+        src: url('./static/fonts/Robotobold.woff2') format('woff2'),
+          url('./static/fonts/Robotobold.woff') format('woff'),
+          url('./static/fonts/Robotobold.ttf') format('truetype');
+        font-weight: 700;
+        font-style: normal;
+      }
+    </style>
+  <link href="./index.css" rel="stylesheet"></head>
+  <body>
+    <main class="result-main content">
+      <h3 class="result-main__title">Ваш результат</h3>
+      <p class="result-main__points result-main__points--good">85 баллов</p>
+      <h3 class="result-main__title">Затраченное время</h3>
+      <p class="result-main__time">17:45</p>
+      <p class="result-main__test-info">
+        Вы завершили тест на оценку квалификации Ваши ответы сохранены.
+      </p>
+      <a class="btn" href="lk.html">Вернуться в личный кабинет</a>
+      <span class="result-main__additional-info">
+        Нажмите на кнопку для возвращения в личный кабинет.
+      </span>
+    </main>
+  <script src="./index.js"></script></body>
+</html>

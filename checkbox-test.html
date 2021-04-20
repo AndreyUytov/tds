@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Обучающий тест</title>
+    <style>
+      @font-face {
+        font-family: 'Roboto';
+        src: url('./static/fonts/Roboto.woff2') format('woff2'),
+          url('./static/fonts/Roboto.woff') format('woff'),
+          url('./static/fonts/Roboto.ttf') format('truetype');
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: 'Roboto-Bold';
+        src: url('./static/fonts/Robotobold.woff2') format('woff2'),
+          url('./static/fonts/Robotobold.woff') format('woff'),
+          url('./static/fonts/Robotobold.ttf') format('truetype');
+        font-weight: 700;
+        font-style: normal;
+      }
+    </style>
+  <link href="./index.css" rel="stylesheet"></head>
+  <body>
+    <test-page>
+      <test-header slot="test-header" total="25" current="2" time-limit-s="">
+        <span slot="test-title">Обучающий тест</span>
+      </test-header>
+      <question-section slot="question-section">
+        <span slot="number-question">2</span>
+        <span slot="text-question">
+          Какой метод постройки судна соответствует данной формулировки?
+        </span>
+        <img src="./static/image 45.jpg" slot="advanced-text" />
+      </question-section>
+      <answer-section slot="answer-section">
+        <answer-form slot="form" type="checkbox">
+          <span slot="answer-subtitle"
+            >Выберите несколько вариантов ответа</span
+          >
+          <answer-label slot="label">
+            <span slot="label-value">1</span>
+          </answer-label>
+          <answer-label slot="label">
+            <span slot="label-value">2</span>
+          </answer-label>
+          <answer-label slot="label">
+            <span slot="label-value">3</span>
+          </answer-label>
+          <answer-label slot="label">
+            <span slot="label-value">4</span>
+          </answer-label>
+        </answer-form>
+      </answer-section>
+    </test-page>
+  <script src="./index.js"></script></body>
+</html>
