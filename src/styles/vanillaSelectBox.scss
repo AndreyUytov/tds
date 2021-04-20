@@ -111,10 +111,14 @@ li.disabled {
 }
 
 .vsb-menu li {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   font-size: 14px;
-  background-color: #fff;
+  background-color: #253b4d;
+  color: #fff;
   min-height: 1.4em;
-  padding: 0.2em 2em 0.2em 1em;
+  padding: 0.2em 2em 0.2em 10px;
 }
 
 .vsb-menu li.grouped-option {
@@ -123,19 +127,19 @@ li.disabled {
   padding-left: 5px;
 }
 
-.vsb-menu :not(.multi) li.active::before {
-  content: '';
-  display: inline-block;
-  font-size: inherit;
-  float: left;
-  margin-left: -16px;
-  transform: rotate(45deg);
-  height: 10px;
-  width: 5px;
-  border-bottom: 3px solid black;
-  border-right: 3px solid black;
-  border-radius: 2px;
-}
+// .vsb-menu :not(.multi) li.active::before {
+//   content: '';
+//   display: inline-block;
+//   font-size: inherit;
+//   float: left;
+//   margin-left: -16px;
+//   transform: rotate(45deg);
+//   height: 10px;
+//   width: 5px;
+//   border-bottom: 3px solid black;
+//   border-right: 3px solid black;
+//   border-radius: 2px;
+// }
 
 .vsb-menu .multi li {
   display: flex;

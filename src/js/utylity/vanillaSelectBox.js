@@ -580,6 +580,9 @@ function vanillaSelectBox(domSelector, options) {
       }
     }
     function buttonListener(e) {
+      if (self.drop.style.visibility === 'hidden') {
+        return
+      }
       self.button.removeEventListener('click', buttonListener)
       self.drop.style.visibility = 'hidden'
       e.preventDefault()
