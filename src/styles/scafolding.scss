@@ -162,3 +162,29 @@ answer-label img {
 
   cursor: zoom-out;
 }
+
+
+// for portfolio
+
+.portfolio-links {
+  width: 80%;
+  margin: 40px auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  & a {
+    color: chocolate;
+    font-size: 22px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+      color: rgb(232, 168, 122);
+    }
+  }
+}
