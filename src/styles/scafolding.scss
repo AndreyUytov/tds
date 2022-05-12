@@ -100,9 +100,9 @@ input[type='radio'].visually-hidden {
   justify-content: center;
   align-items: center;
 
-  font-family: 'Roboto-Bold';
+  font-family: 'Roboto';
   font-style: normal;
-  font-weight: bold;
+  font-weight: 700;
   font-size: 18px;
   line-height: 26px;
 
@@ -161,4 +161,183 @@ answer-label img {
   background: rgba(49, 49, 51, 0.5);
 
   cursor: zoom-out;
+}
+
+.test-chapter {
+  &:not(:last-of-type) {
+    margin-bottom: 16px;
+  }
+}
+
+.test-chapter-item {
+  position: relative;
+  width: 100%;
+  padding-left: 44px;
+
+  display: flex;
+  align-items: center;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 28px;
+    height: 28px;
+
+    background-image: url('../static/bookmark.svg');
+    background-position: center;
+    background-size: 28px 28px;
+    background-repeat: no-repeat;
+  }
+
+  &:hover {
+    color: var(--redThemeColor);
+    &::before {
+      background-image: url('../static/bookmark-hover.svg');
+    }
+  }
+
+  &:visited {
+    &::before {
+      background-image: url('../static/bookmarkfill-visited.svg');
+    }
+  }
+
+  &--visited {
+    &::before {
+      background-image: url('../static/bookmarkfill-visited.svg');
+    }
+  }
+
+  &--active {
+    font-weight: 700;
+    &::before {
+      background-image: url('../static/bookmarkfill-active.svg');
+    }
+  }
+}
+
+.test__label {
+  position: relative;
+  margin-bottom: 16px;
+  padding-left: 40px;
+  max-width: 100%;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 26px;
+  color: var(--akcentColor);
+
+  cursor: pointer;
+  user-select: none;
+}
+
+.test__marker {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+
+  width: 24px;
+  height: 24px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: transparent;
+  border: 1px solid #d7dbdd;
+  --icon-stroke: transparent;
+  &--checkbox {
+    border-radius: 4px;
+  }
+  &--radio {
+    border-radius: 50%;
+  }
+  &--true {
+    background-color: var(--greenTextColor);
+    --icon-stroke: #fff;
+    & + .test__label-text {
+      color: var(--greenTextColor);
+    }
+  }
+  &--false {
+    background-color: var(--redThemeColor);
+    --icon-stroke: #fff;
+    & + .test__label-text {
+      color: var(--redThemeColor);
+    }
+  }
+}
+
+.test__input:disabled + .test__marker {
+  background-color: var(--subTextColor);
+}
+
+.test__input:checked + .test__marker {
+  background-color: var(--akcentColor);
+  --icon-stroke: var(--defaultTextColor);
+  border: none;
+}
+
+.test__label--fon {
+  color: var(--defaultTextColor);
+
+  .test__marker {
+    border: 1px solid #7d8e9d;
+  }
+
+  .test__input:checked + .test__marker {
+    background-color: var(--defaultTextColor);
+    --icon-stroke: var(--akcentColor);
+  }
+}
+
+.new-test__right-answer {
+  width: 100%;
+  padding: 16px;
+  margin: 0;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+
+  color: var(--akcentColor);
+
+  background: #dee7ef;
+
+  border: 1px solid #253b4d;
+  border-radius: 10px;
+}
+
+.answer-block__result {
+  width: 100%;
+  margin-bottom: 8px;
+
+  display: flex;
+  justify-content: center;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 72px;
+  line-height: 84px;
+  text-align: center;
+
+  color: var(--greenTextColor);
 }

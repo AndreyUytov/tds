@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @font-face {
+        font-family: 'Roboto';
+        src: url('./static/fonts/Roboto.woff2') format('woff2'),
+          url('./static/fonts/Roboto.woff') format('woff'),
+          url('./static/fonts/Roboto.ttf') format('truetype');
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: 'Roboto';
+        src: url('./static/fonts/Robotobold.woff2') format('woff2'),
+          url('./static/fonts/Robotobold.woff') format('woff'),
+          url('./static/fonts/Robotobold.ttf') format('truetype');
+        font-weight: 700;
+        font-style: normal;
+      }
+    </style>
+  </head>
+  <body>
+    <test-page class="verbal-drag-test">
+      <test-header slot="test-header" total="25" current="2" time-limit-s="">
+        <span slot="test-title">Вербальный тест</span>
+      </test-header>
+    </test-page>
+    <div class="drag-test__wrapper conteiner">
+      <div class="drag-test__left">
+        <h3 class="new-page__title">
+          Основное положение ядерной физики и основы концепции безопасного
+          управления корабельным ядерным реактором
+        </h3>
+        <p class="new-page__subtitle">
+          Какой метод постройки судна соответствует данной формулировки?
+        </p>
+        <p class="new-page__text">
+          Весь корпус судна разбивается на отдельные секции: палубы, борта,
+          днище, переборки и т. д. Детали корпусных конструкций, подаются на
+          участок сборки и сварки, где из них собирают отдельные секции. При
+          сборке и сварке секций их насыщают оборудованием и деталями крепления.
+          После изготовления таким методом целого отсека и испытания его на
+          непроницаемость, готовые корпусные секции поступают на стапельные
+          построечные места, где из них формируют корпус судна, выполняют
+          монтажные и сварочные работы.
+        </p>
+      </div>
+      <form class="drag-test__right">
+        <h3 class="answer-block__title">Ваш результат</h3>
+        <p class="answer-block__text">Выберите правильную последовательность</p>
+        <ol id="drag-list" class="drag-test__list list">
+          <li class="drag-test__item-wrapper">
+            <div class="drag-test__item">
+              <label class="drag-test__label">
+                еуче1
+                <input type="hidden" value="value1" />
+              </label>
+            </div>
+          </li>
+          <li class="drag-test__item-wrapper">
+            <div class="drag-test__item">
+              <label class="drag-test__label">
+                еуче2
+                <input type="hidden" value="value2" />
+              </label>
+            </div>
+          </li>
+          <li class="drag-test__item-wrapper">
+            <div class="drag-test__item">
+              <label class="drag-test__label">
+                еуче3
+                <input type="hidden" value="value3" />
+              </label>
+            </div>
+          </li>
+          <li class="drag-test__item-wrapper">
+            <div class="drag-test__item">
+              <label class="drag-test__label">
+                еуче4 <br />
+                WEOGKQEPRIOGJE[\H] WEGQERH ИК <br />
+                <input type="hidden" value="value4" />
+              </label>
+            </div>
+          </li>
+        </ol>
+        <button type="submit" class="btn drag-test__btn">Отправить</button>
+      </form>
+    </div>
+  </body>
+</html>

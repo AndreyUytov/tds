@@ -147,32 +147,32 @@ module.exports = (env) => {
             },
           ],
         },
-        // {
-        //   test: /\.(png|jpe?g|gif|woff|woff2|ttf|svg|webp)$/,
-        //   use: [
-        //     {
-        //       loader: 'file-loader',
-        //       options: {
-        //         name: () => {
-        //           if (isProduction) {
-        //             return '[contenthash].[ext]'
-        //           } else return '[name].[ext]'
-        //         },
-        //         outputPath: (url, resourcePath) => {
-        //           if (/svg/.test(resourcePath)) {
-        //             return `img/svg/${url}`
-        //           }
-        //           if (/images/.test(resourcePath)) {
-        //             return `img/${url}`
-        //           }
-        //           if (/fonts/.test(resourcePath)) {
-        //             return `fonts/${url}`
-        //           }
-        //         },
-        //       },
-        //     },
-        //   ],
-        // },
+        {
+          test: /\.(png|jpe?g|gif|woff|woff2|ttf|svg|webp)$/,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: () => {
+                  if (isProduction) {
+                    return '[contenthash].[ext]'
+                  } else return '[name].[ext]'
+                },
+                outputPath: (url, resourcePath) => {
+                  if (/svg/.test(resourcePath)) {
+                    return `img/svg/${url}`
+                  }
+                  if (/images/.test(resourcePath)) {
+                    return `img/${url}`
+                  }
+                  if (/fonts/.test(resourcePath)) {
+                    return `fonts/${url}`
+                  }
+                },
+              },
+            },
+          ],
+        },
         // {
         //   test: /\.html$/i,
         //   use: [

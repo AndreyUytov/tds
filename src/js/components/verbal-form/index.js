@@ -66,13 +66,13 @@ customElements.define(
               currentClosestDragElem.style.marginTop = ''
             }
             currentClosestDragElem = closestDragElem
-            heightClosestDrag = currentClosestDragElem.getBoundingClientRect()
-              .height
+            heightClosestDrag =
+              currentClosestDragElem.getBoundingClientRect().height
           }
 
           if (closestDragElem == currentClosestDragElem) {
-            let bottomClosestElem = currentClosestDragElem.getBoundingClientRect()
-              .bottom
+            let bottomClosestElem =
+              currentClosestDragElem.getBoundingClientRect().bottom
 
             let styleCurrentClosestDragElem = currentClosestDragElem.style
 

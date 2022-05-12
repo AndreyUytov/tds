@@ -1,0 +1,145 @@
+.conteiner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.new-header {
+  padding-top: 48px;
+}
+
+.new-header__home-link {
+  margin-bottom: 32px;
+
+  display: flex;
+  align-items: center;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+
+  color: var(--akcentColor);
+
+  svg {
+    margin-right: 16px;
+  }
+}
+
+.new-header__title {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 32px;
+}
+
+.new-header__nav {
+  position: sticky;
+  top: 0px;
+
+  width: 100%;
+  padding-top: 24px;
+  min-height: 76px;
+  margin-bottom: 32px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-bottom: 32px;
+  border-bottom: 1px solid #dfe2e5;
+  background-color: #fff;
+
+  z-index: 1000;
+}
+
+.new-header__nav-link {
+  display: flex;
+  align-items: center;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+
+  color: var(--redThemeColor);
+}
+
+.nav-link {
+  &--next {
+    margin-left: auto;
+    svg {
+      margin-left: 16px;
+      transform: rotate(180deg);
+    }
+  }
+
+  &--prev {
+    svg {
+      margin-right: 16px;
+    }
+  }
+}
+
+.new-page__left {
+  position: sticky;
+  top: 120px;
+
+  align-self: flex-start;
+}
+
+.new-page__wrapper {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-column-gap: 48px;
+}
+
+.new-page__title {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 24px;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+}
+
+.new-page__subtitle {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 24px;
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.new-page__text {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 24px;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.home-page__list-item {
+  width: 100%;
+  margin-bottom: 16px;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.home-page__svg-icon {
+  min-width: 28px;
+  min-height: 28px;
+  margin-right: 16px;
+}

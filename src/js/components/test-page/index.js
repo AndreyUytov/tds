@@ -21,24 +21,26 @@ customElements.define(
           form.submit()
         })
         this.testForm = this.querySelector('answer-form')
-        this.hiddenInputs = this.testForm.shadowRoot
-          .querySelector('slot:not([name])')
-          .assignedElements()
-        this.testForm.shadowRoot.addEventListener('click', (evt) => {
-          let target = evt.target
-          if (target.tagName !== 'ANSWER-LABEL') return
-          this.checkedInputs = []
-          this.testForm.labels.map((label) => {
-            if (label.input.checked) {
-              this.checkedInputs.push(label.input)
+        if (this.testForm) {
+          this.hiddenInputs = this.testForm.shadowRoot
+            .querySelector('slot:not([name])')
+            .assignedElements()
+          this.testForm.shadowRoot.addEventListener('click', (evt) => {
+            let target = evt.target
+            if (target.tagName !== 'ANSWER-LABEL') return
+            this.checkedInputs = []
+            this.testForm.labels.map((label) => {
+              if (label.input.checked) {
+                this.checkedInputs.push(label.input)
+              }
+            })
+            if (this.checkedInputs.length) {
+              this.testForm.btn.disabled = false
+            } else {
+              this.testForm.btn.disabled = true
             }
           })
-          if (this.checkedInputs.length) {
-            this.testForm.btn.disabled = false
-          } else {
-            this.testForm.btn.disabled = true
-          }
-        })
+        }
       } else if (this.forms.length === 1) {
         this.shadowRoot.addEventListener('submit-form', () => {
           const form = document.createElement('form')
@@ -127,11 +129,11 @@ customElements.define(
           } else this.verbalForm.btn.disabled = true
 
           let formId = form._id
-          let textCheckedlabel = target.querySelector('[slot="label-value"]')
-            .textContent
-          this.verbalForm.querySelectorAll('li')[
-            formId
-          ].textContent = textCheckedlabel
+          let textCheckedlabel = target.querySelector(
+            '[slot="label-value"]'
+          ).textContent
+          this.verbalForm.querySelectorAll('li')[formId].textContent =
+            textCheckedlabel
         })
       }
     }
