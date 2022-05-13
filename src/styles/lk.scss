@@ -49,21 +49,25 @@
 }
 
 .user__section__wrapper {
+  margin-bottom: 32px;
+  
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .user-section__avatar {
-  margin-right: 16px;
-
   display: flex;
-  width: 52px;
-  height: 52px;
+  width: 264px;
+  height: auto;
+  min-height: 264px;
   flex-shrink: 0;
+  margin-bottom: 24px;
 
   background-image: var(--avatar-icon);
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 30px 30px;
+  background-size: 90px 90px;
 
   background-color: var(--subTextColor);
 
@@ -90,8 +94,6 @@
 .user-section__user-info {
   padding: 0;
   margin: 0;
-
-  margin-bottom: 24px;
 
   font-family: 'Roboto';
   font-style: normal;
