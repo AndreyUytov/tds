@@ -46,6 +46,8 @@
     counter-increment: drag;
     content: counter(drag);
 
+    width: 42px;
+
     padding: 0 12px;
 
     font-family: 'Roboto';
@@ -58,7 +60,7 @@
 }
 
 .animate-on-transforms {
-  transition: all 0.15s linear;
+  transition: all 0.075s linear;
 }
 
 .drag-test__label {
@@ -84,4 +86,12 @@
 
 .drag-test__btn {
   width: 100%;
+}
+
+.clone::before {
+  content: '';
+
+  width: 42px;
+
+  background-color: transparent;
 }

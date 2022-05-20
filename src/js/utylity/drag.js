@@ -43,12 +43,18 @@ if (dragList) {
     }
 
     let target = evt.target.closest('.drag-test__item-wrapper')
+    target.ondragstart = () => false
     if (!target) return
+    const startCoord = {
+      x: evt.clientX,
+      y: evt.clientY
+    }
 
     let shiftY = evt.clientY - target.getBoundingClientRect().top
     let shiftX = evt.clientX - target.getBoundingClientRect().left
 
     const clone = target.firstElementChild.cloneNode(true)
+    clone.classList.add('clone')
 
     target.style.opacity = '0'
 
@@ -129,10 +135,10 @@ if (dragList) {
             }
           }
         }
-      }, 50)
+      }, 25)
     }
 
-    function onPointerUp() {
+    function onPointerUp(evt) {
       clone.style.position = 'fixed'
       clone.classList.add('animate-on-transforms')
       clone.style.top = target.getBoundingClientRect().top + 'px'
@@ -142,6 +148,10 @@ if (dragList) {
         clone.remove()
         target.style.opacity = ''
       })
+      if(startCoord.x - evt.clientX < 20 || startCoord.y - evt.clientY < 20) {
+        clone.remove()
+        target.style.opacity = ''
+      }
       document.removeEventListener('pointermove', onPointerMove)
       document.removeEventListener('pointerup', onPointerUp)
     }
