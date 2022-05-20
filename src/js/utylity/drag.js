@@ -52,7 +52,7 @@ if (dragList) {
 
     target.style.opacity = '0'
 
-    clone.style.position = 'absolute'
+    clone.style.position = 'fixed'
     clone.style.width =
       target.firstElementChild.getBoundingClientRect().width + 'px'
     clone.style.height =
@@ -61,12 +61,12 @@ if (dragList) {
     clone.style.color = '#fff'
     document.body.append(clone)
 
-    moveAt(evt.pageX, evt.pageY)
+    moveAt(evt.clientX, evt.clientY)
 
     let timer
 
     function onPointerMove(evt) {
-      moveAt(evt.pageX, evt.pageY)
+      moveAt(evt.clientX, evt.clientY)
 
       if (timer) clearTimeout(timer)
 
@@ -80,20 +80,32 @@ if (dragList) {
         let droppableBelow = elemBelow.closest('.drag-test__item-wrapper')
 
         if (currentDroppable != droppableBelow) {
-          // мы либо залетаем на цель, либо улетаем из неё
-          // внимание: оба значения могут быть null
-          //   currentDroppable=null,
-          //     если мы были не над droppable до этого события (например, над пустым пространством)
-          //   droppableBelow=null,
-          //     если мы не над droppable именно сейчас, во время этого события
-
-          if (currentDroppable) {
-            // логика обработки процесса "вылета" из droppable (удаляем подсветку)
-            currentDroppable.style.border = ''
-          }
           currentDroppable = droppableBelow
           if (currentDroppable) {
-            // логика обработки процесса, когда мы "влетаем" в элемент droppable
+            if (currentDroppable === target) return
+            if (currentDroppable === droppableBelow) {
+              let currentItem = children.find((el) => el === target)
+              let currentDroppableItem = children.find(
+                (el) => el === currentDroppable
+              )
+
+              let topDroppable = currentDroppable.getBoundingClientRect().top
+              let heigthDroppable =
+                currentDroppable.getBoundingClientRect().height
+              let middleHeight = heigthDroppable / 2 + topDroppable
+              if (evt.clientY >= middleHeight) {
+                measureStartPos()
+                currentDroppableItem.after(currentItem)
+                measureEndPosAndInvert()
+              } else {
+                measureStartPos()
+                currentDroppableItem.before(currentItem)
+                measureEndPosAndInvert()
+              }
+            }
+          }
+        } else {
+          if (currentDroppable) {
             if (currentDroppable === target) return
             if (currentDroppable === droppableBelow) {
               let currentItem = children.find((el) => el === target)
@@ -117,7 +129,7 @@ if (dragList) {
             }
           }
         }
-      }, 100)
+      }, 50)
     }
 
     function onPointerUp() {

@@ -15,10 +15,13 @@ if (form) {
       el.onclick = function (evt) {
         fields.set(evt.target.name, evt.target.value)
         for (let value of fields.values()) {
+          console.log(fields)
           if (value === false) {
             flag = true
             return
           }
+
+          flag = false
         }
 
         submit.disabled = flag
