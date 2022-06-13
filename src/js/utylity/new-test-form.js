@@ -31,15 +31,17 @@ if (form) {
 
   form.addEventListener('submit', (evt) => {
     evt.preventDefault()
-    window.location.pathname = '/new-test-result.html'
-    //   let form = document.createElement('form')
-    //   form.method = 'POST'
-    //   let html = ''
-    //   fields.forEach((value, key) => {
-    //     html += `<input name=${key} value=${value} />`
-    //   })
-    //   form.innerHTML = `${html}`
-    //   document.body.append(form)
-    //   form.submit()
+    // window.location.pathname = '/new-test-result.html'
+      let form = document.createElement('form')
+      form.method = 'POST'
+      evt.target.action ? form.action = evt.target.action : form.action = window.location.pathname
+
+      let html = ''
+      fields.forEach((value, key) => {
+        html += `<input name=${key} value=${value} />`
+      })
+      form.innerHTML = `${html}`
+      document.body.append(form)
+      form.submit()
   })
 }
