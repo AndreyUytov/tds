@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Begin</title>
+    <style>
+      @font-face {
+        font-family: 'Roboto';
+        src: url('./static/fonts/Roboto.woff2') format('woff2'),
+          url('./static/fonts/Roboto.woff') format('woff'),
+          url('./static/fonts/Roboto.ttf') format('truetype');
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: 'Roboto';
+        src: url('./static/fonts/Robotobold.woff2') format('woff2'),
+          url('./static/fonts/Robotobold.woff') format('woff'),
+          url('./static/fonts/Robotobold.ttf') format('truetype');
+        font-weight: 700;
+        font-style: normal;
+      }
+    </style>
+  <link href="./index.css" rel="stylesheet"></head>
+  <body>
+    <svg style="display: none">
+      <symbol
+        id="check"
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12.5714 4.57141L6.28573 10.8571L3.42859 7.99998"
+          stroke="var(--icon-stroke, #253B4D)"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+      <symbol
+        id="home"
+        width="28"
+        height="28"
+        viewBox="0 0 28 28"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M14 4L5 11V22C5 22.5304 5.21071 23.0391 5.58579 23.4142C5.96086 23.7893 6.46957 24 7 24H11V14H17V24H21C21.5304 24 22.0391 23.7893 22.4142 23.4142C22.7893 23.0391 23 22.5304 23 22V11L14 4Z"
+          fill="#253B4D"
+          stroke="#253B4D"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+
+      <symbol
+        id="top-icon"
+        width="28"
+        height="28"
+        viewBox="0 0 28 28"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M14 24.5C19.799 24.5 24.5 19.799 24.5 14C24.5 8.20101 19.799 3.5 14 3.5C8.20101 3.5 3.5 8.20101 3.5 14C3.5 19.799 8.20101 24.5 14 24.5Z"
+          stroke="white"
+          stroke-width="2"
+          stroke-miterlimit="10"
+        />
+        <path
+          d="M10.2876 13.3373L13.9999 9.625L17.7122 13.3373"
+          stroke="white"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M14 18.375V9.625"
+          stroke="white"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+
+      <symbol
+        id="clock"
+        width="28"
+        height="28"
+        viewBox="0 0 28 28"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M14 10.1429V14L15.9286 15.9286M23 14C23 18.9706 18.9706 23 14 23C9.02944 23 5 18.9706 5 14C5 9.02944 9.02944 5 14 5C18.9706 5 23 9.02944 23 14Z"
+          stroke="#7D8E9D"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+
+      <symbol
+        id="book"
+        width="28"
+        height="28"
+        viewBox="0 0 28 28"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M6 21.5C6 20.837 6.26339 20.2011 6.73223 19.7322C7.20107 19.2634 7.83696 19 8.5 19H22M6 21.5C6 22.163 6.26339 22.7989 6.73223 23.2678C7.20107 23.7366 7.83696 24 8.5 24H22V4H8.5C7.83696 4 7.20107 4.26339 6.73223 4.73223C6.26339 5.20107 6 5.83696 6 6.5V21.5Z"
+          stroke="#7D8E9D"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+
+      <symbol
+        id="restart"
+        width="28"
+        height="28"
+        viewBox="0 0 28 28"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4 5.99067V11.9907M4 11.9907H10M4 11.9907L8.64 7.63067C10.0209 6.25209 11.8125 5.35964 13.7447 5.08779C15.6769 4.81593 17.6451 5.17941 19.3528 6.12344C21.0605 7.06747 22.4152 8.54091 23.2126 10.3218C24.0101 12.1026 24.2072 14.0944 23.7742 15.997C23.3413 17.8996 22.3017 19.61 20.8121 20.8704C19.3226 22.1308 17.4637 22.873 15.5157 22.9851C13.5677 23.0973 11.636 22.5732 10.0117 21.492C8.38734 20.4109 7.15839 18.831 6.51 16.9907"
+          stroke="var(--stroke-color, #D81B16)"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+
+      <symbol
+        id="help"
+        width="28"
+        height="28"
+        viewBox="0 0 28 28"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12.4772 17.9038C12.4936 16.9435 12.6046 16.1849 12.8101 15.6281C13.0156 15.0713 13.4349 14.4539 14.0678 13.7761L15.6831 12.1419C16.3736 11.3753 16.7189 10.5521 16.7189 9.67249C16.7189 8.82515 16.4928 8.16342 16.0407 7.68729C15.5886 7.20309 14.9309 6.961 14.0678 6.961C13.2293 6.961 12.5553 7.17888 12.0456 7.61466C11.536 8.05044 11.2811 8.63551 11.2811 9.36987H9C9.01644 8.06254 9.48911 7.00941 10.418 6.21049C11.3551 5.4035 12.5717 5 14.0678 5C15.6215 5 16.8298 5.41157 17.693 6.2347C18.5643 7.04976 19 8.17149 19 9.59987C19 11.0121 18.3342 12.4042 17.0025 13.7761L15.6584 15.0834C15.0584 15.7371 14.7583 16.6772 14.7583 17.9038H12.4772ZM12.3785 21.7411C12.3785 21.3779 12.4895 21.0753 12.7115 20.8332C12.9416 20.5831 13.2787 20.458 13.7226 20.458C14.1665 20.458 14.5035 20.5831 14.7337 20.8332C14.9638 21.0753 15.0789 21.3779 15.0789 21.7411C15.0789 22.1042 14.9638 22.4069 14.7337 22.649C14.5035 22.883 14.1665 23 13.7226 23C13.2787 23 12.9416 22.883 12.7115 22.649C12.4895 22.4069 12.3785 22.1042 12.3785 21.7411Z"
+          fill="var(--icon-fill, #253B4D)"
+        />
+      </symbol>
+
+      <symbol
+        id="exit"
+        width="27"
+        height="26"
+        viewBox="0 0 27 26"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M10.7143 21.3572H6.99997C6.50742 21.3572 6.03505 21.1615 5.68677 20.8132C5.33848 20.4649 5.14282 19.9926 5.14282 19.5V6.50003C5.14282 6.00748 5.33848 5.53511 5.68677 5.18683C6.03505 4.83855 6.50742 4.64288 6.99997 4.64288H10.7143M17.2143 17.6429L21.8571 13M21.8571 13L17.2143 8.35717M21.8571 13H10.7143"
+          stroke="white"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+      <symbol
+        id="level"
+        width="28"
+        height="28"
+        viewBox="0 0 28 28"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 22V18"
+          stroke="#D81B16"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M14 22V12"
+          stroke="var(--middle-color, #7D8E9D)"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M20 22V6"
+          stroke="var(--high-color, #7D8E9D)"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+      <symbol
+        id="left-nav"
+        width="28"
+        height="28"
+        viewBox="0 0 28 28"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M21 14H7M7 14L14 21M7 14L14 7"
+          stroke="#D81B16"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+      <symbol
+        id="file"
+        width="28"
+        height="28"
+        viewBox="0 0 28 28"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M16 4.00006H8C7.46957 4.00006 6.96086 4.21077 6.58579 4.58585C6.21071 4.96092 6 5.46963 6 6.00006V22.0001C6 22.5305 6.21071 23.0392 6.58579 23.4143C6.96086 23.7893 7.46957 24.0001 8 24.0001H20C20.5304 24.0001 21.0391 23.7893 21.4142 23.4143C21.7893 23.0392 22 22.5305 22 22.0001V10.0001M16 4.00006L22 10.0001M16 4.00006V10.0001H22M18 15.0001H10M18 19.0001H10M12 11.0001H10"
+          stroke="#253B4D"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+    </svg>
+
+    <header class="new-header conteiner">
+      <a href="#" class="new-header__home-link">
+        <svg width="28" height="28">
+          <use href="#home" />
+        </svg>
+        Вернуться в меню
+      </a>
+      <h1 class="new-header__title">Курс ЯРБ</h1>
+    </header>
+    <div class="new-header__nav conteiner">
+      <a href="#" class="new-header__nav-link nav-link--prev">
+        <svg width="28" height="28">
+          <use href="#left-nav" />
+        </svg>
+        К предыдущей главе
+      </a>
+      <a href="#" class="new-header__nav-link nav-link--next">
+        К следующей главе
+        <svg width="28" height="28">
+          <use href="#left-nav" />
+        </svg>
+      </a>
+    </div>
+    <main class="new-test__wrapper conteiner">
+      <div class="new-test__left">
+        <form id="form" class="new-test__form">
+          <div class="new-test__quest-block">
+            <h3 class="new-page__title">Вопрос 1</h3>
+            <p class="new-page__subtitle">
+              Прочтите отрывок и скажите, верны ли утверждения.<br />
+              1. Все красные олени в Великобритании найдены в Шотландии. <br />
+              2. Красный олень может скрещиваться с пятнистым. <br />
+              3. Великобритания не является родиной пятнистого оленя.<br />
+            </p>
+            <p class="new-page__text">
+              «В Великобритании обитает 7 видов диких оленей. Красный олень и
+              косуля — родственные виды. Палевых оленей привезли римляне, и с
+              семнадцатого века к ним присоединились три других неместных вида:
+              сика (пятнистый японский), мунтьяк («лающий» олень) и китайский
+              водяной олень, которые сбежали из парков. Большая часть красных
+              оленей в Великобритании была найдена в Шотландии, но в восточной,
+              южной и северо-западной частях Англии, а также в северной части
+              Мидленда, есть значительные дикие популяции. Красный олень может
+              скрещиваться с японским оленем сика, в некоторых районах
+              распространены гибриды»
+            </p>
+            <ul class="new-test__labels-list list">
+              <li class="new-test__labels-item">
+                <label class="test__label">
+                  <input
+                    type="radio"
+                    class="test__input visually-hidden"
+                    name="test42"
+                    value="42"
+                  />
+                  <span
+                    class="test__marker test__marker--true test__marker--radio"
+                  >
+                    <svg width="16" height="16">
+                      <use href="#check" />
+                    </svg>
+                  </span>
+                  <span class="test__label-text">
+                    Верно — соответствует информации, представленной в отрывке.
+                  </span>
+                </label>
+              </li>
+              <li class="new-test__labels-item">
+                <label class="test__label">
+                  <input
+                    type="radio"
+                    class="test__input visually-hidden"
+                    name="test42"
+                    value="43"
+                  />
+                  <span class="test__marker test__marker--radio">
+                    <svg width="16" height="16">
+                      <use href="#check" />
+                    </svg>
+                  </span>
+                  <span class="test__label-text">
+                    Неверно — противоречит сведениям, полученным из текста.
+                  </span>
+                </label>
+              </li>
+              <li class="new-test__labels-item">
+                <label class="test__label">
+                  <input
+                    type="radio"
+                    class="test__input visually-hidden"
+                    name="test42"
+                    value="44"
+                  />
+                  <span class="test__marker test__marker--radio">
+                    <svg width="16" height="16">
+                      <use href="#check" />
+                    </svg>
+                  </span>
+                  <span class="test__label-text">
+                    Не могу сказать — во фрагменте ничего об этом не сказано или
+                    недостаточно информации, чтобы сделать такой вывод
+                  </span>
+                </label>
+              </li>
+            </ul>
+          </div>
+          <div class="new-test__quest-block">
+            <h3 class="new-page__title">Вопрос 2</h3>
+            <p class="new-page__subtitle">
+              Прочтите отрывок и скажите, верно ли утверждение. Благодаря
+              политике одного ребенка растет благосостояние страны.
+            </p>
+            <p class="new-page__text">
+              «Политика одного ребенка, созданная в Китае в 1979 году в качестве
+              временной меры для ограничения роста населения, остается в силе
+              сегодня и, вероятно, продолжится еще на десятилетие. Политика
+              управления народонаселением Китая критикуется из-за того, как она
+              применяется, а также из-за ее социальных последствий. Сторонники
+              политики правительства Китая считают ее необходимой мерой для
+              предотвращения перенаселенности, за первые двадцать лет политика
+              привела к сокращению примерно 300 миллионов человек. Кроме того,
+              что сокращение населения является экологически выгодным, оно также
+              увеличивает валовой внутренний продукт Китая на душу населения.
+              Из-за абортов, отказов и детоубийств женщин-младенцев в результате
+              культурного предпочтения сыновей, политика одного ребенка привела
+              к разрозненному соотношению мужчин к женщинам. Кроме того,
+              жестокие меры, такие как принудительная стерилизация,
+              категорически воспринимаются критиками, как нарушение прав
+              человека на потомство. Политика одного ребенка строго соблюдается
+              в городских районах, тогда как в провинциальных районах на семьи с
+              более чем одним ребенком налагаются штрафы. Существуют также
+              исключения из правил - например, этнические меньшинства. Правило
+              также позволяет парам без братьев и сестер иметь двоих детей -
+              условие, распространяющееся на миллионы взрослых без братьев и
+              сестер, которые в настоящее время находятся в детородном
+              возрасте.»
+            </p>
+            <ul class="new-test__labels-list list">
+              <li class="new-test__labels-item">
+                <label class="test__label">
+                  <input
+                    type="radio"
+                    class="test__input visually-hidden"
+                    name="tester"
+                    value="yes"
+                  />
+                  <span class="test__marker test__marker--radio">
+                    <svg width="16" height="16">
+                      <use href="#check" />
+                    </svg>
+                  </span>
+                  <span class="test__label-text"> Правда </span>
+                </label>
+              </li>
+              <li class="new-test__labels-item">
+                <label class="test__label">
+                  <input
+                    type="radio"
+                    class="test__input visually-hidden"
+                    name="tester"
+                    value="no"
+                  />
+                  <span class="test__marker test__marker--radio">
+                    <svg width="16" height="16">
+                      <use href="#check" />
+                    </svg>
+                  </span>
+                  <span class="test__label-text"> Ложь </span>
+                </label>
+              </li>
+              <li class="new-test__labels-item">
+                <label class="test__label">
+                  <input
+                    type="radio"
+                    class="test__input visually-hidden"
+                    name="tester"
+                    value="dontknow"
+                  />
+                  <span
+                    class="test__marker test__marker--false test__marker--radio"
+                  >
+                    <svg width="16" height="16">
+                      <use href="#check" />
+                    </svg>
+                  </span>
+                  <span class="test__label-text"> Нельзя утверждать </span>
+                </label>
+              </li>
+            </ul>
+            <p class="new-test__right-answer">
+              Текст с информацией об ошибке и подсказкой где можно найти
+              правильный ответ
+            </p>
+          </div>
+          <div class="new-test__quest-block">
+            <h3 class="new-page__title">Вопрос 3</h3>
+            <p class="new-page__subtitle">
+              Прочтите отрывок и скажите, верно ли утверждение. Начиная с 1989
+              года не было случаев легальной продажи слоновой кости.
+            </p>
+            <p class="new-page__text">
+              «Недавно Конвенция Организации Объединенных Наций о международной
+              торговле видами дикой фауны, находящимися под угрозой исчезновения
+              (CITES) вновь подтвердила запрет 1989 года на торговлю слоновой
+              костью, несмотря на призывы из Танзании и Замбии снять его. В
+              настоящее время в Африке остается только 470 000 слонов - по
+              сравнению с 1,3 миллионами в 1979 году. Естественная утрата
+              местообитаний сыграло значительную роль в сокращении популяций
+              слонов, однако, основной причиной было браконьерство слоновой
+              кости. С момента введения запрета популяция слонов восстановилась
+              во многих африканских странах, но, по оценкам, ежегодно убивают 38
+              000 слонов. CITES разрешила разовые продажи в 1999 году и в 2008
+              году, что позволило одобренным странам распоряжаться своими
+              государственными запасами слоновой кости. Эти запасы были
+              экспортированы в Японию и Китай, где спрос на резную слоновую
+              кость очень высок. Группы по сохранению яростно выступают против
+              дальнейших разовых продаж, поскольку происхождение большой части
+              проданной слоновой кости неизвестно. Кроме того, продажи
+              подпитывали дальневосточный спрос на слоновую кость. В странах
+              Центральной и Западной Африки, где организованные преступные
+              группы проводят прибыльные сделки по контрабанде слоновой кости,
+              браконьерство остается распространенным. Те, кто выступает за
+              разрешение разовых продаж, утверждают, что слоны больше не
+              подвергаются угрозе, и что сохранение запрета просто завышает цену
+              слоновой кости, делая браконьерство более заманчивым. Хотя решение
+              CITES рассматривается как победа защитников природы, будущее
+              африканского слона зависит от приверженности правительств делу
+              обеспечения соблюдения запрета.»
+            </p>
+            <ul class="new-test__labels-list list">
+              <li class="new-test__labels-item">
+                <label class="test__label">
+                  <input
+                    type="radio"
+                    class="test__input visually-hidden"
+                    name="tester1"
+                    value="yes"
+                  />
+                  <span class="test__marker test__marker--radio">
+                    <svg width="16" height="16">
+                      <use href="#check" />
+                    </svg>
+                  </span>
+                  <span class="test__label-text"> Правда </span>
+                </label>
+              </li>
+              <li class="new-test__labels-item">
+                <label class="test__label">
+                  <input
+                    type="radio"
+                    class="test__input visually-hidden"
+                    name="tester1"
+                    value="no"
+                  />
+                  <span class="test__marker test__marker--radio">
+                    <svg width="16" height="16">
+                      <use href="#check" />
+                    </svg>
+                  </span>
+                  <span class="test__label-text"> Ложь </span>
+                </label>
+              </li>
+              <li class="new-test__labels-item">
+                <label class="test__label">
+                  <input
+                    type="radio"
+                    class="test__input visually-hidden"
+                    name="tester1"
+                    value="dontknow"
+                  />
+                  <span
+                    class="test__marker test__marker--true test__marker--radio"
+                  >
+                    <svg width="16" height="16">
+                      <use href="#check" />
+                    </svg>
+                  </span>
+                  <span class="test__label-text"> Нельзя утверждать </span>
+                </label>
+              </li>
+            </ul>
+          </div>
+        </form>
+      </div>
+      <div class="new-test__right">
+        <div class="new-test__answer-block">
+          <h3 class="answer-block__title">Ваш результат</h3>
+          <span class="answer-block__result">66%</span>
+          <p class="answer-block__text">
+            Ответьте на все вопросы чтобы узнать свой результат
+          </p>
+          <a href="new-test.html" class="answer-block__submit btn">
+            <svg width="28" height="28" class="answer-block__submit-icon">
+              <use href="#restart" />
+            </svg>
+            Пересдать
+          </a>
+        </div>
+      </div>
+    </main>
+    <button class="snap-help" type="button">
+      <svg width="28" height="28">
+        <use href="#help" />
+      </svg>
+    </button>
+    <button class="snap-help snap-help--top" type="button">
+      <svg width="28" height="28">
+        <use href="#top-icon" />
+      </svg>
+    </button>
+    <div class="help-popup__wrapper">
+      <button class="help-popup__close-snap"></button>
+      <div class="help-popup">
+        <h3>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum,
+          minima?
+        </h3>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam eum
+          quibusdam nulla ad ab, tenetur nobis nesciunt officia possimus dolorum
+          tempora aspernatur fugiat eius suscipit debitis recusandae temporibus
+          quidem sapiente id mollitia itaque? Numquam, dicta placeat. Ipsum
+          corporis nesciunt natus minus soluta, cumque eius consequuntur
+          molestias ea aliquam exercitationem. Non, dicta? Porro mollitia
+          perspiciatis numquam natus corporis! Nemo eligendi neque debitis quia
+          quod sit esse cum numquam nobis necessitatibus tempora quisquam,
+          repudiandae quasi ratione quam doloremque. Quis dolorum alias sint
+          cum. Impedit, quibusdam quam minus quidem blanditiis quisquam vero
+          illo corporis ducimus, tenetur nobis deserunt distinctio labore cumque
+          repellat voluptatum.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
+          doloremque laborum ea dolorem quas sapiente provident dolorum
+          consequuntur cum aspernatur.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+          autem similique quaerat suscipit doloribus incidunt facilis recusandae
+          fugit id ipsam nemo sunt dolor laboriosam blanditiis voluptatem
+          excepturi quidem minima atque ratione, corporis enim. Iusto sint ab
+          sunt, aut in nihil veritatis voluptatum vel voluptates autem! Iure
+          cumque soluta sed eius.
+        </p>
+        <p>
+          Maiores voluptate modi asperiores minus in provident quaerat aliquam
+          nam odit sapiente facere itaque, tenetur nesciunt dolorum, deserunt
+          doloribus sunt. Voluptas quam necessitatibus at, aliquam inventore
+          corrupti hic minus ab eligendi ut exercitationem error molestias
+          tenetur reiciendis voluptate tempora ea animi aperiam quos omnis,
+          adipisci est quae quidem? Libero, eos!
+        </p>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente quo
+          aut magni autem nihil voluptatem numquam odio, cum, hic placeat
+          nesciunt aliquam saepe est laudantium qui sunt asperiores cupiditate
+          obcaecati?
+        </p>
+        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla officia
+          porro eveniet quisquam assumenda eos veniam ad quidem, dignissimos
+          quibusdam!
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque numquam
+          aspernatur magnam maxime itaque? Explicabo, et incidunt dolorem a nisi
+          repellendus placeat magnam itaque cumque accusamus natus similique ad
+          pariatur quam? Aliquam illum cumque voluptatem adipisci in atque ut
+          reiciendis? Exercitationem, numquam! Ea necessitatibus pariatur
+          perspiciatis sequi eveniet, temporibus cumque.
+        </p>
+      </div>
+    </div>
+  <script src="./index.js"></script></body>
+</html>

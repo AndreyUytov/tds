@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin-Page</title>
+    <style>
+      @font-face {
+        font-family: 'Roboto';
+        src: url('./static/fonts/Roboto.woff2') format('woff2'),
+          url('./static/fonts/Roboto.woff') format('woff'),
+          url('./static/fonts/Roboto.ttf') format('truetype');
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: 'Roboto-Bold';
+        src: url('./static/fonts/Robotobold.woff2') format('woff2'),
+          url('./static/fonts/Robotobold.woff') format('woff'),
+          url('./static/fonts/Robotobold.ttf') format('truetype');
+        font-weight: 700;
+        font-style: normal;
+      }
+    </style>
+  <link href="./index.css" rel="stylesheet"></head>
+  <body class="fon-body">
+    <svg style="display: none">
+      <symbol
+        id="admin-check"
+        viewBox="0 0 16 16"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12.5714 4.57141L6.28573 10.8571L3.42859 7.99998"
+          stroke="#253B4D"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+      <symbol
+        id="select-icon"
+        viewBox="0 0 26 26"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M7.42856 10.2139L13 15.7853L18.5714 10.2139"
+          stroke="var(--select-color, #7D8E9D)"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+
+      <symbol
+        id="asc-icon"
+        width="28"
+        height="28"
+        viewBox="0 0 22 14"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0.5 0H7.5V2.33333H0.5V0ZM0.5 14V11.6667H21.5V14H0.5ZM0.5 5.83333H14.5V8.16667H0.5V5.83333Z"
+          fill="var(--svg-fill-color, #dfe2e5)"
+        />
+      </symbol>
+
+      <symbol
+        id="desc-icon"
+        width="28"
+        height="28"
+        viewBox="0 0 22 14"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0.5 14H7.5V11.6667H0.5V14ZM0.5 0V2.33333H21.5V0H0.5ZM0.5 8.16667H14.5V5.83333H0.5V8.16667Z"
+          fill="var(--svg-fill-color, #dfe2e5)"
+        />
+      </symbol>
+
+      <symbol
+        id="file-icon"
+        width="26"
+        height="26"
+        viewBox="0 0 16 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        class="admin-header__icon"
+      >
+        <path
+          d="M9.85716 0.714844H2.42858C1.93604 0.714844 1.46367 0.910506 1.11539 1.25879C0.767104 1.60707 0.571442 2.07944 0.571442 2.57199V17.4291C0.571442 17.9217 0.767104 18.394 1.11539 18.7423C1.46367 19.0906 1.93604 19.2863 2.42858 19.2863H13.5714C14.064 19.2863 14.5364 19.0906 14.8846 18.7423C15.2329 18.394 15.4286 17.9217 15.4286 17.4291V6.28627M9.85716 0.714844L15.4286 6.28627M9.85716 0.714844V6.28627H15.4286M11.7143 10.9291H4.28573M11.7143 14.6434H4.28573M6.14287 7.21484H4.28573"
+          stroke="white"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+      <symbol
+        id="exit"
+        width="27"
+        height="26"
+        viewBox="0 0 27 26"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M10.7143 21.3572H6.99997C6.50742 21.3572 6.03505 21.1615 5.68677 20.8132C5.33848 20.4649 5.14282 19.9926 5.14282 19.5V6.50003C5.14282 6.00748 5.33848 5.53511 5.68677 5.18683C6.03505 4.83855 6.50742 4.64288 6.99997 4.64288H10.7143M17.2143 17.6429L21.8571 13M21.8571 13L17.2143 8.35717M21.8571 13H10.7143"
+          stroke="white"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+    </svg>
+    <header class="admin-page__header">
+      <div class="admin-page__inner">
+        <h1 class="admin-page__title">Результаты тестирования</h1>
+        <a href="#" class="admin-page__exit-btn">
+          <svg width="27" height="26">
+            <use href="#exit" />
+          </svg>
+          Выход
+        </a>
+        <a href="#" class="admin-page__download-btn btn">
+          <svg width="26" height="26">
+            <use href="#file-icon" />
+          </svg>
+          Скачать отчет
+        </a>
+      </div>
+    </header>
+
+    <main class="admin-page__main">
+      <section class="admin-page__filters">
+        <div class="admin-page__forms-wrapper">
+          <div class="admin-page__tabs">
+            <button class="admin-page__tab active" id="test-tab">
+              Тестирование
+            </button>
+            <button class="admin-page__tab" id="education-tab">
+              Обучение
+            </button>
+          </div>
+          <div class="admin-page__forms-swiper">
+            <form class="admin-page__filters-form">
+              <fieldset class="filters-form__fieldset">
+                <legend>Обычный</legend>
+                <div class="fieldset__inputs">
+                  <div class="filters-form__select-wrapper">
+                    <svg class="filters-form__select-icon" width="26" height="26">
+                      <use href="#select-icon" />
+                    </svg>
+                    <select class="filters-form__select">
+                      <option selected disabled hidden>Выберите пункт</option>
+                      <option>пункт 1</option>
+                      <option>пункт 2</option>
+                      <option>пункт 3</option>
+                    </select>
+                  </div>
+                  <input
+                    class="filters-form__input"
+                    type="text"
+                    placeholder="Введите значение"
+                  />
+                </div>
+              </fieldset>
+              <fieldset class="filters-form__fieldset">
+                <legend>С датами</legend>
+                <div class="fieldset__inputs">
+                  <div class="filters-form__select-wrapper">
+                    <svg class="filters-form__select-icon" width="26" height="26">
+                      <use href="#select-icon" />
+                    </svg>
+                    <select class="filters-form__select">
+                      <option selected disabled hidden>Выберите пункт</option>
+                      <option value="punkt1">пункт 1</option>
+                      <option>пункт 2</option>
+                      <option>пункт 3</option>
+                    </select>
+                  </div>
+                  <div class="filter-form__dates-wrapper">
+                    <label class="filters-form__label-date">
+                      C
+                      <input
+                        class="filters-form__input filters-form__input--date"
+                        type="date"
+                      />
+                    </label>
+                    -
+                    <label class="filters-form__label-date">
+                      По
+                      <input
+                        class="filters-form__input filters-form__input--date"
+                        type="date"
+                      />
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="filters-form__fieldset">
+                <legend>Селектор</legend>
+                <div class="fieldset__inputs">
+                  <div class="filters-form__select-wrapper">
+                    <svg class="filters-form__select-icon" width="26" height="26">
+                      <use href="#select-icon" />
+                    </svg>
+                    <select class="filters-form__select">
+                      <option selected disabled hidden>Выберите пункт</option>
+                      <option>пункт 1</option>
+                      <option>пункт 2</option>
+                      <option>пункт 3</option>
+                    </select>
+                  </div>
+                  <div class="filters-form__select-wrapper-multiple">
+                    <select
+                      id="adminPageSelect-2"
+                      size="3"
+                      style="display: inline-block"
+                    >
+                      <option value="Abarth">Abarth</option>
+                      <option value="Alfa Romeo">Alfa Romeo</option>
+                      <option value="Alpine" data-test="example">Alpine</option>
+                      <option value="Aston Martin">Aston Martin</option>
+                      <option value="Audi">Audi</option>
+                      <option value="Bentley">Bentley</option>
+                      <option value="BMW">BMW</option>
+                      <option value="Cadillac">Cadillac</option>
+                      <option value="Chevrolet">Chevrolet</option>
+                      <option value="Citroën">Citroën</option>
+                      <option value="Cupra">Cupra</option>
+                      <option value="DACIA">DACIA</option>
+                    </select>
+                  </div>
+                </div>
+              </fieldset>
+              <label class="filters-form__checkbox-label">
+                <input
+                  type="checkbox"
+                  class="visually-hidden filters-form__checkbox-input"
+                />
+                <span class="filters-form__checkbox-marker">
+                  <svg width="16" height="16">
+                    <use href="#admin-check" />
+                  </svg>
+                </span>
+                <span class="filters-form__checkbox-text">С чекбоксом</span>
+              </label>
+              <button type="submit" class="filters-form__submit-btn btn">
+                Сформировать
+              </button>
+              <button class="filters-form__reset-btn">Сбросить таблицу</button>
+            </form>
+            <form class="admin-page__filters-form">
+              <fieldset class="filters-form__fieldset">
+                <legend>Обычный</legend>
+                <div class="fieldset__inputs">
+                  <div class="filters-form__select-wrapper">
+                    <svg class="filters-form__select-icon" width="26" height="26">
+                      <use href="#select-icon" />
+                    </svg>
+                    <select class="filters-form__select">
+                      <option selected disabled hidden>Выберите пункт</option>
+                      <option>пункт 1</option>
+                      <option>пункт 2</option>
+                      <option>пункт 3</option>
+                    </select>
+                  </div>
+                  <input
+                    class="filters-form__input"
+                    type="text"
+                    placeholder="Введите значение"
+                  />
+                </div>
+              </fieldset>
+              <fieldset class="filters-form__fieldset">
+                <legend>С датами</legend>
+                <div class="fieldset__inputs">
+                  <div class="filters-form__select-wrapper">
+                    <svg class="filters-form__select-icon" width="26" height="26">
+                      <use href="#select-icon" />
+                    </svg>
+                    <select class="filters-form__select">
+                      <option selected disabled hidden>Выберите пункт</option>
+                      <option value="punkt1">пункт 1</option>
+                      <option>пункт 2</option>
+                      <option>пункт 3</option>
+                    </select>
+                  </div>
+                  <div class="filter-form__dates-wrapper">
+                    <label class="filters-form__label-date">
+                      C
+                      <input
+                        class="filters-form__input filters-form__input--date"
+                        type="date"
+                      />
+                    </label>
+                    -
+                    <label class="filters-form__label-date">
+                      По
+                      <input
+                        class="filters-form__input filters-form__input--date"
+                        type="date"
+                      />
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="filters-form__fieldset">
+                <legend>Селектор</legend>
+                <div class="fieldset__inputs">
+                  <div class="filters-form__select-wrapper">
+                    <svg class="filters-form__select-icon" width="26" height="26">
+                      <use href="#select-icon" />
+                    </svg>
+                    <select class="filters-form__select">
+                      <option selected disabled hidden>Выберите пункт</option>
+                      <option>пункт 1</option>
+                      <option>пункт 2</option>
+                      <option>пункт 3</option>
+                    </select>
+                  </div>
+                  <div class="filters-form__select-wrapper-multiple">
+                    <select
+                      id="adminPageSelect-1"
+                      size="3"
+                      style="display: inline-block"
+                    >
+                      <option value="Abarth">Abarth</option>
+                      <option value="Alfa Romeo">Alfa Romeo</option>
+                      <option value="Alpine" data-test="example">Alpine</option>
+                      <option value="Aston Martin">Aston Martin</option>
+                      <option value="Audi">Audi</option>
+                      <option value="Bentley">Bentley</option>
+                      <option value="BMW">BMW</option>
+                      <option value="Cadillac">Cadillac</option>
+                      <option value="Chevrolet">Chevrolet</option>
+                      <option value="Citroën">Citroën</option>
+                      <option value="Cupra">Cupra</option>
+                      <option value="DACIA">DACIA</option>
+                    </select>
+                  </div>
+                </div>
+              </fieldset>
+              <label class="filters-form__checkbox-label">
+                <input
+                  type="checkbox"
+                  class="visually-hidden filters-form__checkbox-input"
+                />
+                <span class="filters-form__checkbox-marker">
+                  <svg width="16" height="16">
+                    <use href="#admin-check" />
+                  </svg>
+                </span>
+                <span class="filters-form__checkbox-text">С чекбоксом</span>
+              </label>
+              <button type="submit" class="filters-form__submit-btn btn">
+                Сформировать
+              </button>
+              <button class="filters-form__reset-btn">Сбросить таблицу</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="admin-page__list-section">
+        <ul class="list-section__list list">
+          <li class="list-section__item list-section__item--header">
+            <a
+              href="#"
+              class="list-section__item-column list-section__item-column--active"
+            >
+              ФИО
+              <svg width="28" height="28">
+                <use href="#desc-icon" />
+              </svg>
+            </a>
+            <span href="#" class="list-section__item-column">
+              Подразделение
+            </span>
+            <a href="#" class="list-section__item-column">
+              Название обучения
+              <svg width="28" height="28">
+                <use href="#asc-icon" />
+              </svg>
+            </a>
+            <a href="#" class="list-section__item-column">
+              По дате
+              <svg width="28" height="28">
+                <use href="#asc-icon" />
+              </svg>
+            </a>
+            <a href="#" class="list-section__item-column">
+              Результат
+              <svg width="28" height="28">
+                <use href="#asc-icon" />
+              </svg>
+            </a>
+          </li>
+
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Каменьщикова Екатерина Владимировна
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result list-section__item-column--result-fail"
+            >
+              2 балла
+            </span>
+          </li>
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Каменьщикова Екатерина Владимировна
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result list-section__item-column--result-fail"
+            >
+              2 балла
+            </span>
+          </li>
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Каменьщикова Екатерина Владимировна
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result list-section__item-column--result-fail"
+            >
+              2 балла
+            </span>
+          </li>
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Каменьщикова Екатерина Владимировна
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result list-section__item-column--result-fail"
+            >
+              2 балла
+            </span>
+          </li>
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Каменьщикова Екатерина Владимировна
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result list-section__item-column--result-fail"
+            >
+              2 балла
+            </span>
+          </li>
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Каменьщикова Екатерина Владимировна
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result list-section__item-column--result-fail"
+            >
+              2 балла
+            </span>
+          </li>
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Каменьщикова Екатерина Владимировна
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result list-section__item-column--result-fail"
+            >
+              2 балла
+            </span>
+          </li>
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Каменьщикова Екатерина Владимировна
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result list-section__item-column--result-fail"
+            >
+              2 балла
+            </span>
+          </li>
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Каменьщикова Екатерина Владимировна
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result list-section__item-column--result-fail"
+            >
+              2 балла
+            </span>
+          </li>
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Каменьщикова Екатерина Владимировна
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result"
+            >
+              82 балла
+            </span>
+          </li>
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Каменьщикова Екатерина Владимировна
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result"
+            >
+              82 балла
+            </span>
+          </li>
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Каменьщикова Екатерина Владимировна
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result"
+            >
+              82 балла
+            </span>
+          </li>
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Каменьщикова Екатерина Владимировна
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result"
+            >
+              82 балла
+            </span>
+          </li>
+
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Холкин Дмитрий Владимирович ибн Идрис оглы фон Бауман граф Монтэ
+              Кристо
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result"
+            >
+              82 балла
+            </span>
+          </li>
+
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Холкин Дмитрий Владимирович ибн Идрис оглы фон Бауман граф Монтэ
+              Кристо
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result"
+            >
+              82 балла
+            </span>
+          </li>
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Каменьщикова Екатерина Владимировна
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result list-section__item-column--result-fail"
+            >
+              2 балла
+            </span>
+          </li>
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Каменьщикова Екатерина Владимировна
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result list-section__item-column--result-fail"
+            >
+              2 балла
+            </span>
+          </li>
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Каменьщикова Екатерина Владимировна
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result list-section__item-column--result-fail"
+            >
+              2 балла
+            </span>
+          </li>
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Каменьщикова Екатерина Владимировна
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result list-section__item-column--result-fail"
+            >
+              2 балла
+            </span>
+          </li>
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Каменьщикова Екатерина Владимировна
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result list-section__item-column--result-fail"
+            >
+              2 балла
+            </span>
+          </li>
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Каменьщикова Екатерина Владимировна
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result list-section__item-column--result-fail"
+            >
+              2 балла
+            </span>
+          </li>
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Холкин Дмитрий Владимирович ибн Идрис оглы фон Бауман граф Монтэ
+              Кристо
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result"
+            >
+              82 балла
+            </span>
+          </li>
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Холкин Дмитрий Владимирович ибн Идрис оглы фон Бауман граф Монтэ
+              Кристо
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result"
+            >
+              82 балла
+            </span>
+          </li>
+
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Холкин Дмитрий Владимирович ибн Идрис оглы фон Бауман граф Монтэ
+              Кристо
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result"
+            >
+              82 балла
+            </span>
+          </li>
+
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Холкин Дмитрий Владимирович ибн Идрис оглы фон Бауман граф Монтэ
+              Кристо
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result"
+            >
+              82 балла
+            </span>
+          </li>
+
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Холкин Дмитрий Владимирович ибн Идрис оглы фон Бауман граф Монтэ
+              Кристо
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result"
+            >
+              82 балла
+            </span>
+          </li>
+
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Холкин Дмитрий Владимирович ибн Идрис оглы фон Бауман граф Монтэ
+              Кристо
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result"
+            >
+              82 балла
+            </span>
+          </li>
+
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Холкин Дмитрий Владимирович ибн Идрис оглы фон Бауман граф Монтэ
+              Кристо
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result"
+            >
+              82 балла
+            </span>
+          </li>
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Холкин Дмитрий Владимирович ибн Идрис оглы фон Бауман граф Монтэ
+              Кристо
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result"
+            >
+              82 балла
+            </span>
+          </li>
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Холкин Дмитрий Владимирович ибн Идрис оглы фон Бауман граф Монтэ
+              Кристо
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result"
+            >
+              82 балла
+            </span>
+          </li>
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Холкин Дмитрий Владимирович ибн Идрис оглы фон Бауман граф Монтэ
+              Кристо
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result"
+            >
+              82 балла
+            </span>
+          </li>
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Холкин Дмитрий Владимирович ибн Идрис оглы фон Бауман граф Монтэ
+              Кристо
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result"
+            >
+              82 балла
+            </span>
+          </li>
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Холкин Дмитрий Владимирович ибн Идрис оглы фон Бауман граф Монтэ
+              Кристо
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result"
+            >
+              82 балла
+            </span>
+          </li>
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Холкин Дмитрий Владимирович ибн Идрис оглы фон Бауман граф Монтэ
+              Кристо
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result"
+            >
+              82 балла
+            </span>
+          </li>
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Холкин Дмитрий Владимирович ибн Идрис оглы фон Бауман граф Монтэ
+              Кристо
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result"
+            >
+              82 балла
+            </span>
+          </li>
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Холкин Дмитрий Владимирович ибн Идрис оглы фон Бауман граф Монтэ
+              Кристо
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result"
+            >
+              82 балла
+            </span>
+          </li>
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Холкин Дмитрий Владимирович ибн Идрис оглы фон Бауман граф Монтэ
+              Кристо
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result"
+            >
+              82 балла
+            </span>
+          </li>
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Холкин Дмитрий Владимирович ибн Идрис оглы фон Бауман граф Монтэ
+              Кристо
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result"
+            >
+              82 балла
+            </span>
+          </li>
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Холкин Дмитрий Владимирович ибн Идрис оглы фон Бауман граф Монтэ
+              Кристо
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result"
+            >
+              82 балла
+            </span>
+          </li>
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Холкин Дмитрий Владимирович ибн Идрис оглы фон Бауман граф Монтэ
+              Кристо
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result"
+            >
+              82 балла
+            </span>
+          </li>
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Холкин Дмитрий Владимирович ибн Идрис оглы фон Бауман граф Монтэ
+              Кристо
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result"
+            >
+              82 балла
+            </span>
+          </li>
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Холкин Дмитрий Владимирович ибн Идрис оглы фон Бауман граф Монтэ
+              Кристо
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result"
+            >
+              82 балла
+            </span>
+          </li>
+
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Каменьщикова Екатерина Владимировна
+            </span>
+            <span class="list-section__item-column">
+              Сборочный цех по сборке сверхсложных запчастей
+            </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result"
+            >
+              82 балла
+            </span>
+          </li>
+
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Каменьщикова Екатерина Владимировна
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации тестируемого с помощью сего теста
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result"
+            >
+              82 балла
+            </span>
+          </li>
+
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Каменьщикова Екатерина Владимировна
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result"
+            >
+              82 балла
+            </span>
+          </li>
+
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Каменьщикова Екатерина Владимировна
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result"
+            >
+              82 балла
+            </span>
+          </li>
+
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Каменьщикова Екатерина Владимировна
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result"
+            >
+              82 балла
+            </span>
+          </li>
+
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Каменьщикова Екатерина Владимировна
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result"
+            >
+              82 балла
+            </span>
+          </li>
+
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Каменьщикова Екатерина Владимировна
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result"
+            >
+              82 балла
+            </span>
+          </li>
+
+          <li class="list-section__item">
+            <span class="list-section__item-column">
+              Каменьщикова Екатерина Владимировна
+            </span>
+            <span class="list-section__item-column"> Сборочный цех </span>
+            <span class="list-section__item-column">
+              Тест на оценку квалификации
+            </span>
+            <span class="list-section__item-column"> 23.06.21 </span>
+            <span
+              class="list-section__item-column list-section__item-column--result"
+            >
+              82 балла
+            </span>
+          </li>
+        </ul>
+      </section>
+
+      <button class="arrow-scroll-snap">
+        <svg width="36" height="36">
+          <use href="#select-icon" />
+        </svg>
+      </button>
+    </main>
+  <script src="./index.js"></script></body>
+</html>

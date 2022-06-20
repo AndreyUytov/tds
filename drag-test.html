@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @font-face {
+        font-family: 'Roboto';
+        src: url('./static/fonts/Roboto.woff2') format('woff2'),
+          url('./static/fonts/Roboto.woff') format('woff'),
+          url('./static/fonts/Roboto.ttf') format('truetype');
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: 'Roboto-Bold';
+        src: url('./static/fonts/Robotobold.woff2') format('woff2'),
+          url('./static/fonts/Robotobold.woff') format('woff'),
+          url('./static/fonts/Robotobold.ttf') format('truetype');
+        font-weight: 700;
+        font-style: normal;
+      }
+    </style>
+  <link href="./index.css" rel="stylesheet"></head>
+  <body>
+    <test-page class="verbal-drag-test">
+      <test-header slot="test-header" total="25" current="2" time-limit-s="">
+        <span slot="test-title">Вербальный тест</span>
+      </test-header>
+      <question-section slot="question-section" class="verbal-test">
+        <span slot="number-question">1</span>
+        <span slot="text-question">
+          В цех поступило судно с повреждениями внешнего корпуса. Описание
+          повреждения изложено в акте №123123/123ф от 01.01.2020 г. Изучите
+          приложенные ниже материалы и определите меры по устранению
+          повреждений. Выберите необходимые мероприятия, выстроив в правильном
+          порядке
+        </span>
+        <answer-form slot="form" type="checkbox" fon="-" submit-button="-">
+          <answer-label slot="label" name="test1" value="test-1-1">
+            <span slot="label-value">
+              Зачистить от покрытия подлежащие ремонту места
+            </span>
+          </answer-label>
+          <answer-label slot="label" name="test1" value="test-1-2">
+            <span slot="label-value">
+              Подрезать свободные разорванные и раздробленные кромки до твердого
+              материала
+            </span>
+          </answer-label>
+          <answer-label slot="label" name="test1" value="test-1-3">
+            <span slot="label-value"> Скосить острые кромки по контуру </span>
+          </answer-label>
+          <answer-label slot="label" name="test1" value="test-1-4">
+            <span slot="label-value">
+              Зачистить поверхности абразивом до получения скошенной кромки
+            </span>
+          </answer-label>
+          <answer-label slot="label" name="test1" value="test-1-5">
+            <span slot="label-value">
+              Подложить опорный материал, изогнув в соответствии с кривизной
+              поверхности, и закрепить в этом положении.
+            </span>
+          </answer-label>
+          <answer-label slot="label" name="test1" value="test-1-6">
+            <span slot="label-value">
+              Обеспечить правильное положение кромок поврежденного участка
+            </span>
+          </answer-label>
+          <answer-label slot="label" name="test1" value="test-1-7">
+            <span slot="label-value">
+              Уложить во впадину слой стекломата до тех пор, пока впадина не
+              заполнится и не сравняется с поверхностью.
+            </span>
+          </answer-label>
+          <answer-label slot="label" name="test1" value="test-1-8">
+            <span slot="label-value"> Отделить подложки от корпуса </span>
+          </answer-label>
+          <answer-label slot="label" name="test1" value="test-1-9">
+            <span slot="label-value">
+              Сошлифовать неровности для получения гладкой поверхности, покрыть
+              поверхность смолой или окрасить, покрыть лаком.
+            </span>
+          </answer-label>
+        </answer-form>
+      </question-section>
+      <answer-section slot="answer-section" class="verbal-test">
+        <verbal-form slot="form">
+          <span slot="subtitle"
+            >Выберите правильную последовательность ответов</span
+          >
+        </verbal-form>
+      </answer-section>
+    </test-page>
+  <script src="./index.js"></script></body>
+</html>
