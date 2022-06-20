@@ -133,114 +133,234 @@
 
     <main class="admin-page__main">
       <section class="admin-page__filters">
-        <form class="admin-page__filters-form">
-          <fieldset class="filters-form__fieldset">
-            <legend>Обычный</legend>
-            <div class="fieldset__inputs">
-              <div class="filters-form__select-wrapper">
-                <svg class="filters-form__select-icon" width="26" height="26">
-                  <use href="#select-icon" />
-                </svg>
-                <select class="filters-form__select">
-                  <option selected disabled hidden>Выберите пункт</option>
-                  <option>пункт 1</option>
-                  <option>пункт 2</option>
-                  <option>пункт 3</option>
-                </select>
-              </div>
-              <input
-                class="filters-form__input"
-                type="text"
-                placeholder="Введите значение"
-              />
-            </div>
-          </fieldset>
-          <fieldset class="filters-form__fieldset">
-            <legend>С датами</legend>
-            <div class="fieldset__inputs">
-              <div class="filters-form__select-wrapper">
-                <svg class="filters-form__select-icon" width="26" height="26">
-                  <use href="#select-icon" />
-                </svg>
-                <select class="filters-form__select">
-                  <option selected disabled hidden>Выберите пункт</option>
-                  <option value="punkt1">пункт 1</option>
-                  <option>пункт 2</option>
-                  <option>пункт 3</option>
-                </select>
-              </div>
-              <div class="filter-form__dates-wrapper">
-                <label class="filters-form__label-date">
-                  C
+        <div class="admin-page__forms-wrapper">
+          <div class="admin-page__tabs">
+            <button class="admin-page__tab active" id="test-tab">
+              Тестирование
+            </button>
+            <button class="admin-page__tab" id="education-tab">
+              Обучение
+            </button>
+          </div>
+          <div class="admin-page__forms-swiper">
+            <form class="admin-page__filters-form">
+              <fieldset class="filters-form__fieldset">
+                <legend>Обычный</legend>
+                <div class="fieldset__inputs">
+                  <div class="filters-form__select-wrapper">
+                    <svg class="filters-form__select-icon" width="26" height="26">
+                      <use href="#select-icon" />
+                    </svg>
+                    <select class="filters-form__select">
+                      <option selected disabled hidden>Выберите пункт</option>
+                      <option>пункт 1</option>
+                      <option>пункт 2</option>
+                      <option>пункт 3</option>
+                    </select>
+                  </div>
                   <input
-                    class="filters-form__input filters-form__input--date"
-                    type="date"
+                    class="filters-form__input"
+                    type="text"
+                    placeholder="Введите значение"
                   />
-                </label>
-                -
-                <label class="filters-form__label-date">
-                  По
+                </div>
+              </fieldset>
+              <fieldset class="filters-form__fieldset">
+                <legend>С датами</legend>
+                <div class="fieldset__inputs">
+                  <div class="filters-form__select-wrapper">
+                    <svg class="filters-form__select-icon" width="26" height="26">
+                      <use href="#select-icon" />
+                    </svg>
+                    <select class="filters-form__select">
+                      <option selected disabled hidden>Выберите пункт</option>
+                      <option value="punkt1">пункт 1</option>
+                      <option>пункт 2</option>
+                      <option>пункт 3</option>
+                    </select>
+                  </div>
+                  <div class="filter-form__dates-wrapper">
+                    <label class="filters-form__label-date">
+                      C
+                      <input
+                        class="filters-form__input filters-form__input--date"
+                        type="date"
+                      />
+                    </label>
+                    -
+                    <label class="filters-form__label-date">
+                      По
+                      <input
+                        class="filters-form__input filters-form__input--date"
+                        type="date"
+                      />
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="filters-form__fieldset">
+                <legend>Селектор</legend>
+                <div class="fieldset__inputs">
+                  <div class="filters-form__select-wrapper">
+                    <svg class="filters-form__select-icon" width="26" height="26">
+                      <use href="#select-icon" />
+                    </svg>
+                    <select class="filters-form__select">
+                      <option selected disabled hidden>Выберите пункт</option>
+                      <option>пункт 1</option>
+                      <option>пункт 2</option>
+                      <option>пункт 3</option>
+                    </select>
+                  </div>
+                  <div class="filters-form__select-wrapper-multiple">
+                    <select
+                      id="adminPageSelect-2"
+                      size="3"
+                      style="display: inline-block"
+                    >
+                      <option value="Abarth">Abarth</option>
+                      <option value="Alfa Romeo">Alfa Romeo</option>
+                      <option value="Alpine" data-test="example">Alpine</option>
+                      <option value="Aston Martin">Aston Martin</option>
+                      <option value="Audi">Audi</option>
+                      <option value="Bentley">Bentley</option>
+                      <option value="BMW">BMW</option>
+                      <option value="Cadillac">Cadillac</option>
+                      <option value="Chevrolet">Chevrolet</option>
+                      <option value="Citroën">Citroën</option>
+                      <option value="Cupra">Cupra</option>
+                      <option value="DACIA">DACIA</option>
+                    </select>
+                  </div>
+                </div>
+              </fieldset>
+              <label class="filters-form__checkbox-label">
+                <input
+                  type="checkbox"
+                  class="visually-hidden filters-form__checkbox-input"
+                />
+                <span class="filters-form__checkbox-marker">
+                  <svg width="16" height="16">
+                    <use href="#admin-check" />
+                  </svg>
+                </span>
+                <span class="filters-form__checkbox-text">С чекбоксом</span>
+              </label>
+              <button type="submit" class="filters-form__submit-btn btn">
+                Сформировать
+              </button>
+              <button class="filters-form__reset-btn">Сбросить таблицу</button>
+            </form>
+            <form class="admin-page__filters-form">
+              <fieldset class="filters-form__fieldset">
+                <legend>Обычный</legend>
+                <div class="fieldset__inputs">
+                  <div class="filters-form__select-wrapper">
+                    <svg class="filters-form__select-icon" width="26" height="26">
+                      <use href="#select-icon" />
+                    </svg>
+                    <select class="filters-form__select">
+                      <option selected disabled hidden>Выберите пункт</option>
+                      <option>пункт 1</option>
+                      <option>пункт 2</option>
+                      <option>пункт 3</option>
+                    </select>
+                  </div>
                   <input
-                    class="filters-form__input filters-form__input--date"
-                    type="date"
+                    class="filters-form__input"
+                    type="text"
+                    placeholder="Введите значение"
                   />
-                </label>
-              </div>
-            </div>
-          </fieldset>
-          <fieldset class="filters-form__fieldset">
-            <legend>Селектор</legend>
-            <div class="fieldset__inputs">
-              <div class="filters-form__select-wrapper">
-                <svg class="filters-form__select-icon" width="26" height="26">
-                  <use href="#select-icon" />
-                </svg>
-                <select class="filters-form__select">
-                  <option selected disabled hidden>Выберите пункт</option>
-                  <option>пункт 1</option>
-                  <option>пункт 2</option>
-                  <option>пункт 3</option>
-                </select>
-              </div>
-              <div class="filters-form__select-wrapper-multiple">
-                <select
-                  id="adminPageSelect-1"
-                  size="3"
-                  style="display: inline-block"
-                >
-                  <option value="Abarth">Abarth</option>
-                  <option value="Alfa Romeo">Alfa Romeo</option>
-                  <option value="Alpine" data-test="example">Alpine</option>
-                  <option value="Aston Martin">Aston Martin</option>
-                  <option value="Audi">Audi</option>
-                  <option value="Bentley">Bentley</option>
-                  <option value="BMW">BMW</option>
-                  <option value="Cadillac">Cadillac</option>
-                  <option value="Chevrolet">Chevrolet</option>
-                  <option value="Citroën">Citroën</option>
-                  <option value="Cupra">Cupra</option>
-                  <option value="DACIA">DACIA</option>
-                </select>
-              </div>
-            </div>
-          </fieldset>
-          <label class="filters-form__checkbox-label">
-            <input
-              type="checkbox"
-              class="visually-hidden filters-form__checkbox-input"
-            />
-            <span class="filters-form__checkbox-marker">
-              <svg width="16" height="16">
-                <use href="#admin-check" />
-              </svg>
-            </span>
-            <span class="filters-form__checkbox-text">С чекбоксом</span>
-          </label>
-          <button type="submit" class="filters-form__submit-btn btn">
-            Сформировать
-          </button>
-          <button class="filters-form__reset-btn">Сбросить таблицу</button>
-        </form>
+                </div>
+              </fieldset>
+              <fieldset class="filters-form__fieldset">
+                <legend>С датами</legend>
+                <div class="fieldset__inputs">
+                  <div class="filters-form__select-wrapper">
+                    <svg class="filters-form__select-icon" width="26" height="26">
+                      <use href="#select-icon" />
+                    </svg>
+                    <select class="filters-form__select">
+                      <option selected disabled hidden>Выберите пункт</option>
+                      <option value="punkt1">пункт 1</option>
+                      <option>пункт 2</option>
+                      <option>пункт 3</option>
+                    </select>
+                  </div>
+                  <div class="filter-form__dates-wrapper">
+                    <label class="filters-form__label-date">
+                      C
+                      <input
+                        class="filters-form__input filters-form__input--date"
+                        type="date"
+                      />
+                    </label>
+                    -
+                    <label class="filters-form__label-date">
+                      По
+                      <input
+                        class="filters-form__input filters-form__input--date"
+                        type="date"
+                      />
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="filters-form__fieldset">
+                <legend>Селектор</legend>
+                <div class="fieldset__inputs">
+                  <div class="filters-form__select-wrapper">
+                    <svg class="filters-form__select-icon" width="26" height="26">
+                      <use href="#select-icon" />
+                    </svg>
+                    <select class="filters-form__select">
+                      <option selected disabled hidden>Выберите пункт</option>
+                      <option>пункт 1</option>
+                      <option>пункт 2</option>
+                      <option>пункт 3</option>
+                    </select>
+                  </div>
+                  <div class="filters-form__select-wrapper-multiple">
+                    <select
+                      id="adminPageSelect-1"
+                      size="3"
+                      style="display: inline-block"
+                    >
+                      <option value="Abarth">Abarth</option>
+                      <option value="Alfa Romeo">Alfa Romeo</option>
+                      <option value="Alpine" data-test="example">Alpine</option>
+                      <option value="Aston Martin">Aston Martin</option>
+                      <option value="Audi">Audi</option>
+                      <option value="Bentley">Bentley</option>
+                      <option value="BMW">BMW</option>
+                      <option value="Cadillac">Cadillac</option>
+                      <option value="Chevrolet">Chevrolet</option>
+                      <option value="Citroën">Citroën</option>
+                      <option value="Cupra">Cupra</option>
+                      <option value="DACIA">DACIA</option>
+                    </select>
+                  </div>
+                </div>
+              </fieldset>
+              <label class="filters-form__checkbox-label">
+                <input
+                  type="checkbox"
+                  class="visually-hidden filters-form__checkbox-input"
+                />
+                <span class="filters-form__checkbox-marker">
+                  <svg width="16" height="16">
+                    <use href="#admin-check" />
+                  </svg>
+                </span>
+                <span class="filters-form__checkbox-text">С чекбоксом</span>
+              </label>
+              <button type="submit" class="filters-form__submit-btn btn">
+                Сформировать
+              </button>
+              <button class="filters-form__reset-btn">Сбросить таблицу</button>
+            </form>
+          </div>
+        </div>
       </section>
 
       <section class="admin-page__list-section">
@@ -259,7 +379,7 @@
               Подразделение
             </span>
             <a href="#" class="list-section__item-column">
-              Название теста
+              Название обучения
               <svg width="28" height="28">
                 <use href="#asc-icon" />
               </svg>

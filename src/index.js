@@ -14,3 +14,4 @@ import './js/utylity/vanillaSelectBox'
 
 import './js/utylity/new-test-form'
 import './js/utylity/drag'
+import './js/utylity/admin'
